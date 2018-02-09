@@ -37,8 +37,14 @@ class Database implements DataStore {
         //Context Level: NONE
 
         //TODO: Validate email and password
+        //SELECT * FROM ACCOUNT WHERE EMAIL = ?
 
         //TODO: if Valid, create session else throw auth exception
+        //if checkbw(raw_password,rs.password)
+            //String token = UUID
+            //context = AuthContext(rs.id,token)
+            //INSERT INTO SESSIONS (ID,SESSION_TOEKN) VALUES (rs.id,token)
+        //else throw new auth ex
 
         return null;
     }
