@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.database.DataStore;
+import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
@@ -21,18 +22,21 @@ public class LoginController implements RESTRoute {
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
         //get login parameters: (email,password)
-        String email = body.get("email").getAsString();
-        String raw_password = body.get("password").getAsString();
-
-        //check db and create context
-        try (DataStore db = DataStore.getInstance() ){
-            assert db != null;
-            AuthContext context = db.signIn(email,raw_password);
-        }catch (DataStore.DSAuthException e){
-
+        try {
+            String email = body.get("email").getAsString();
+            String raw_password = body.get("password").getAsString();
+            //check db and create context
+            try (DataStore db = DataStore.getInstance() ){
+                assert db != null;
+                AuthContext context = db.signIn(email,raw_password);
+                JSONResponse<AuthContext> res = new JSONResponse<>(200,"Success");
+                res.setData(context);
+                return res;
+            }catch (DataStore.DSException e){
+                return new JSONResponse<>(400,"Error: "+e.getMessage());
+            }
+        }catch (NullPointerException e){
+            return new JSONResponse<>(400,"Error: "+e.getMessage());
         }
-
-        //return context and role id.
-        return null;
     }
 }

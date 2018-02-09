@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_mindrot_jbcrypt_0_4.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_log4j12_1_7_25.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/DingoReportBackend.iml" afterPath="$PROJECT_DIR$/DingoReportBackend.iml" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/controllers/LoginController.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/controllers/LoginController.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DBConnection.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DBConnection.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSAuthException.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSAuthException.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSException.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSException.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSFormatException.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSFormatException.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSUnimplementedException.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore$DSUnimplementedException.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/DataStore.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/Database.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/database/Database.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/main/Main.class" afterPath="$PROJECT_DIR$/out/production/DingoReportBackend/mobi/newsound/main/Main.class" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +30,8 @@
       <file leaf-file-name="DataStore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="685">
-              <caret line="131" column="34" lean-forward="false" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="34" />
+            <state relative-caret-position="231">
+              <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2936#2937#0" expanded="true" />
@@ -38,24 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSONResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/JSONResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-              <folding>
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#396#397#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2181">
-              <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+            <state relative-caret-position="44">
+              <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#close#0;class#Database#0" expanded="false" />
@@ -65,60 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JSONTransformer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/JSONTransformer.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBConnection.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBConnection.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="29" selection-end-column="5" />
-              <folding>
-                <element signature="e#378#379#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="method#DBConnection#0;class#DBConnection#0" expanded="false" />
-                <element signature="method#finalize#0;class#DBConnection#0" expanded="false" />
-                <element signature="method#close#0;class#DBConnection#0" expanded="false" />
-                <element signature="method#cl#0;class#DBConnection#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/auth/AuthContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="230">
+              <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -153,14 +100,14 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/utils/RESTRoute.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Voulnteer.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/auth/AuthContext.java" />
-        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/utils/JSONResponse.java" />
         <option value="$PROJECT_DIR$/config.json" />
-        <option value="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/DBConnection.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/QueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
       </list>
     </option>
   </component>
@@ -195,59 +142,6 @@
             <path>
               <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -341,7 +235,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -351,7 +244,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -537,16 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -563,23 +446,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="29" column="32" lean-forward="false" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
           <caret line="24" column="3" lean-forward="false" selection-start-line="24" selection-start-column="3" selection-end-line="29" selection-end-column="5" />
           <folding>
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#411#412#0" expanded="false" />
             <element signature="method#DBConnection#0;class#DBConnection#0" expanded="false" />
             <element signature="method#finalize#0;class#DBConnection#0" expanded="false" />
             <element signature="method#close#0;class#DBConnection#0" expanded="false" />
@@ -636,10 +509,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/JSONResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="e#364#365#0" expanded="false" />
+            <element signature="e#396#397#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="685">
-          <caret line="131" column="34" lean-forward="false" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="34" />
+        <state relative-caret-position="231">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2936#2937#0" expanded="true" />
@@ -654,21 +556,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/JSONResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding>
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#396#397#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2181">
-          <caret line="150" column="20" lean-forward="true" selection-start-line="150" selection-start-column="20" selection-end-line="150" selection-end-column="20" />
+        <state relative-caret-position="44">
+          <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#close#0;class#Database#0" expanded="false" />
@@ -742,7 +633,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.mindrot:jbcrypt:0.4</last-edited>
+          <last-edited>org.slf4j:slf4j-log4j12:1.7.25</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
