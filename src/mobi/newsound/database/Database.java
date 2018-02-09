@@ -1,5 +1,7 @@
 package mobi.newsound.database;
 
+import javafx.beans.NamedArg;
+import javafx.util.Pair;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
@@ -10,6 +12,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
 
 import static mobi.newsound.utils.Config.config;
 
@@ -31,7 +34,7 @@ class Database implements DataStore {
     public AuthContext signIn(String email, String password_raw) throws DSException {
         //Context Level: NONE
         try {
-            List<Map> user = get("SELECT * FROM ACCOUNT WHERE EMAIL = \""+email+"\"");
+            List<Map> user = get("SELECT * FROM ACCOUNTS WHERE EMAIL = ?",email);
             if(user.size() != 1)
                 //no such user
                 throw new DSAuthException("Account Does Not Exist");
@@ -42,13 +45,18 @@ class Database implements DataStore {
                     //password is correct
                     String token = UUID.randomUUID().toString();
                     String id = (String) user.get(0).get("ID");
-                    set("SESSIONS",id,token);
+                    set("SESSIONS",
+                            new Column("ID",id),
+                            new Column("SESSION_TOKEN",token),
+                            new Column("CREATION_DATE",new Date())
+                    );
+
                     return new AuthContext(id,token);
 
                 }else throw new DSAuthException("Invalid Password");
             }
         } catch (SQLException e) {
-            throw new DSFormatException("Something went wrong");
+            throw new DSFormatException(e.getMessage());
         }
     }
 
@@ -109,7 +117,7 @@ class Database implements DataStore {
         try {
             List<Map> data = get("SELECT Accounts.ROLE_ID " +
                     "FROM Accounts INNER JOIN Sessions ON Accounts.ID = Sessions.ID " +
-                    "WHERE (((Sessions.ID)=\""+context.id+"\") AND ((Sessions.SESSION_TOKEN)=\""+context.sessionToken+"\"));");
+                    "WHERE (((Sessions.ID)= ? ) AND ((Sessions.SESSION_TOKEN)= ? ))", context.id, context.sessionToken);
             return data.size() == 0 ? -1 : (Integer) data.get(0).get("ROLE_ID");
         } catch (SQLException e) {
             return -1;
@@ -121,17 +129,95 @@ class Database implements DataStore {
         return DriverManager.getConnection(url, null, null);
     }
 
-    private void set(String into,String...values) throws SQLException {
-        // create a Statement from the connection
-        Statement statement = connection.createStatement();
-        StringBuilder builder = new StringBuilder();
-        for(String value : values)
-            builder.append(value).append(",");
-        builder.deleteCharAt(builder.length()-1);
-        statement.executeUpdate("INSERT INTO "+into+" VALUES("+builder.toString()+")");
+    /**
+     * Use this method to delete entries.
+     *
+     * Usage Example:
+     *      @code {
+     *
+     *          //Example for deleting a session via token or id
+     *          delete("SESSIONS","ID = ? OR TOKEN = ?",id,token);
+     *
+     *          //Simple Example for Deleting an account with a certain email.
+     *          delete("ACCOUNTS","EMAIL = ?",email);
+     *
+     *          //Deleting multiple accounts with ids 32,542,22
+     *          delete("ACCOUNTS","ID in (?, ?, ?)",32,542,22);
+     *      }
+     *
+     * @param table The name of the table.
+     * @param where The predicate/condition.
+     * @param values The values.
+     * @throws SQLException
+     */
+    protected boolean delete(String table, String where, String... values) throws SQLException{
+
+        String query = "DELETE FROM "+ table +" WHERE "+ where;
+
+        PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+
+        int index = 1;
+        for(String obj : values)
+            statement.setObject(index++,obj);
+
+        return statement.executeUpdate() != 0;
     }
-    private List<Map> get(String query) throws SQLException {
-        ResultSet set = connection.createStatement().executeQuery(query);
+
+    /**
+     * Use this method to insert data into a certain table.
+     *
+     * Usage Example:
+     *      @code {
+     *          set("SESSIONS",
+     *               new Column("ID",id),
+     *               new Column("SESSION_TOKEN",token),
+     *               new Column("CREATION_DATE",new Date())
+     *          );
+     *      }
+     *
+     *      @see Column
+     *
+     * @param table The name of the table.
+     * @param values Var args of Pairs of Type (String:Object). Use Column for ease of use.
+     * @throws SQLException
+     */
+    protected boolean set(String table,Pair<String,Object>...values) throws SQLException {
+
+        StringBuilder builder1 = new StringBuilder();
+        StringBuilder builder2 = new StringBuilder();
+
+        for(Pair<String,Object> value : values){
+            builder1.append(value.getKey()).append(",");
+            builder2.append("?").append(",");
+        }
+
+        builder1.deleteCharAt(builder1.length()-1);
+        builder2.deleteCharAt(builder2.length()-1);
+
+        String query  ="INSERT INTO "+table+" ("+builder1.toString()+") VALUES ("+builder2.toString()+");";
+
+        PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+
+        int index = 1;
+        for(Pair<String,Object> obj : values)
+            statement.setObject(index++,obj.getValue());
+
+        return statement.executeUpdate() != 0;
+    }
+
+    /**
+     * Use this method to make Database Queries.
+     *
+     * Usage Example:
+     *      @code { get("SELECT * FROM USERS WHERE EMAIL = ?",email) }
+     *
+     * @param query The Query String.
+     * @return A List Of Hash Maps of Type (String:Object)
+     * @throws SQLException
+     */
+    protected List<Map> get(String query,String...args) throws SQLException {
+        ResultSet set = connection.prepareStatement(query,args).executeQuery();
+
         String[] columns = new String[set.getMetaData().getColumnCount()];
 
         for (int i = 1; i <= columns.length; i++ )
@@ -149,6 +235,19 @@ class Database implements DataStore {
         }
 
         return data;
+    }
+
+    protected static class Column extends Pair<String,Object>{
+
+        /**
+         * Creates a new pair
+         *
+         * @param key   The key for this pair
+         * @param value The value to use for this pair
+         */
+        public Column(String key, Object value) {
+            super(key, value);
+        }
     }
 
 }
