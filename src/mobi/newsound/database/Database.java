@@ -1,20 +1,15 @@
 package mobi.newsound.database;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.Unit;
 import mobi.newsound.model.Volunteer;
 import net.ucanaccess.jdbc.UcanaccessDriver;
+import org.mindrot.jbcrypt.BCrypt;
 
-import java.io.IOException;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static mobi.newsound.utils.Config.config;
 
@@ -35,18 +30,26 @@ class Database implements DataStore {
     @Override
     public AuthContext signIn(String email, String password_raw) throws DSException {
         //Context Level: NONE
+        try {
+            List<Map> user = get("SELECT * FROM ACCOUNT WHERE EMAIL = \""+email+"\"");
+            if(user.size() != 1)
+                //no such user
+                throw new DSAuthException("Account Does Not Exist");
+            else{
+                //check password
+                boolean doesMatch = BCrypt.checkpw(password_raw,(String) user.get(0).get("PASSWORD"));
+                if(doesMatch){
+                    //password is correct
+                    String token = UUID.randomUUID().toString();
+                    String id = (String) user.get(0).get("ID");
+                    set("SESSIONS",id,token);
+                    return new AuthContext(id,token);
 
-        //TODO: Validate email and password
-        //SELECT * FROM ACCOUNT WHERE EMAIL = ?
-
-        //TODO: if Valid, create session else throw auth exception
-        //if checkbw(raw_password,rs.password)
-            //String token = UUID
-            //context = AuthContext(rs.id,token)
-            //INSERT INTO SESSIONS (ID,SESSION_TOEKN) VALUES (rs.id,token)
-        //else throw new auth ex
-
-        return null;
+                }else throw new DSAuthException("Invalid Password");
+            }
+        } catch (SQLException e) {
+            throw new DSFormatException("Something went wrong");
+        }
     }
 
     @Override
@@ -104,7 +107,7 @@ class Database implements DataStore {
 
     private int isContextValid(AuthContext context){
         try {
-            List<Map> data = makeQuery("SELECT Accounts.ROLE_ID " +
+            List<Map> data = get("SELECT Accounts.ROLE_ID " +
                     "FROM Accounts INNER JOIN Sessions ON Accounts.ID = Sessions.ID " +
                     "WHERE (((Sessions.ID)=\""+context.id+"\") AND ((Sessions.SESSION_TOKEN)=\""+context.sessionToken+"\"));");
             return data.size() == 0 ? -1 : (Integer) data.get(0).get("ROLE_ID");
@@ -118,7 +121,16 @@ class Database implements DataStore {
         return DriverManager.getConnection(url, null, null);
     }
 
-    private List makeQuery(String query) throws SQLException {
+    private void set(String into,String...values) throws SQLException {
+        // create a Statement from the connection
+        Statement statement = connection.createStatement();
+        StringBuilder builder = new StringBuilder();
+        for(String value : values)
+            builder.append(value).append(",");
+        builder.deleteCharAt(builder.length()-1);
+        statement.executeUpdate("INSERT INTO "+into+" VALUES("+builder.toString()+")");
+    }
+    private List<Map> get(String query) throws SQLException {
         ResultSet set = connection.createStatement().executeQuery(query);
         String[] columns = new String[set.getMetaData().getColumnCount()];
 

@@ -10,5 +10,6 @@
     <orderEntry type="library" name="com.sparkjava:spark-core:2.7.1" level="project" />
     <orderEntry type="library" name="com.google.code.gson:gson:2.8.2" level="project" />
     <orderEntry type="library" name="net.sf.ucanaccess:ucanaccess:4.0.3" level="project" />
+    <orderEntry type="library" name="org.mindrot:jbcrypt:0.4" level="project" />
   </component>
 </module>
