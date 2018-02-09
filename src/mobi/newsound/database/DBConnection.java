@@ -14,6 +14,10 @@ public class DBConnection implements AutoCloseable {
 
     private Connection connection;
 
+    public Connection getConnection() {
+        return connection;
+    }
+
     public DBConnection(String path) throws SQLException,IOException{
         connection = getUcanaccessConnection(path);
     }

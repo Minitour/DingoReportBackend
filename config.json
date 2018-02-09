@@ -1,4 +1,6 @@
 {
-  "port" : 8080
-
+  "port" : 8080,
+  "db" : {
+    "access_file_location" : "C:/Users/Tony/Documents/Java/DingoReportBackend/db.accdb"
+  }
 }

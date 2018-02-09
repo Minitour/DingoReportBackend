@@ -6,7 +6,9 @@ import mobi.newsound.model.Report;
 import mobi.newsound.model.Unit;
 import mobi.newsound.model.Volunteer;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,13 +16,22 @@ import java.util.List;
  */
 public interface DataStore extends AutoCloseable,Serializable{
 
+    static DataStore getInstance(){
+        try {
+            return new Database();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * Sign in with email and password
      * @param email
      * @param password_raw
      * @return Auth Context
      */
-    AuthContext signIn(String email,String password_raw) throws DSException;
+    default AuthContext signIn(String email,String password_raw) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
@@ -29,14 +40,14 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param newPassword
      * @return true if the password was updated.
      */
-    boolean updatePassword(AuthContext context,String currentPassword,String newPassword) throws DSException;
+    default boolean updatePassword(AuthContext context,String currentPassword,String newPassword) throws DSException {throw new DSUnimplementedException();}
 
     /**
      * Reset the password and return an auto-generated password
      * @param context
      * @return The generated password.
      */
-    String resetPassword(AuthContext context);
+    default String resetPassword(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
 
     /**
@@ -45,7 +56,7 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param report
      * @return
      */
-    boolean createReport(AuthContext context,Report report) throws DSException;
+    default boolean createReport(AuthContext context,Report report) throws DSException {throw new DSUnimplementedException();}
 
 
     /**
@@ -54,16 +65,7 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param unit
      * @return
      */
-    boolean createUnit(AuthContext context,Unit unit) throws DSException;
-
-    /**
-     *
-     * @param context
-     * @param officer
-     * @param unit
-     * @return
-     */
-    boolean assignLeaderToUnit(AuthContext context, Officer officer,Unit unit) throws DSException;
+    default boolean createUnit(AuthContext context,Unit unit) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
@@ -72,7 +74,16 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param unit
      * @return
      */
-    boolean assignOfficerToUnit(AuthContext context,Officer officer, Unit unit) throws DSException;
+    default boolean assignLeaderToUnit(AuthContext context, Officer officer,Unit unit) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @param officer
+     * @param unit
+     * @return
+     */
+    default boolean assignOfficerToUnit(AuthContext context,Officer officer, Unit unit) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
@@ -80,7 +91,7 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param volunteer
      * @return
      */
-    boolean createVolunteer(AuthContext context, Volunteer volunteer) throws DSException;
+    default boolean createVolunteer(AuthContext context, Volunteer volunteer) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
@@ -89,10 +100,12 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param page
      * @return
      */
-    List<Report> getReports(AuthContext context,int count,int page) throws DSException;
+    default List<Report> getReports(AuthContext context,int count,int page) throws DSException {throw new DSUnimplementedException();}
 
 
     abstract class DSException extends RuntimeException {}
+
+    class DSUnimplementedException extends DSException{}
 
     class DSFormatException extends DSException {}
 
