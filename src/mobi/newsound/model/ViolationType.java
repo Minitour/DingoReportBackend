@@ -1,28 +1,42 @@
 package mobi.newsound.model;
 
+import com.google.gson.annotations.Expose;
+
 public class ViolationType {
-    private int id;
+
+    @Expose
+    private int typeNum;
+
+    @Expose
     private String name;
+
+    @Expose
     private String description;
+
+    @Expose
     private int points;
+
+    @Expose
     private double fine;
+
+    @Expose
     boolean inviteToCourt;
 
-
-    public ViolationType (String name, String description, int points, double fine, boolean inviteToCourt) {
-        setName(name);
-        setDescription(description);
-        setPoints(points);
-        setFine(fine);
-        this.inviteToCourt = false;
+    public ViolationType(int typeNum, String name, String description, int points, double fine, boolean inviteToCourt) {
+        this.typeNum = typeNum;
+        this.name = name;
+        this.description = description;
+        this.points = points;
+        this.fine = fine;
+        this.inviteToCourt = inviteToCourt;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getTypeNum() {
+        return typeNum;
     }
 
-    public int getId() {
-        return id;
+    public void setTypeNum(int typeNum) {
+        this.typeNum = typeNum;
     }
 
     public String getName() {
@@ -63,10 +77,5 @@ public class ViolationType {
 
     public void setInviteToCourt(boolean inviteToCourt) {
         this.inviteToCourt = inviteToCourt;
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 }

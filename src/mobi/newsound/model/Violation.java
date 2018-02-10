@@ -1,61 +1,29 @@
 package mobi.newsound.model;
 
+import com.google.gson.annotations.Expose;
+
+import java.util.Collection;
+
 /**
  * Created by Antonio Zaitoun on 20/12/2017.
  */
-public class Violation {
-    private int id;
-    private String description;
-    private Decision decision;
+public abstract class Violation {
+
+    @Expose
+    private String alphaNum;
+
+    @Expose
+    private String evidenceLink;
+
+    @Expose
     private ViolationType type;
-    private int reportId;
-    private int evidanceId;
 
-    public int getEvidanceId() {
-        return evidanceId;
-    }
+    @Expose
+    private Collection<Decision> decisions;
 
-    public void setEvidanceId(int evidanceId) {
-        this.evidanceId = evidanceId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Decision getDecision() {
-        return decision;
-    }
-
-    public void setDecision(Decision decision) {
-        this.decision = decision;
-    }
-
-    public ViolationType getType() {
-        return type;
-    }
-
-    public void setType(ViolationType type) {
+    public Violation(String alphaNum, String evidenceLink, ViolationType type) {
+        this.alphaNum = alphaNum;
+        this.evidenceLink = evidenceLink;
         this.type = type;
-    }
-
-    public int getReportId() {
-        return reportId;
-    }
-
-    public void setReportId(int reportId) {
-        this.reportId = reportId;
     }
 }

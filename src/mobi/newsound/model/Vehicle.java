@@ -1,14 +1,25 @@
 package mobi.newsound.model;
 
+import com.google.gson.annotations.Expose;
+
+import java.util.Collection;
+
 public class Vehicle {
 
+    @Expose
     private String licensePlate;
+
+    @Expose
     private String model;
-    private String color;
 
+    @Expose
+    private String colorHEX;
 
-    public Vehicle(String licensePlate, String model, String color) {
-        setColor(color);
+    @Expose
+    private Collection<VehicleOwner> owners;
+
+    public Vehicle(String licensePlate, String model, String colorHEX) {
+        setColorHEX(colorHEX);
         setLicensePlate(licensePlate);
         setModel(model);
     }
@@ -29,14 +40,19 @@ public class Vehicle {
         this.model = model;
     }
 
-    public String getColor() {
-        return color;
+    public String getColorHEX() {
+        return colorHEX;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColorHEX(String colorHEX) {
+        this.colorHEX = colorHEX;
     }
 
+    public Collection<VehicleOwner> getOwners() {
+        return owners;
+    }
 
-
+    public void setOwners(Collection<VehicleOwner> owners) {
+        this.owners = owners;
+    }
 }
