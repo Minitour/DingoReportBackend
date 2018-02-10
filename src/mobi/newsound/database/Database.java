@@ -95,7 +95,7 @@ class Database implements DataStore {
                     String hashedPassword = (String) user.get(0).get("PASSWORD");
                     if(BCrypt.checkpw(currentPassword,hashedPassword)){
                         //update password
-                        update("ACCOUNTS",
+                        return update("ACCOUNTS",
                                 "ID = "+context.id,
                                 new Column("PASSWORD",newPassword));
                     }else
