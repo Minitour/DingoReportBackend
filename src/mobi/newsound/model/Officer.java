@@ -1,49 +1,69 @@
 package mobi.newsound.model;
 
-public class Officer {
+import com.google.gson.annotations.Expose;
 
-    private int badgeId;
-    private String firstName;
-    private String lastName;
-    private String extension;
+public class Officer extends Account {
 
-    public Officer(int badgeId, String firstName, String lastName, String extension) {
-        setBadgeId(badgeId);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setExtension(extension);
+    @Expose
+    private int badgeNum;
+
+    @Expose
+    private String name;
+
+    @Expose
+    private String phoneExtension;
+
+    @Expose
+    private int rank;
+
+    @Expose
+    private Team team;
+
+    public Officer(String ID, String EMAIL, int badgeNum, String name, String phoneExtension, int rank) {
+        super(ID, EMAIL, 2);
+        this.badgeNum = badgeNum;
+        this.name = name;
+        this.phoneExtension = phoneExtension;
+        this.rank = rank;
     }
 
-
-    public int getBadgeId() {
-        return badgeId;
+    public int getBadgeNum() {
+        return badgeNum;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setBadgeNum(int badgeNum) {
+        this.badgeNum = badgeNum;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getName() {
+        return name;
     }
 
-    public String getExtension() {
-        return extension;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setBadgeId(int badgeId) {
-        this.badgeId = badgeId;
+    public String getPhoneExtension() {
+        return phoneExtension;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setPhoneExtension(String phoneExtension) {
+        this.phoneExtension = phoneExtension;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public int getRank() {
+        return rank;
     }
 
-    public void setExtension(String extension) {
-        this.extension = extension;
+    public void setRank(int rank) {
+        this.rank = rank;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

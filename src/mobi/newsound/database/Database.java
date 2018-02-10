@@ -4,7 +4,7 @@ import javafx.util.Pair;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
-import mobi.newsound.model.Unit;
+import mobi.newsound.model.Team;
 import mobi.newsound.model.Volunteer;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
@@ -113,7 +113,7 @@ class Database implements DataStore {
     }
 
     @Override
-    public String resetPassword(AuthContext context) {
+    public String resetPassword(AuthContext context) throws DSException {
         //Context Level: ANY
         return null;
     }
@@ -121,23 +121,55 @@ class Database implements DataStore {
     @Override
     public boolean createReport(AuthContext context, Report report) throws DSException {
         //Context Level: 4
+
+        //validate context
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },4);
+
+        //insert report object
+        long id = 0;
+        try {
+            //TODO: test if the returned id is correct.
+            id = insert("TblReports"/*TODO: add columns*/);
+
+            //for each violation in report:
+            report.getViolations().forEach(violation -> {
+
+                //generate id
+                String violationId = UUID.randomUUID().toString();
+
+                //insert violation
+
+            });
+
+        } catch (SQLException e) {
+            //roll back changes
+            try {
+                delete("TblVideoViolations","report = ?",id);
+                delete("TblImageViolations","report = ?",id);
+                delete("TblReports","reportNum = ?",id);
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
+            throw new DSFormatException(e.getMessage());
+        }
+
         return false;
     }
 
     @Override
-    public boolean createUnit(AuthContext context, Unit unit) throws DSException {
+    public boolean createTeam(AuthContext context, Team team) throws DSException {
         //Context Level: 1
         return false;
     }
 
     @Override
-    public boolean assignLeaderToUnit(AuthContext context, Officer officer, Unit unit) throws DSException {
+    public boolean assignLeaderToTeam(AuthContext context, Officer officer, Team team) throws DSException {
         //Context Level: 1
         return false;
     }
 
     @Override
-    public boolean assignOfficerToUnit(AuthContext context, Officer officer, Unit unit) throws DSException {
+    public boolean assignOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {
         //Context Level: 1
         return false;
     }
@@ -145,6 +177,14 @@ class Database implements DataStore {
     @Override
     public boolean createVolunteer(AuthContext context, Volunteer volunteer) throws DSException {
         //Context Level: 3
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },3);
+        try{
+            //create account
+
+            //create volunteer
+        }catch (Exception e){
+
+        }
         return false;
     }
 
@@ -157,6 +197,7 @@ class Database implements DataStore {
             if(roleId == -1)
                 throw new DSAuthException("Invalid Context");
         }),1,2,4);
+
         try {
             //limit for pagination
             String limit = " LIMIT " + (page - 1) * count + ", " + count;
@@ -271,14 +312,14 @@ class Database implements DataStore {
      * @param values The values.
      * @throws SQLException
      */
-    protected boolean delete(String table, String where, String... values) throws SQLException{
+    protected boolean delete(String table, String where, Object... values) throws SQLException{
 
         String query = "DELETE FROM "+ table +" WHERE "+ where;
 
         PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 
         int index = 1;
-        for(String obj : values)
+        for(Object obj : values)
             statement.setObject(index++,obj);
 
         return statement.executeUpdate() != 0;
@@ -313,6 +354,7 @@ class Database implements DataStore {
     }
 
     /**
+     *
      * Use this method to insert data into a certain table.
      *
      * Usage Example:
@@ -326,11 +368,14 @@ class Database implements DataStore {
      *
      *      @see Column
      *
+     *
      * @param table The name of the table.
      * @param values Var args of Pairs of Type (String:Object). Use Column for ease of use.
+     * @param <T> The type of the generated key.
+     * @return
      * @throws SQLException
      */
-    protected boolean insert(String table, Pair<String,Object>...values) throws SQLException {
+    protected<T> T insert(String table, Pair<String,Object>...values) throws SQLException {
 
         StringBuilder builder1 = new StringBuilder();
         StringBuilder builder2 = new StringBuilder();
@@ -340,8 +385,8 @@ class Database implements DataStore {
             builder2.append("?").append(",");
         }
 
-        builder1.deleteCharAt(builder1.length()-1);
-        builder2.deleteCharAt(builder2.length()-1);
+        builder1.deleteCharAt(builder1.length() - 1);
+        builder2.deleteCharAt(builder2.length() - 1);
 
         String query  ="INSERT INTO "+table+" ("+builder1.toString()+") VALUES ("+builder2.toString()+");";
 
@@ -351,7 +396,11 @@ class Database implements DataStore {
         for(Pair<String,Object> obj : values)
             statement.setObject(index++,obj.getValue());
 
-        return statement.executeUpdate() != 0;
+        statement.executeUpdate();
+
+        ResultSet rs = statement.getGeneratedKeys();
+
+        return rs.next() ? (T) rs.getObject(1) : null;
     }
 
     /**

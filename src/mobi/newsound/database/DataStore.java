@@ -3,10 +3,9 @@ package mobi.newsound.database;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
-import mobi.newsound.model.Unit;
+import mobi.newsound.model.Team;
 import mobi.newsound.model.Volunteer;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
@@ -62,28 +61,28 @@ public interface DataStore extends AutoCloseable,Serializable{
     /**
      *
      * @param context
-     * @param unit
+     * @param team
      * @return
      */
-    default boolean createUnit(AuthContext context,Unit unit) throws DSException {throw new DSUnimplementedException();}
+    default boolean createTeam(AuthContext context, Team team) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
      * @param context
      * @param officer
-     * @param unit
+     * @param team
      * @return
      */
-    default boolean assignLeaderToUnit(AuthContext context, Officer officer,Unit unit) throws DSException {throw new DSUnimplementedException();}
+    default boolean assignLeaderToTeam(AuthContext context, Officer officer, Team team) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
      * @param context
      * @param officer
-     * @param unit
+     * @param team
      * @return
      */
-    default boolean assignOfficerToUnit(AuthContext context,Officer officer, Unit unit) throws DSException {throw new DSUnimplementedException();}
+    default boolean assignOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *

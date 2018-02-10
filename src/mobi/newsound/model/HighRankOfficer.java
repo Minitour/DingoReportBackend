@@ -2,20 +2,8 @@ package mobi.newsound.model;
 
 public class HighRankOfficer extends Officer {
 
-    private int rank;
-
-    public HighRankOfficer(int badgeId, String firstName, String lastName, String extension, int rank) {
-        super(badgeId, firstName, lastName, extension);
-
+    public HighRankOfficer(String ID, String EMAIL, int badgeNum, String name, String phoneExtension, int rank) {
+        super(ID, EMAIL, badgeNum, name, phoneExtension, rank);
+        setROLE_ID(1);
     }
-
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-
-    public int getRank() {
-        return this.rank;
-    }
-
-
 }
