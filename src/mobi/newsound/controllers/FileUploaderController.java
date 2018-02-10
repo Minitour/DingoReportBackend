@@ -38,7 +38,7 @@ public class FileUploaderController implements Route {
             if(!db.isValid(context))
                 return new JSONResponse<>(400,"Invalid Context");
 
-            String res_dir = config.get("res_dir").getAsString();
+            String res_dir = config.get("res_dir").getAsString() + "/" + config.get("public").getAsString();
             String fileName = UUID.randomUUID().toString() + "." + fileType;
 
             String path = new File(".").getAbsolutePath() + "/" + res_dir + "/" + context.id + "/";
@@ -60,7 +60,9 @@ public class FileUploaderController implements Route {
 
             //file uploaded - move to resources dir.
             db.registerResource(context,new Resource(fileName,fileType));
-            return new JSONResponse<>(200,"Success");
+            JSONResponse<String> res = new JSONResponse<String>(200,"Success");
+            res.setData(fileName);
+            return res;
 
         }catch (DataStore.DSException e){
             return new JSONResponse<>(400,"Error: "+e.getMessage());

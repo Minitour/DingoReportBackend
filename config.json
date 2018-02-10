@@ -8,5 +8,6 @@
     "access_file_location" : "C:/Users/Tony/Documents/Java/DingoReportBackend/db.accdb"
   },
   "res_dir" : "user_resources",
+  "public" : "resources",
   "cache_dir" : "cache"
 }
