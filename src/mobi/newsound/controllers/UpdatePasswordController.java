@@ -8,25 +8,29 @@ import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
 
-
 /**
- * Created by Antonio Zaitoun on 09/02/2018.
+ * Created By Tony on 10/02/2018
  */
-public class LoginController implements RESTRoute {
-
+public class UpdatePasswordController implements RESTRoute {
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
-        //get login parameters: (email,password)
         try {
-            String email = body.get("email").getAsString();
-            String raw_password = body.get("password").getAsString();
+            String id = body.get("id").getAsString();
+            String sessionToken = body.get("sessionToken").getAsString();
+            String currentPassword = body.get("currentPassword").getAsString();
+            String newPassword = body.get("newPassword").getAsString();
+
+            AuthContext context = new AuthContext(id,sessionToken);
+
             //check db and create context
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
-                AuthContext context = db.signIn(email,raw_password);
-                JSONResponse<AuthContext> res = new JSONResponse<>(200,"Success");
-                res.setData(context);
-                return res;
+                boolean didChange = db.updatePassword(context,currentPassword,newPassword);
+                if(didChange)
+                    return new JSONResponse<>(200,"Success");
+                else
+                    return new JSONResponse<>(400,"Error: Incorrect Password!");
+
             }catch (DataStore.DSException e){
                 return new JSONResponse<>(400,"Error: "+e.getMessage());
             }

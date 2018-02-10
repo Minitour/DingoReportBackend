@@ -1,7 +1,6 @@
 package mobi.newsound.database;
 
 import javafx.util.Pair;
-import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.Team;
@@ -43,7 +42,7 @@ class Database implements DataStore {
                 boolean doesMatch = BCrypt.checkpw(password_raw,(String) user.get(0).get("PASSWORD"));
                 if(doesMatch){
                     //password is correct
-                    String token = UUID.randomUUID().toString();
+                    String token = TokenGenerator.generateToken();
                     String id = (String) user.get(0).get("ID");
                     insert("SESSIONS",
                             new Column("ID",id),
@@ -88,7 +87,6 @@ class Database implements DataStore {
     @Override
     public boolean updatePassword(AuthContext context, String currentPassword, String newPassword) throws DSException {
         try{
-            //TODO: test this method
             //Context Level: ANY
             if(isContextValid(context) != -1){
                 List<Map> user = get("SELECT (PASSWORD) FROM ACCOUNTS WHERE ID = ?",context.id);
@@ -97,8 +95,8 @@ class Database implements DataStore {
                     if(BCrypt.checkpw(currentPassword,hashedPassword))
                         //update password
                         return update("ACCOUNTS",
-                                "ID = "+context.id,
-                                new Column("PASSWORD",newPassword));
+                                new Where("ID = ?",context.id),
+                                new Column("PASSWORD",BCrypt.hashpw(newPassword,BCrypt.gensalt())));
 
                     else
                         throw new DSAuthException("Incorrect password");
@@ -135,7 +133,7 @@ class Database implements DataStore {
             report.getViolations().forEach(violation -> {
 
                 //generate id
-                String violationId = UUID.randomUUID().toString();
+                String violationId = ObjectId.generate();
 
                 //insert violation
 
@@ -450,7 +448,7 @@ class Database implements DataStore {
      * @return
      * @throws SQLException
      */
-    private boolean update(String table,String where, Pair<String,Object>...values) throws SQLException {
+    private boolean update(String table,Where where, Pair<String,Object>...values) throws SQLException {
 
         StringBuilder builder = new StringBuilder();
 
@@ -459,12 +457,15 @@ class Database implements DataStore {
 
         builder.deleteCharAt(builder.length()-1);
 
-        String query  ="UPDATE "+table+" SET "+builder.toString()+" WHERE "+where;
+        String query  ="UPDATE "+table+" SET "+builder.toString()+" WHERE "+where.syntax;
         PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 
         int index = 1;
         for(Pair<String,Object> obj : values)
             statement.setObject(index++,obj.getValue());
+
+        for(Object o : where.values)
+            statement.setObject(index++,o);
 
         return statement.executeUpdate() != 0;
     }
@@ -485,6 +486,16 @@ class Database implements DataStore {
     @FunctionalInterface
     interface ContextValidator{
         void validWithRoleId(int roleId) throws DSException;
+    }
+
+    class Where {
+        final String syntax;
+        final Object[] values;
+
+        public Where(String syntax, Object...values) {
+            this.syntax = syntax;
+            this.values = values;
+        }
     }
 
 }

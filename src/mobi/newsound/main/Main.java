@@ -1,10 +1,11 @@
 package mobi.newsound.main;
-import mobi.newsound.auth.AuthContext;
+import mobi.newsound.database.AuthContext;
 import mobi.newsound.controllers.LoginController;
+import mobi.newsound.controllers.UpdatePasswordController;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.JSONTransformer;
+import mobi.newsound.utils.RESTRoute;
 import org.apache.log4j.BasicConfigurator;
-import org.mindrot.jbcrypt.BCrypt;
 
 import static mobi.newsound.utils.Config.config;
 import static spark.Spark.*;
@@ -22,9 +23,13 @@ public class Main {
             return resp;
         }, new JSONTransformer());
 
-        post("/signin", "application/json", new LoginController(),new JSONTransformer());
+        make("/signin",new LoginController());
+        make("/updatePassword",new UpdatePasswordController());
 
 
+    }
 
+    static void make(String route, RESTRoute controller){
+        post(route, "application/json", controller,new JSONTransformer());
     }
 }

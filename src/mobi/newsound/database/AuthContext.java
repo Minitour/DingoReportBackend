@@ -1,4 +1,4 @@
-package mobi.newsound.auth;
+package mobi.newsound.database;
 
 import com.google.gson.annotations.Expose;
 

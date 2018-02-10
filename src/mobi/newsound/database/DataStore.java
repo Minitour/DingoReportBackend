@@ -1,6 +1,5 @@
 package mobi.newsound.database;
 
-import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.Team;
