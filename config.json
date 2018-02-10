@@ -1,5 +1,9 @@
 {
   "port" : 8080,
+  "user" : {
+    "max_allowed_sessions" : 5,
+    "session_time_out" : -1
+  },
   "db" : {
     "access_file_location" : "C:/Users/Tony/Documents/Java/DingoReportBackend/db.accdb"
   }

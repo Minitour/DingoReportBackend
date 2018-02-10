@@ -21,7 +21,8 @@ import static mobi.newsound.utils.Config.config;
  */
 class Database implements DataStore {
 
-
+    final static int MAX_ALLOWED_SESSIONS = config.get("user").getAsJsonObject().get("max_allowed_sessions").getAsInt();
+    final static long MAX_TIME_OUT = config.get("user").getAsJsonObject().get("session_time_out").getAsInt();
 
     private Connection connection;
 
@@ -50,6 +51,31 @@ class Database implements DataStore {
                             new Column("SESSION_TOKEN",token),
                             new Column("CREATION_DATE",new Date())
                     );
+
+                    //clean up old sessions
+                    long timestamp = System.currentTimeMillis();
+                    List<Map> sessions = get("SELECT * FROM SESSIONS WHERE ID = ? ORDER BY CREATION_DATE ASC",id);
+                    Set<String> toRemove = new HashSet<>();
+
+                    for(Map<String,Object> map : sessions){
+                        String sessionToken = (String) map.get("SESSION_TOKEN");
+
+                        if(MAX_TIME_OUT > 0){
+                            //check if timed out
+                            Date date = (Date) map.get("CREATION_DATE");
+                            if(timestamp - date.getTime() > MAX_TIME_OUT)
+                                toRemove.add(sessionToken);
+                            continue;
+                        }
+
+                        if(sessions.size() - toRemove.size() > MAX_ALLOWED_SESSIONS)
+                            toRemove.add(sessionToken);
+
+                    }
+                    if(toRemove.size() > 0)
+                        deleteMany("SESSIONS",
+                                "SESSION_TOKEN in (#)",
+                                toRemove.toArray(new String[toRemove.size()]));
 
                     return new AuthContext(id,token);
 
@@ -164,6 +190,34 @@ class Database implements DataStore {
     }
 
     /**
+     * Use this method to delete multiple entries. Instead of inserting many wildcards use `#` operator.
+     *
+     * @code {
+     *
+     *          deleteMany("ACCOUNTS","ID in (#)",32,542,22)
+     *
+     *          //Is the same as:
+     *          delete("ACCOUNTS","ID in (?, ?, ?)",32,542,22);
+     *      }
+     *
+     * @param table
+     * @param where
+     * @param values
+     * @return
+     * @throws SQLException
+     */
+    protected boolean deleteMany(String table,String where,String... values) throws SQLException{
+        StringBuilder builder = new StringBuilder();
+
+        for(String ignored : values)
+            builder.append("?").append(",");
+
+        builder.deleteCharAt(builder.length()-1);
+
+        return delete(table,where.replace("#",builder.toString()),values);
+    }
+
+    /**
      * Use this method to insert data into a certain table.
      *
      * Usage Example:
@@ -216,7 +270,13 @@ class Database implements DataStore {
      * @throws SQLException
      */
     protected List<Map> get(String query,String...args) throws SQLException {
-        ResultSet set = connection.prepareStatement(query,args).executeQuery();
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        int index = 1;
+        for(String val : args)
+            statement.setObject(index++,val);
+
+         ResultSet set = statement.executeQuery();
 
         String[] columns = new String[set.getMetaData().getColumnCount()];
 
