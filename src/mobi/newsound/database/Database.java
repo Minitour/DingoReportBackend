@@ -1,10 +1,7 @@
 package mobi.newsound.database;
 
 import javafx.util.Pair;
-import mobi.newsound.model.Officer;
-import mobi.newsound.model.Report;
-import mobi.newsound.model.Team;
-import mobi.newsound.model.Volunteer;
+import mobi.newsound.model.*;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -27,6 +24,11 @@ class Database implements DataStore {
     protected Database() throws SQLException {
         String file_path = config.get("db").getAsJsonObject().get("access_file_location").getAsString();
         connection = getUcanaccessConnection(file_path);
+    }
+
+    @Override
+    public boolean isValid(AuthContext context) throws DSException {
+        return isContextValid(context) != -1;
     }
 
     @Override
@@ -224,6 +226,21 @@ class Database implements DataStore {
             return null;
         }catch (SQLException e){
             throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean registerResource(AuthContext context, Resource resource) {
+        //context should be valid here. no need to check.
+        try {
+            int key = insert("Resources",
+                    new Column("url",resource.getUrl()),
+                    new Column("type",resource.getType()),
+                    new Column("owner",context.id));
+
+            return key != 0;
+        } catch (SQLException e) {
+            throw new DSFormatException("Something went wrong: "+e.getMessage());
         }
     }
 

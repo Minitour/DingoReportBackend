@@ -1,9 +1,7 @@
 package mobi.newsound.database;
 
-import mobi.newsound.model.Officer;
-import mobi.newsound.model.Report;
-import mobi.newsound.model.Team;
-import mobi.newsound.model.Volunteer;
+import jdk.management.resource.ResourceType;
+import mobi.newsound.model.*;
 
 import java.io.Serializable;
 import java.sql.SQLException;
@@ -22,6 +20,8 @@ public interface DataStore extends AutoCloseable,Serializable{
         }
         return null;
     }
+
+    default boolean isValid(AuthContext context) throws DSException { throw new DSUnimplementedException();}
 
     /**
      * Sign in with email and password
@@ -99,6 +99,15 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @return
      */
     default List<Report> getReports(AuthContext context,int count,int page) throws DSException {throw new DSUnimplementedException();}
+
+
+    /**
+     *
+     * @param context
+     * @param resource
+     * @return
+     */
+    default boolean registerResource(AuthContext context, Resource resource){ throw new DSUnimplementedException();}
 
 
     abstract class DSException extends RuntimeException {

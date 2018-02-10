@@ -2,3 +2,5 @@
 out/
 
 db\.laccdb
+
+user_resources/
