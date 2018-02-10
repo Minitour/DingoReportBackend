@@ -88,20 +88,24 @@ class Database implements DataStore {
     @Override
     public boolean updatePassword(AuthContext context, String currentPassword, String newPassword) throws DSException {
         try{
+            //TODO: test this method
             //Context Level: ANY
             if(isContextValid(context) != -1){
                 List<Map> user = get("SELECT (PASSWORD) FROM ACCOUNTS WHERE ID = ?",context.id);
                 if(user.size() == 1){
                     String hashedPassword = (String) user.get(0).get("PASSWORD");
-                    if(BCrypt.checkpw(currentPassword,hashedPassword)){
+                    if(BCrypt.checkpw(currentPassword,hashedPassword))
                         //update password
                         return update("ACCOUNTS",
                                 "ID = "+context.id,
                                 new Column("PASSWORD",newPassword));
-                    }else
+
+                    else
                         throw new DSAuthException("Incorrect password");
+
                 }else
-                    throw new DSAuthException("Account No Found");
+                    throw new DSAuthException("Account Not Found");
+
             }else throw new DSAuthException("Invalid Context");
         }catch (SQLException e){
             throw new DSFormatException(e.getMessage());
