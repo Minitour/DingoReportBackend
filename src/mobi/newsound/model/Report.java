@@ -1,38 +1,37 @@
 package mobi.newsound.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import mobi.newsound.database.Mappable;
+
+import java.util.*;
 
 /**
  * Created by Antonio Zaitoun on 17/12/2017.
  */
-public class Report {
+public class Report implements Mappable {
 
-    private String id;
-    private String desc;
-    private Date date;
+    private String reportNum;
+    private String description;
+    private Date incidentDate;
     private boolean decision;
     private String plateNumber;
-    private String volunteerId;
+    private String volunteer;
     private List<Violation> violations;
 
-    public Report(String id, String desc, Date date, String plateNumber, String volunteerId) {
-        setId(id);
-        setDesc(desc);
-        this.date = date;
+    public Report(String reportNum, String description, Date incidentDate, String plateNumber, String volunteer) {
+        setReportNum(reportNum);
+        setDescription(description);
+        this.incidentDate = incidentDate;
         this.plateNumber = plateNumber;
-        this.volunteerId = volunteerId;
+        this.volunteer = volunteer;
         this.violations = new ArrayList<>();
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setReportNum(String reportNum) {
+        this.reportNum = reportNum;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setDecision(boolean decision) {
@@ -43,16 +42,16 @@ public class Report {
         return true;
     }
 
-    public String getId() {
-        return id;
+    public String getReportNum() {
+        return reportNum;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getIncidentDate() {
+        return incidentDate;
     }
 
     public boolean isDecision() {
@@ -63,11 +62,16 @@ public class Report {
         return plateNumber;
     }
 
-    public String getVolunteerId() {
-        return volunteerId;
+    public String getVolunteer() {
+        return volunteer;
     }
 
     public List<Violation> getViolations() {
         return Collections.unmodifiableList(violations);
+    }
+
+    @Override
+    public void map(Map map) {
+        map.get("reportNum");
     }
 }

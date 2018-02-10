@@ -151,7 +151,41 @@ class Database implements DataStore {
     @Override
     public List<Report> getReports(AuthContext context, int count, int page) throws DSException {
         //Context Level: 1,2,4
-        return null;
+
+        //if role is not one of the following (0,1,2,4) then throw an exception.
+        final int role = isContextValidFor(context,(roleId -> {
+            if(roleId == -1)
+                throw new DSAuthException("Invalid Context");
+        }),1,2,4);
+        try {
+            //limit for pagination
+            String limit = " LIMIT " + (page - 1) * count + ", " + count;
+
+            String select = "SELECT * FROM TblReports";
+
+            String where = null;
+            //context is valid
+            switch (role) {
+                case 0://superuser
+                case 1://high rank officer
+                    where = "";
+                    break;
+                case 2://officer
+                    int unit = (int) get("SELECT team FROM TblOfficers WHERE account_id = ?",context.id).get(0).get("team");
+                    where = " WHERE team = "+unit;
+                    break;
+                case 4://volunteer
+                    where = " WHERE volunteer = "+context.id;
+                    break;
+            }
+            String query = select + where + limit;
+
+            List<Map> data = get(query);
+            //TODO: convert data to List<Report>
+            return null;
+        }catch (SQLException e){
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
@@ -159,6 +193,12 @@ class Database implements DataStore {
         connection.close();
     }
 
+    /**
+     * This method checks if the given context is valid and returns the role id for that given context.
+     * In other words, this method validates the session and then returns the role of the user.
+     * @param context The auth context.
+     * @return The role id of a given context or -1 if invalid.
+     */
     private int isContextValid(AuthContext context){
         try {
             List<Map> data = get("SELECT Accounts.ROLE_ID " +
@@ -168,6 +208,41 @@ class Database implements DataStore {
         } catch (SQLException e) {
             return -1;
         }
+    }
+
+    /**
+     *
+     * @param context The auth context to check.
+     * @param validator The closure to activate when we get a validation.
+     * @param roles The roles that are allowed for this context.
+     * @return The role id if valid, else -1.
+     * @throws DSException
+     */
+    private int isContextValidFor(AuthContext context,ContextValidator validator,int...roles) throws DSException{
+        int roleId = isContextValid(context);
+
+        //invalid role id.
+        if(roleId == -1) {
+            validator.validWithRoleId(-1);
+            return -1;
+        }
+
+        //if superuser always return true.
+        if(roleId == 0){
+            validator.validWithRoleId(0);
+            return 0;
+        }
+
+        //check if the role id found is included in one of the roles given.
+        for(int role : roles){
+            if (role == roleId){
+                validator.validWithRoleId(role);
+                return role;
+            }
+        }
+
+        validator.validWithRoleId(-1);
+        return -1;
     }
 
     private Connection getUcanaccessConnection(String pathNewDB) throws SQLException{
@@ -356,6 +431,11 @@ class Database implements DataStore {
         public Column(String key, Object value) {
             super(key, value);
         }
+    }
+
+    @FunctionalInterface
+    interface ContextValidator{
+        void validWithRoleId(int roleId) throws DSException;
     }
 
 }

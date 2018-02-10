@@ -84,7 +84,7 @@ public class Volunteer {
     }
 
     public boolean addDescription(String description, Report report) {
-        report.setDesc(description);
+        report.setDescription(description);
         return true;
     }
 
