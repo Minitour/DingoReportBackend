@@ -1,6 +1,5 @@
 package mobi.newsound.database;
 
-import javafx.beans.NamedArg;
 import javafx.util.Pair;
 import mobi.newsound.auth.AuthContext;
 import mobi.newsound.model.Officer;
@@ -46,7 +45,7 @@ class Database implements DataStore {
                     //password is correct
                     String token = UUID.randomUUID().toString();
                     String id = (String) user.get(0).get("ID");
-                    set("SESSIONS",
+                    insert("SESSIONS",
                             new Column("ID",id),
                             new Column("SESSION_TOKEN",token),
                             new Column("CREATION_DATE",new Date())
@@ -88,8 +87,25 @@ class Database implements DataStore {
 
     @Override
     public boolean updatePassword(AuthContext context, String currentPassword, String newPassword) throws DSException {
-        //Context Level: ANY
-        return false;
+        try{
+            //Context Level: ANY
+            if(isContextValid(context) != -1){
+                List<Map> user = get("SELECT (PASSWORD) FROM ACCOUNTS WHERE ID = ?",context.id);
+                if(user.size() == 1){
+                    String hashedPassword = (String) user.get(0).get("PASSWORD");
+                    if(BCrypt.checkpw(currentPassword,hashedPassword)){
+                        //update password
+                        update("ACCOUNTS",
+                                "ID = "+context.id,
+                                new Column("PASSWORD",newPassword));
+                    }else
+                        throw new DSAuthException("Incorrect password");
+                }else
+                    throw new DSAuthException("Account No Found");
+            }else throw new DSAuthException("Invalid Context");
+        }catch (SQLException e){
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
@@ -222,7 +238,7 @@ class Database implements DataStore {
      *
      * Usage Example:
      *      @code {
-     *          set("SESSIONS",
+     *          insert("SESSIONS",
      *               new Column("ID",id),
      *               new Column("SESSION_TOKEN",token),
      *               new Column("CREATION_DATE",new Date())
@@ -235,7 +251,7 @@ class Database implements DataStore {
      * @param values Var args of Pairs of Type (String:Object). Use Column for ease of use.
      * @throws SQLException
      */
-    protected boolean set(String table,Pair<String,Object>...values) throws SQLException {
+    protected boolean insert(String table, Pair<String,Object>...values) throws SQLException {
 
         StringBuilder builder1 = new StringBuilder();
         StringBuilder builder2 = new StringBuilder();
@@ -295,6 +311,34 @@ class Database implements DataStore {
         }
 
         return data;
+    }
+
+    /**
+     * Use this method to update an existing entry.
+     *
+     * @param table The table
+     * @param where The condition
+     * @param values The values to set/update
+     * @return
+     * @throws SQLException
+     */
+    private boolean update(String table,String where, Pair<String,Object>...values) throws SQLException {
+
+        StringBuilder builder = new StringBuilder();
+
+        for(Pair<String,Object> value : values)
+            builder.append(value.getKey()).append(" = ").append("?,");
+
+        builder.deleteCharAt(builder.length()-1);
+
+        String query  ="UPDATE "+table+" SET "+builder.toString()+" WHERE "+where;
+        PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+
+        int index = 1;
+        for(Pair<String,Object> obj : values)
+            statement.setObject(index++,obj.getValue());
+
+        return statement.executeUpdate() != 0;
     }
 
     protected static class Column extends Pair<String,Object>{
