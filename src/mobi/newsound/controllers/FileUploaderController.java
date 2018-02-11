@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.file.FileSystems;
 import java.util.UUID;
 
 /**
@@ -36,7 +35,9 @@ public class FileUploaderController implements Route {
             assert db != null;
 
             if(!db.isValid(context))
-                return new JSONResponse<>(400,"Invalid Context");
+                return JSONResponse
+                        .FAILURE()
+                        .message("Invalid Context");
 
             String res_dir = config.get("res_dir").getAsString() + "/" + config.get("public").getAsString();
             String fileName = UUID.randomUUID().toString() + "." + fileType;
@@ -60,12 +61,15 @@ public class FileUploaderController implements Route {
 
             //file uploaded - move to resources dir.
             db.registerResource(context,new Resource(fileName,fileType));
-            JSONResponse<String> res = new JSONResponse<String>(200,"Success");
-            res.setData(fileName);
-            return res;
+
+            return JSONResponse
+                    .SUCCESS()
+                    .data(fileName);
 
         }catch (DataStore.DSException e){
-            return new JSONResponse<>(400,"Error: "+e.getMessage());
+            return JSONResponse
+                    .FAILURE()
+                    .message("Error: "+e.getMessage());
         }
     }
 }

@@ -4,6 +4,7 @@ import mobi.newsound.controllers.FileUploaderController;
 import mobi.newsound.controllers.LoginController;
 import mobi.newsound.controllers.UpdatePasswordController;
 import mobi.newsound.database.AuthContext;
+import mobi.newsound.model.*;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.JSONTransformer;
 import mobi.newsound.utils.RESTRoute;
@@ -11,8 +12,10 @@ import org.apache.log4j.BasicConfigurator;
 import spark.staticfiles.StaticFilesConfiguration;
 
 import java.io.File;
+import java.util.*;
 
 import static mobi.newsound.utils.Config.config;
+import static mobi.newsound.utils.Stub.*;
 import static spark.Spark.*;
 
 public class Main {
@@ -49,10 +52,19 @@ public class Main {
         make("/updatePassword",new UpdatePasswordController());
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
 
+        //TODO: remove this later
+        get("/test","application/json",(request, response) -> {
+            response.header("Content-Type","application/json");
+            return JSONResponse.SUCCESS().data(getReportStub());
+        },new JSONTransformer());
 
     }
 
     static void make(String route, RESTRoute controller){
         post(route, "application/json", controller,new JSONTransformer());
     }
+
+    //TODO: remove anything below here when project is finished.
+
+
 }

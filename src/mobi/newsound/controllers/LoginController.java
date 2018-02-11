@@ -17,6 +17,7 @@ public class LoginController implements RESTRoute {
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
         //get login parameters: (email,password)
+
         try {
             String email = body.get("email").getAsString();
             String raw_password = body.get("password").getAsString();
@@ -24,14 +25,20 @@ public class LoginController implements RESTRoute {
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
                 AuthContext context = db.signIn(email,raw_password);
-                JSONResponse<AuthContext> res = new JSONResponse<>(200,"Success");
-                res.setData(context);
-                return res;
+
+                return JSONResponse
+                        .SUCCESS()
+                        .data(context);
+
             }catch (DataStore.DSException e){
-                return new JSONResponse<>(400,"Error: "+e.getMessage());
+                return JSONResponse
+                        .FAILURE()
+                        .message("Error: "+e.getMessage());
             }
         }catch (NullPointerException e){
-            return new JSONResponse<>(400,"Error: "+e.getMessage());
+            return JSONResponse
+                    .FAILURE()
+                    .message("Error: "+e.getMessage());
         }
     }
 }

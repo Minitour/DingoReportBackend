@@ -1,10 +1,10 @@
 package mobi.newsound.database;
 
-import javafx.util.Pair;
 import mobi.newsound.model.*;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.io.File;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -23,7 +23,7 @@ class Database implements DataStore {
 
     protected Database() throws SQLException {
         String file_path = config.get("db").getAsJsonObject().get("access_file_location").getAsString();
-        connection = getUcanaccessConnection(file_path);
+        connection = getUcanaccessConnection(new File(file_path).getAbsolutePath());
     }
 
     @Override
@@ -129,6 +129,7 @@ class Database implements DataStore {
         long id = 0;
         try {
             //TODO: test if the returned id is correct.
+
             id = insert("TblReports"/*TODO: add columns*/);
 
             //for each violation in report:
@@ -390,14 +391,16 @@ class Database implements DataStore {
      * @return
      * @throws SQLException
      */
-    protected<T> T insert(String table, Pair<String,Object>...values) throws SQLException {
+    protected<T> T insert(String table, Column...values) throws SQLException {
 
         StringBuilder builder1 = new StringBuilder();
         StringBuilder builder2 = new StringBuilder();
 
-        for(Pair<String,Object> value : values){
-            builder1.append(value.getKey()).append(",");
-            builder2.append("?").append(",");
+        for(Column value : values){
+            if(!value.shouldIgnore()) {
+                builder1.append(value.getKey()).append(",");
+                builder2.append("?").append(",");
+            }
         }
 
         builder1.deleteCharAt(builder1.length() - 1);
@@ -408,8 +411,9 @@ class Database implements DataStore {
         PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 
         int index = 1;
-        for(Pair<String,Object> obj : values)
-            statement.setObject(index++,obj.getValue());
+        for(Column obj : values)
+            if(!obj.shouldIgnore())
+                statement.setObject(index++,obj.getValue());
 
         statement.executeUpdate();
 
@@ -465,11 +469,11 @@ class Database implements DataStore {
      * @return
      * @throws SQLException
      */
-    private boolean update(String table,Where where, Pair<String,Object>...values) throws SQLException {
+    private boolean update(String table,Where where, Column...values) throws SQLException {
 
         StringBuilder builder = new StringBuilder();
 
-        for(Pair<String,Object> value : values)
+        for(Column value : values)
             builder.append(value.getKey()).append(" = ").append("?,");
 
         builder.deleteCharAt(builder.length()-1);
@@ -478,26 +482,14 @@ class Database implements DataStore {
         PreparedStatement statement = connection.prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
 
         int index = 1;
-        for(Pair<String,Object> obj : values)
-            statement.setObject(index++,obj.getValue());
+        for(Column obj : values)
+            if(!obj.shouldIgnore())
+                statement.setObject(index++,obj.getValue());
 
         for(Object o : where.values)
             statement.setObject(index++,o);
 
         return statement.executeUpdate() != 0;
-    }
-
-    protected static class Column extends Pair<String,Object>{
-
-        /**
-         * Creates a new pair
-         *
-         * @param key   The key for this pair
-         * @param value The value to use for this pair
-         */
-        public Column(String key, Object value) {
-            super(key, value);
-        }
     }
 
     @FunctionalInterface

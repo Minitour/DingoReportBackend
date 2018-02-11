@@ -15,6 +15,7 @@ public interface RESTRoute extends Route {
 
     @Override
     default Object handle(Request request, Response response) throws Exception{
+        response.header("Content-Type","application/json");
         return handle(request,response,new Gson().fromJson(request.body(), JsonObject.class));
     }
 

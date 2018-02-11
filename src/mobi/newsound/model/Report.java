@@ -1,6 +1,7 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
 import mobi.newsound.database.Mappable;
 
 import java.util.*;
@@ -11,7 +12,7 @@ import java.util.*;
 public class Report implements Mappable {
 
     @Expose
-    private String reportNum;
+    private int reportNum;
 
     @Expose
     private String description;
@@ -31,7 +32,7 @@ public class Report implements Mappable {
     @Expose
     private List<Violation> violations;
 
-    public Report(String reportNum, String description, Date incidentDate, Volunteer volunteer, Vehicle vehicle) {
+    public Report(int reportNum, String description, Date incidentDate, Volunteer volunteer, Vehicle vehicle) {
         this.reportNum = reportNum;
         this.description = description;
         this.incidentDate = incidentDate;
@@ -39,11 +40,11 @@ public class Report implements Mappable {
         this.vehicle = vehicle;
     }
 
-    public String getReportNum() {
+    public int getReportNum() {
         return reportNum;
     }
 
-    public void setReportNum(String reportNum) {
+    public void setReportNum(int reportNum) {
         this.reportNum = reportNum;
     }
 
@@ -93,5 +94,18 @@ public class Report implements Mappable {
 
     public void setViolations(List<Violation> violations) {
         this.violations = violations;
+    }
+
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("reportNum",reportNum),
+                new Column("description",description),
+                new Column("incidentDate",incidentDate),
+                new Column<>("volunteer", Optional.of(volunteer), Account::getID), //FK
+                new Column<>("vehicle",Optional.of(vehicle), Vehicle::getLicensePlate), //FK
+                new Column<>("team",Optional.of(team), Team::getTeamNum) //FK
+        };
     }
 }
