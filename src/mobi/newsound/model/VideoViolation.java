@@ -1,6 +1,9 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
+
+import java.util.Optional;
 
 public class VideoViolation extends Violation {
 
@@ -18,5 +21,17 @@ public class VideoViolation extends Violation {
         this.from = from;
         this.to = to;
         this.description = description;
+    }
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("alphaNum",getAlphaNum()),
+                new Column("evidenceLink",getEvidenceLink()),
+                new Column<>("type", Optional.of(getType()),ViolationType::getTypeNum),
+                new Column("from",from),
+                new Column("to",to),
+                new Column("description",description)
+        };
     }
 }

@@ -1,8 +1,10 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
+import mobi.newsound.database.Mappable;
 
-public class ViolationType {
+public class ViolationType implements Mappable{
 
     @Expose
     private int typeNum;
@@ -77,5 +79,17 @@ public class ViolationType {
 
     public void setInviteToCourt(boolean inviteToCourt) {
         this.inviteToCourt = inviteToCourt;
+    }
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("typeNum",typeNum),
+                new Column("name",name),
+                new Column("description",description),
+                new Column("points",points),
+                new Column("fine",fine),
+                new Column("inviteToCourt",inviteToCourt)
+        };
     }
 }

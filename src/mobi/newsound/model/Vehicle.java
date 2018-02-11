@@ -1,10 +1,12 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
+import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
 
-public class Vehicle {
+public class Vehicle implements Mappable{
 
     @Expose
     private String licensePlate;
@@ -54,5 +56,14 @@ public class Vehicle {
 
     public void setOwners(Collection<VehicleOwner> owners) {
         this.owners = owners;
+    }
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("licensePlate",licensePlate),
+                new Column("model",model),
+                new Column("colorHEX",colorHEX)
+        };
     }
 }
