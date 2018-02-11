@@ -8,6 +8,9 @@ import java.util.*;
  * Created by Antonio Zaitoun on 11/02/2018.
  */
 public final class Stub {
+
+    //TODO: replace UUID.randomUUID().toString() with real stubs using a stub lib.
+
     public static Report getReportStub() {
         int reportNum = new Random().nextInt(1000);
         String description = UUID.randomUUID().toString();
@@ -46,7 +49,7 @@ public final class Stub {
         Violation violation;
 
         String alphaNum = UUID.randomUUID().toString();
-        String link = "http://localhost:8080/"+ UUID.randomUUID().toString() + ".dat";
+        String link = "http://localhost:8080/"+ UUID.randomUUID().toString() + (isVideo ? ".mp4" : ".png");
         ViolationType type = getViolationTypeStub();
 
         if(isVideo){
@@ -72,4 +75,6 @@ public final class Stub {
 
         return new ViolationType(type,name,description,points,fine,inviteToCoute);
     }
+
+    //TODO: add other data type stubs.
 }
