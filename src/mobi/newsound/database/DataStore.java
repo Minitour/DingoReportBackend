@@ -25,6 +25,7 @@ public interface DataStore extends AutoCloseable,Serializable{
 
     /**
      * Sign in with email and password
+     *
      * @param email
      * @param password_raw
      * @return Auth Context
@@ -47,6 +48,20 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default String resetPassword(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param volunteer
+     * @return
+     */
+    default String createAccountForVolunteer(AuthContext context,Volunteer volunteer){ throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @param officer
+     * @return
+     */
+    default String createAccountForOfficer(AuthContext context,Officer officer){throw new DSUnimplementedException();}
 
     /**
      *
