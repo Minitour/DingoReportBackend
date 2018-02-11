@@ -13,4 +13,8 @@ public interface Mappable {
         return new ObjectMapper().convertValue(this,Map.class);
     }
 
+    default Column[] db_columns(){
+        return new Column[]{};
+    }
+
 }

@@ -27,15 +27,21 @@ public class UpdatePasswordController implements RESTRoute {
                 assert db != null;
                 boolean didChange = db.updatePassword(context,currentPassword,newPassword);
                 if(didChange)
-                    return new JSONResponse<>(200,"Success");
+                    return JSONResponse.SUCCESS();
                 else
-                    return new JSONResponse<>(400,"Error: Incorrect Password!");
+                    return JSONResponse
+                            .FAILURE()
+                            .message("Error: Incorrect Password!");
 
             }catch (DataStore.DSException e){
-                return new JSONResponse<>(400,"Error: "+e.getMessage());
+                return JSONResponse
+                        .FAILURE()
+                        .message("Error: "+e.getMessage());
             }
         }catch (NullPointerException e){
-            return new JSONResponse<>(400,"Error: "+e.getMessage());
+            return JSONResponse
+                    .FAILURE()
+                    .message("Error: "+e.getMessage());
         }
     }
 }

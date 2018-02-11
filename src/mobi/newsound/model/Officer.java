@@ -1,6 +1,9 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
+
+import java.util.Optional;
 
 public class Officer extends Account {
 
@@ -65,5 +68,17 @@ public class Officer extends Account {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("badgeNum",badgeNum),
+                new Column("account_id",getID()),
+                new Column("name",name),
+                new Column("phoneExtension",phoneExtension),
+                new Column("rank",rank),
+                new Column<>("team", Optional.of(team),Team::getTeamNum)
+        };
     }
 }

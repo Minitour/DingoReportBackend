@@ -1,13 +1,16 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.Column;
+import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  * Created by Antonio Zaitoun on 23/12/2017.
  */
-public class Team {
+public class Team implements Mappable{
 
     @Expose
     private String teamNum;
@@ -44,5 +47,13 @@ public class Team {
 
     public void setOfficers(Collection<Officer> officers) {
         this.officers = officers;
+    }
+
+    @Override
+    public Column[] db_columns() {
+        return new Column[]{
+                new Column("teamNum",teamNum),
+                new Column<>("leader", Optional.of(leader),Officer::getBadgeNum)
+        };
     }
 }

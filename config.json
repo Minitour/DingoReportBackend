@@ -5,7 +5,7 @@
     "session_time_out" : -1
   },
   "db" : {
-    "access_file_location" : "C:/Users/Tony/Documents/Java/DingoReportBackend/db.accdb"
+    "access_file_location" : "db.accdb"
   },
   "res_dir" : "user_resources",
   "public" : "resources",
