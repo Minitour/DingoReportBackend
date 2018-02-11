@@ -202,7 +202,7 @@ class Database implements DataStore {
         try {
             //limit for pagination
             //Todo: fix LIMIT syntax
-            String limit = " LIMIT " + (page - 1) * count + ", " + count;
+            String limit = " LIMIT " + count + " OFFSET " + ((page - 1) * count);
 
             String select = "SELECT * FROM TblReports";
 
@@ -221,7 +221,7 @@ class Database implements DataStore {
                     where = " WHERE volunteer = "+context.id;
                     break;
             }
-            String query = select + where; //+ limit;
+            String query = select + where + limit;
 
             List<Map> data = get(query);
             //TODO: convert data to List<Report>
