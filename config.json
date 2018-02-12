@@ -9,5 +9,6 @@
   },
   "res_dir" : "user_resources",
   "public" : "resources",
-  "cache_dir" : "cache"
+  "cache_dir" : "cache",
+  "mail_settings" : "mail_settings.properties"
 }

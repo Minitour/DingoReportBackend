@@ -35,7 +35,7 @@ class Database implements DataStore {
     public AuthContext signIn(String email, String password_raw) throws DSException {
         //Context Level: NONE
         try {
-            List<Map> user = get("SELECT * FROM ACCOUNTS WHERE EMAIL = ?",email);
+            List<Map<String,Object>> user = get("SELECT * FROM ACCOUNTS WHERE EMAIL = ?",email);
             if(user.size() != 1)
                 //no such user
                 throw new DSAuthException("Account Does Not Exist");
@@ -54,7 +54,7 @@ class Database implements DataStore {
 
                     //clean up old sessions
                     long timestamp = System.currentTimeMillis();
-                    List<Map> sessions = get("SELECT * FROM SESSIONS WHERE ID = ? ORDER BY CREATION_DATE ASC",id);
+                    List<Map<String,Object>> sessions = get("SELECT * FROM SESSIONS WHERE ID = ? ORDER BY CREATION_DATE ASC",id);
                     Set<String> toRemove = new HashSet<>();
 
                     for(Map<String,Object> map : sessions){
@@ -91,7 +91,7 @@ class Database implements DataStore {
         try{
             //Context Level: ANY
             if(isContextValid(context) != -1){
-                List<Map> user = get("SELECT (PASSWORD) FROM ACCOUNTS WHERE ID = ?",context.id);
+                List<Map<String,Object>> user = get("SELECT (PASSWORD) FROM ACCOUNTS WHERE ID = ?",context.id);
                 if(user.size() == 1){
                     String hashedPassword = (String) user.get(0).get("PASSWORD");
                     if(BCrypt.checkpw(currentPassword,hashedPassword))
@@ -223,10 +223,20 @@ class Database implements DataStore {
             }
             String query = select + where + limit;
 
-            List<Map> data = get(query);
+            List<Map<String,Object>> data = get(query);
             //TODO: convert data to List<Report>
+            List<Report> reports = new ArrayList<>();
 
-            return null;
+            for(Map<String,Object> res : data){
+                Report report = new Report(res);
+                String volId = report.getForeignKey("volunteer");
+                //assert volunteer exists.
+                Volunteer volunteer = new Volunteer(get("SELECT * FROM TblVolunteers WHERE id = ?",volId).get(0));
+                report.setVolunteer(volunteer);
+                reports.add(report);
+            }
+
+            return reports;
         }catch (SQLException e){
             throw new DSFormatException(e.getMessage());
         }
@@ -260,7 +270,7 @@ class Database implements DataStore {
      */
     private int isContextValid(AuthContext context){
         try {
-            List<Map> data = get("SELECT Accounts.ROLE_ID " +
+            List<Map<String,Object>> data = get("SELECT Accounts.ROLE_ID " +
                     "FROM Accounts INNER JOIN Sessions ON Accounts.ID = Sessions.ID " +
                     "WHERE (((Sessions.ID)= ? ) AND ((Sessions.SESSION_TOKEN)= ? ))", context.id, context.sessionToken);
             return data.size() == 0 ? -1 : (Integer) data.get(0).get("ROLE_ID");
@@ -434,7 +444,7 @@ class Database implements DataStore {
      * @return A List Of Hash Maps of Type (String:Object)
      * @throws SQLException
      */
-    protected List<Map> get(String query,String...args) throws SQLException {
+    protected List<Map<String,Object>> get(String query,String...args) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(query);
 
         int index = 1;
@@ -448,7 +458,7 @@ class Database implements DataStore {
         for (int i = 1; i <= columns.length; i++ )
             columns[i - 1] = set.getMetaData().getColumnName(i);
 
-        List<Map> data = new ArrayList<>();
+        List<Map<String,Object>> data = new ArrayList<>();
 
         while (set.next()){
             Map<String,Object> map = new HashMap<>();

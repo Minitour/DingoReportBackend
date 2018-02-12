@@ -2,9 +2,12 @@ package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
+import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
-public class Account implements Mappable{
+import java.util.Map;
+
+public class Account extends DBObject{
 
     @Expose
     private String ID;
@@ -29,6 +32,10 @@ public class Account implements Mappable{
         this.EMAIL = EMAIL;
         this.ROLE_ID = ROLE_ID;
         this.password = password;
+    }
+
+    public Account(Map<String, Object> map) {
+        super(map);
     }
 
     public String getID() {

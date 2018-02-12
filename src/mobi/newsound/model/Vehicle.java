@@ -2,11 +2,12 @@ package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
+import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
 
-public class Vehicle implements Mappable{
+public class Vehicle extends DBObject{
 
     @Expose
     private String licensePlate;

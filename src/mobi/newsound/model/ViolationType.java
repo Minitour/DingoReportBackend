@@ -2,9 +2,10 @@ package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
+import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
-public class ViolationType implements Mappable{
+public class ViolationType extends DBObject{
 
     @Expose
     private int typeNum;

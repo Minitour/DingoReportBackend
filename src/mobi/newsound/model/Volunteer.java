@@ -3,6 +3,8 @@ package mobi.newsound.model;
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
 
+import java.util.Map;
+
 public class Volunteer extends Account{
 
     @Expose
@@ -15,6 +17,10 @@ public class Volunteer extends Account{
         super(ID, EMAIL, 4);
         this.name = name;
         this.phone = phone;
+    }
+
+    public Volunteer(Map<String, Object> map) {
+        super(map);
     }
 
     public String getName() {

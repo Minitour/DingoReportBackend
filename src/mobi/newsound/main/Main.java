@@ -1,17 +1,21 @@
 package mobi.newsound.main;
-import mobi.newsound.controllers.ContextValidatorFilter;
-import mobi.newsound.controllers.FileUploaderController;
-import mobi.newsound.controllers.LoginController;
-import mobi.newsound.controllers.UpdatePasswordController;
+import com.google.gson.JsonObject;
+import mobi.newsound.controllers.*;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
+import mobi.newsound.model.Report;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.JSONTransformer;
 import mobi.newsound.utils.RESTRoute;
 import org.apache.log4j.BasicConfigurator;
+import spark.Request;
+import spark.Response;
 import spark.staticfiles.StaticFilesConfiguration;
 
+import javax.mail.MessagingException;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import static mobi.newsound.utils.Config.config;
 import static mobi.newsound.utils.Stub.getReportStub;
@@ -57,7 +61,7 @@ public class Main {
             return JSONResponse.SUCCESS().data(getReportStub());
         },new JSONTransformer());
 
-        post("/getreport", "application/json", (req,res) -> {
+        post("/getreport", "application/json", (RESTRoute) (req,res,body) -> {
 
             String id = req.headers("id");
             String sessionToken = req.headers("sessionToken");
@@ -65,11 +69,11 @@ public class Main {
 
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
-                db.getReports(context, 20, 0);
+                List<Report> reportList = db.getReports(context, 20, 1);
 
                 return JSONResponse
                         .SUCCESS()
-                        .data(context);
+                        .data(reportList);
 
             }catch (DataStore.DSException e){
                 return JSONResponse
@@ -77,7 +81,6 @@ public class Main {
                         .message("Error: "+e.getMessage());
             }
         }, new JSONTransformer());
-
     }
 
     static void make(String route, RESTRoute controller){

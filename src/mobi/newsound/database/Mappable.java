@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Map;
 
 public interface Mappable {
+
     default void map(Map map){
         System.err.println("Not Implemented");
     }

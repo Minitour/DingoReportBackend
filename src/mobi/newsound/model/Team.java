@@ -2,6 +2,7 @@ package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
+import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
@@ -10,7 +11,7 @@ import java.util.Optional;
 /**
  * Created by Antonio Zaitoun on 23/12/2017.
  */
-public class Team implements Mappable{
+public class Team extends DBObject{
 
     @Expose
     private String teamNum;

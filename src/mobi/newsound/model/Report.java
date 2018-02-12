@@ -2,6 +2,7 @@ package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
+import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.*;
@@ -9,7 +10,7 @@ import java.util.*;
 /**
  * Created by Antonio Zaitoun on 17/12/2017.
  */
-public class Report implements Mappable {
+public class Report extends DBObject {
 
     @Expose
     private int reportNum;
@@ -38,6 +39,10 @@ public class Report implements Mappable {
         this.incidentDate = incidentDate;
         this.volunteer = volunteer;
         this.vehicle = vehicle;
+    }
+
+    public Report(Map<String, Object> map) {
+        super(map);
     }
 
     public int getReportNum() {
@@ -103,9 +108,9 @@ public class Report implements Mappable {
                 new Column("reportNum",reportNum),
                 new Column("description",description),
                 new Column("incidentDate",incidentDate),
-                new Column<>("volunteer", Optional.of(volunteer), Account::getID), //FK
-                new Column<>("vehicle",Optional.of(vehicle), Vehicle::getLicensePlate), //FK
-                new Column<>("team",Optional.of(team), Team::getTeamNum) //FK
+                new Column<>("volunteer", Optional.ofNullable(volunteer), Account::getID), //FK
+                new Column<>("vehicle",Optional.ofNullable(vehicle), Vehicle::getLicensePlate), //FK
+                new Column<>("team",Optional.ofNullable(team), Team::getTeamNum) //FK
         };
     }
 }

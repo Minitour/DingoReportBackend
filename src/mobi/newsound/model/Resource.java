@@ -1,11 +1,12 @@
 package mobi.newsound.model;
 
 import com.google.gson.annotations.Expose;
+import mobi.newsound.database.DBObject;
 
 /**
  * Created By Tony on 10/02/2018
  */
-public class Resource {
+public class Resource extends DBObject {
 
     @Expose
     private int id;
