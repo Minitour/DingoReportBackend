@@ -53,6 +53,7 @@ public class Main {
          */
         make("/signin",new LoginController());
         make("/updatePassword",new UpdatePasswordController());
+        make("/createVolunteer",new CreateVolunteerController());
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
 
         //TODO: remove this later

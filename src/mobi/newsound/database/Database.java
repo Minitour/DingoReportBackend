@@ -1,10 +1,13 @@
 package mobi.newsound.database;
 
+import mobi.newsound.controllers.MailServiceController;
 import mobi.newsound.model.*;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.mail.MessagingException;
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -179,14 +182,22 @@ class Database implements DataStore {
     public boolean createVolunteer(AuthContext context, Volunteer volunteer) throws DSException {
         //Context Level: 3
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },3);
+
         try{
             //create account
+            String id = ObjectId.generate();
+            Account account = new Account(id,volunteer.getEMAIL(),4,volunteer.getPassword());
+            insert("Accounts",account.db_columns());
 
             //create volunteer
-        }catch (Exception e){
+            volunteer.setID(id);
+            insert("TblVolunteers",volunteer.db_columns());
 
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
@@ -572,6 +583,9 @@ class Database implements DataStore {
         void validWithRoleId(int roleId) throws DSException;
     }
 
+    /**
+     * Class used to create Where Predicates
+     */
     class Where {
         final String syntax;
         final Object[] values;

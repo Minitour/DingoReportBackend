@@ -34,6 +34,12 @@ public class Account extends DBObject{
         this.password = password;
     }
 
+    public Account(String EMAIL, int ROLE_ID, String password) {
+        this.EMAIL = EMAIL;
+        this.ROLE_ID = ROLE_ID;
+        this.password = password;
+    }
+
     public Account(Map<String, Object> map) {
         super(map);
     }

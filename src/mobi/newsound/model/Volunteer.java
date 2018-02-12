@@ -19,6 +19,12 @@ public class Volunteer extends Account{
         this.phone = phone;
     }
 
+    public Volunteer(String EMAIL, int ROLE_ID, String password, String name, String phone) {
+        super(EMAIL, ROLE_ID, password);
+        this.name = name;
+        this.phone = phone;
+    }
+
     public Volunteer(Map<String, Object> map) {
         super(map);
     }
