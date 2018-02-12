@@ -6,6 +6,7 @@ import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
+import java.util.Map;
 
 public class VehicleOwner extends DBObject {
 
@@ -29,6 +30,10 @@ public class VehicleOwner extends DBObject {
         setDrivingLicense(drivingLicense);
         setName(name);
         setAddress(address);
+    }
+
+    public VehicleOwner(Map<String, Object> map) {
+        super(map);
     }
 
     public void setId(String id) {

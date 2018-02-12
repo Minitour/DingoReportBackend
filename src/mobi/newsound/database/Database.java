@@ -201,7 +201,6 @@ class Database implements DataStore {
 
         try {
             //limit for pagination
-            //Todo: fix LIMIT syntax
             String limit = " LIMIT " + count + " OFFSET " + ((page - 1) * count);
 
             String select = "SELECT * FROM TblReports";
@@ -224,15 +223,79 @@ class Database implements DataStore {
             String query = select + where + limit;
 
             List<Map<String,Object>> data = get(query);
-            //TODO: convert data to List<Report>
             List<Report> reports = new ArrayList<>();
 
             for(Map<String,Object> res : data){
                 Report report = new Report(res);
+
+                int reportNum = report.getReportNum();
                 String volId = report.getForeignKey("volunteer");
-                //assert volunteer exists.
-                Volunteer volunteer = new Volunteer(get("SELECT * FROM TblVolunteers WHERE id = ?",volId).get(0));
-                report.setVolunteer(volunteer);
+                String vehicleId = report.getForeignKey("vehicle");
+                Integer teamNum = report.getForeignKey("team");
+
+                //get violations
+                List<Violation> violations = new ArrayList<>();
+                List<Map<String,Object>> videpViolations = get("SELECT * FROM TblVideoViolations WHERE report = ?",reportNum);
+                List<Map<String,Object>> imageViolations = get("SELECT * FROM TblImageViolations WHERE report = ?",reportNum);
+
+                for(Map<String,Object> iv : imageViolations){
+                    ImageViolation imageViolation = new ImageViolation(iv);
+                    String id = imageViolation.getAlphaNum();
+
+                    List<Decision> decisionList = new ArrayList<>();
+                    List<Map<String,Object>> decisions = get("SELECT * FROM TblImageViolationDecisions WHERE violation = ?",id);
+                    for (Map<String,Object> map : decisions)
+                        decisionList.add(new Decision(map));
+
+                    imageViolation.setDecisions(decisionList);
+                    violations.add(imageViolation);
+                }
+
+                for(Map<String,Object> vv : videpViolations){
+                    VideoViolation videoViolation = new VideoViolation(vv);
+                    String id = videoViolation.getAlphaNum();
+
+                    List<Decision> decisionList = new ArrayList<>();
+                    List<Map<String,Object>> decisions = get("SELECT * FROM TblVideoViolationDecisions WHERE violation = ?",id);
+                    for (Map<String,Object> map : decisions)
+                        decisionList.add(new Decision(map));
+
+                    videoViolation.setDecisions(decisionList);
+                    violations.add(videoViolation);
+                }
+
+                report.setViolations(violations);
+
+                //get volunteer
+                if(volId != null) {
+                    Volunteer volunteer = new Volunteer(get("SELECT * FROM TblVolunteers INNER JOIN Accounts ON TblVolunteers.ID = Accounts.ID WHERE id = ?", volId).get(0));
+                    report.setVolunteer(volunteer);
+                }
+
+                //get vehicle
+                if(vehicleId != null){
+                    Vehicle vehicle = new Vehicle(get("SELECT * FROM TblVehicles WHERE licensePlate = ?",vehicleId).get(0));
+                    int modelNum = vehicle.getForeignKey("model");
+
+                    VehicleModel model = new VehicleModel(get("SELECT * FROM TblVehicleModel WHERE modelNum = ?",modelNum).get(0));
+                    vehicle.setModel(model);
+
+                    List<Map<String,Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?",vehicleId);
+                    List<VehicleOwner> owners = new ArrayList<>();
+                    for(Map<String,Object> map : ownerIds){
+                        String ownerId = (String) map.get("owner");
+                        VehicleOwner owner = new VehicleOwner(get("SELECT * FROM TblVehicleOwners WHERE id = ?",ownerId).get(0));
+                        owners.add(owner);
+                    }
+                    vehicle.setOwners(owners);
+                    report.setVehicle(vehicle);
+                }
+
+                //get team
+                if(teamNum != null){
+                    report.setTeam(new Team(get("SELECT * FROM TblTeams WHERE teamNum = ",teamNum).get(0));
+                }
+
                 reports.add(report);
             }
 
@@ -444,11 +507,11 @@ class Database implements DataStore {
      * @return A List Of Hash Maps of Type (String:Object)
      * @throws SQLException
      */
-    protected List<Map<String,Object>> get(String query,String...args) throws SQLException {
+    protected List<Map<String,Object>> get(String query,Object...args) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(query);
 
         int index = 1;
-        for(String val : args)
+        for(Object val : args)
             statement.setObject(index++,val);
 
          ResultSet set = statement.executeQuery();

@@ -5,6 +5,8 @@ import mobi.newsound.database.Column;
 import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
+import java.util.Map;
+
 public class ViolationType extends DBObject{
 
     @Expose
@@ -32,6 +34,10 @@ public class ViolationType extends DBObject{
         this.points = points;
         this.fine = fine;
         this.inviteToCourt = inviteToCourt;
+    }
+
+    public ViolationType(Map<String, Object> map) {
+        super(map);
     }
 
     public int getTypeNum() {

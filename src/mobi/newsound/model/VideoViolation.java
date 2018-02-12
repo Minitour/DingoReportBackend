@@ -3,6 +3,7 @@ package mobi.newsound.model;
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class VideoViolation extends Violation {
@@ -21,6 +22,10 @@ public class VideoViolation extends Violation {
         this.from = from;
         this.to = to;
         this.description = description;
+    }
+
+    public VideoViolation(Map<String, Object> map) {
+        super(map);
     }
 
     @Override

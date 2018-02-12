@@ -32,7 +32,7 @@ public final class Stub {
         String licesne = UUID.randomUUID().toString();
         String model = UUID.randomUUID().toString();
         String color = UUID.randomUUID().toString();
-        return new Vehicle(licesne,model,color);
+        return new Vehicle(licesne,null,color);
     }
 
     public static Volunteer getVolunteerStub() {

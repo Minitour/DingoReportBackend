@@ -3,6 +3,8 @@ package mobi.newsound.model;
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.DBObject;
 
+import java.util.Map;
+
 /**
  * Created By Tony on 10/02/2018
  */
@@ -23,6 +25,10 @@ public class Resource extends DBObject {
     public Resource(String url, String type) {
         this.url = url;
         this.type = type;
+    }
+
+    public Resource(Map<String, Object> map) {
+        super(map);
     }
 
     public String getUrl() {

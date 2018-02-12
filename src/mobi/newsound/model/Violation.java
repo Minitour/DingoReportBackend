@@ -6,6 +6,7 @@ import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -29,6 +30,10 @@ public abstract class Violation extends DBObject{
         this.alphaNum = alphaNum;
         this.evidenceLink = evidenceLink;
         this.type = type;
+    }
+
+    public Violation(Map<String, Object> map) {
+        super(map);
     }
 
     public String getAlphaNum() {

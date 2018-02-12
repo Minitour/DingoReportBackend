@@ -3,6 +3,7 @@ package mobi.newsound.model;
 import com.google.gson.annotations.Expose;
 import mobi.newsound.database.Column;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class Officer extends Account {
@@ -28,6 +29,10 @@ public class Officer extends Account {
         this.name = name;
         this.phoneExtension = phoneExtension;
         this.rank = rank;
+    }
+
+    public Officer(Map<String, Object> map) {
+        super(map);
     }
 
     public int getBadgeNum() {

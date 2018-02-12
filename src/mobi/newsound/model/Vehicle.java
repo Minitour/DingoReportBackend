@@ -6,6 +6,8 @@ import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
+import java.util.Map;
+import java.util.Optional;
 
 public class Vehicle extends DBObject{
 
@@ -13,7 +15,7 @@ public class Vehicle extends DBObject{
     private String licensePlate;
 
     @Expose
-    private String model;
+    private VehicleModel model;
 
     @Expose
     private String colorHEX;
@@ -21,10 +23,14 @@ public class Vehicle extends DBObject{
     @Expose
     private Collection<VehicleOwner> owners;
 
-    public Vehicle(String licensePlate, String model, String colorHEX) {
+    public Vehicle(String licensePlate, VehicleModel model, String colorHEX) {
         setColorHEX(colorHEX);
         setLicensePlate(licensePlate);
         setModel(model);
+    }
+
+    public Vehicle(Map<String, Object> map) {
+        super(map);
     }
 
     public String getLicensePlate() {
@@ -35,11 +41,11 @@ public class Vehicle extends DBObject{
         this.licensePlate = licensePlate;
     }
 
-    public String getModel() {
+    public VehicleModel getModel() {
         return model;
     }
 
-    public void setModel(String model) {
+    public void setModel(VehicleModel model) {
         this.model = model;
     }
 
@@ -63,7 +69,7 @@ public class Vehicle extends DBObject{
     public Column[] db_columns() {
         return new Column[]{
                 new Column("licensePlate",licensePlate),
-                new Column("model",model),
+                new Column<>("model", Optional.ofNullable(model),VehicleModel::getModelNum),
                 new Column("colorHEX",colorHEX)
         };
     }

@@ -6,6 +6,7 @@ import mobi.newsound.database.DBObject;
 import mobi.newsound.database.Mappable;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -24,6 +25,10 @@ public class Team extends DBObject{
 
     public Team(String teamNum) {
         this.teamNum = teamNum;
+    }
+
+    public Team(Map<String, Object> map) {
+        super(map);
     }
 
     public String getTeamNum() {
