@@ -22,6 +22,7 @@ public class VideoViolation extends Violation {
         this.from = from;
         this.to = to;
         this.description = description;
+        setClassType(1);
     }
 
     public VideoViolation(Map<String, Object> map) {

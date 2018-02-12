@@ -28,7 +28,7 @@ public class Decision extends DBObject{
     public Column[] db_columns() {
         return new Column[]{
                 new Column<>("officer", Optional.ofNullable(officer),Officer::getBadgeNum),
-                new Column<>("violation",Optional.of(violation),Violation::getAlphaNum),
+                new Column<>("violation",Optional.ofNullable(violation),Violation::getAlphaNum),
                 new Column("decision",decision)
         };
     }

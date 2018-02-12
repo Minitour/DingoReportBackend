@@ -1,5 +1,6 @@
 package mobi.newsound.database;
 
+import mobi.newsound.controllers.MOTSService;
 import mobi.newsound.controllers.MailServiceController;
 import mobi.newsound.model.*;
 import net.ucanaccess.jdbc.UcanaccessDriver;
@@ -131,19 +132,38 @@ class Database implements DataStore {
         //insert report object
         long id = 0;
         try {
-            //TODO: test if the returned id is correct.
+            //TODO: needs testing
 
-            id = insert("TblReports"/*TODO: add columns*/);
+            Vehicle vehicle = report.getVehicle();
 
-            //for each violation in report:
-            report.getViolations().forEach(violation -> {
+            report.setVolunteer(new Volunteer(context.id,null,null,null));
 
-                //generate id
+            insert("TblVehicles",vehicle.db_columns());
+
+            List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
+            for(VehicleOwner owner: owners){
+                //insert owner
+                insert("TblVehicleOwners",owner);
+
+                //create many-to-many connection
+                insert("TblOwnerVehicles",
+                        new Column("owner",owner.getId()),
+                        new Column("vehicle",vehicle.getLicensePlate()));
+            }
+
+
+            id = insert("TblReports",report);
+
+            List<Violation> violations = report.getViolations();
+
+            for (Violation v : violations){
                 String violationId = ObjectId.generate();
+                v.setAlphaNum(violationId);
 
-                //insert violation
+                insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
+            }
 
-            });
+            return true;
 
         } catch (SQLException e) {
             //roll back changes
@@ -156,8 +176,6 @@ class Database implements DataStore {
             }
             throw new DSFormatException(e.getMessage());
         }
-
-        return false;
     }
 
     @Override
@@ -187,11 +205,11 @@ class Database implements DataStore {
             //create account
             String id = ObjectId.generate();
             Account account = new Account(id,volunteer.getEMAIL(),4,volunteer.getPassword());
-            insert("Accounts",account.db_columns());
+            insert("Accounts",account);
 
             //create volunteer
             volunteer.setID(id);
-            insert("TblVolunteers",volunteer.db_columns());
+            insert("TblVolunteers",volunteer);
 
             return true;
         } catch (SQLException e) {
@@ -506,6 +524,10 @@ class Database implements DataStore {
         ResultSet rs = statement.getGeneratedKeys();
 
         return rs.next() ? (T) rs.getObject(1) : null;
+    }
+
+    protected <T> T insert(String table,DBObject dbObject) throws SQLException {
+        return insert(table,dbObject.db_columns());
     }
 
     /**

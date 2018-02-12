@@ -83,7 +83,7 @@ public class Officer extends Account {
                 new Column("name",name),
                 new Column("phoneExtension",phoneExtension),
                 new Column("rank",rank),
-                new Column<>("team", Optional.of(team),Team::getTeamNum)
+                new Column<>("team", Optional.ofNullable(team),Team::getTeamNum)
         };
     }
 }

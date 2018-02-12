@@ -26,6 +26,9 @@ public abstract class Violation extends DBObject{
     @Expose
     private Collection<Decision> decisions;
 
+    @Expose
+    private int classType = 0;
+
     public Violation(String alphaNum, String evidenceLink, ViolationType type) {
         this.alphaNum = alphaNum;
         this.evidenceLink = evidenceLink;
@@ -68,12 +71,20 @@ public abstract class Violation extends DBObject{
         this.decisions = decisions;
     }
 
+    public void setClassType(int classType) {
+        this.classType = classType;
+    }
+
+    public int getClassType() {
+        return classType;
+    }
+
     @Override
     public Column[] db_columns() {
         return new Column[]{
                 new Column("alphaNum",alphaNum),
                 new Column("evidenceLink",evidenceLink),
-                new Column<>("type", Optional.of(type),ViolationType::getTypeNum)
+                new Column<>("type", Optional.ofNullable(type),ViolationType::getTypeNum)
         };
     }
 

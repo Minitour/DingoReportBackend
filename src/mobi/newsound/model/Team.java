@@ -59,7 +59,7 @@ public class Team extends DBObject{
     public Column[] db_columns() {
         return new Column[]{
                 new Column("teamNum",teamNum),
-                new Column<>("leader", Optional.of(leader),Officer::getBadgeNum)
+                new Column<>("leader", Optional.ofNullable(leader),Officer::getBadgeNum)
         };
     }
 }

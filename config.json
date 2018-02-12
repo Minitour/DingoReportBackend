@@ -1,0 +1,14 @@
+{
+  "port" : 8080,
+  "user" : {
+    "max_allowed_sessions" : 5,
+    "session_time_out" : -1
+  },
+  "db" : {
+    "access_file_location" : "db.accdb"
+  },
+  "res_dir" : "user_resources",
+  "public" : "resources",
+  "cache_dir" : "cache",
+  "mail_settings" : "mail_settings.properties"
+}

@@ -48,20 +48,6 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default String resetPassword(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
-    /**
-     *
-     * @param volunteer
-     * @return
-     */
-    default String createAccountForVolunteer(AuthContext context,Volunteer volunteer){ throw new DSUnimplementedException();}
-
-    /**
-     *
-     * @param context
-     * @param officer
-     * @return
-     */
-    default String createAccountForOfficer(AuthContext context,Officer officer){throw new DSUnimplementedException();}
 
     /**
      *
