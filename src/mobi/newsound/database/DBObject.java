@@ -4,10 +4,7 @@ import com.google.gson.annotations.Expose;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created By Tony on 12/02/2018
@@ -15,7 +12,8 @@ import java.util.Set;
 public class DBObject implements Mappable{
 
     /**
-     * A hash map which holds a list of foreign keys.
+     * A hash map which holds a list of foreign keys. This map will be populated with values only when calling the
+     * @code {DBObject(Map<String,Object> map)} Constructor.
      */
     final transient private Map<String,Object> foreignKeys = new HashMap<>();
 
@@ -26,6 +24,7 @@ public class DBObject implements Mappable{
 
     /**
      * Constructor from map object.
+     *
      * @param map The map which contains the values.
      */
     public DBObject(Map<String,Object> map){
@@ -70,5 +69,21 @@ public class DBObject implements Mappable{
      */
     public <T> T getForeignKey(String key){
         return (T) foreignKeys.get(key);
+    }
+
+    /**
+     * Get a map of all foreign keys and their values.
+     * @return
+     */
+    public Map<String,Object> getForeignKeys(){
+        return Collections.unmodifiableMap(foreignKeys);
+    }
+
+    /**
+     * Check if there are any foreign keys.
+     * @return true if there are any foreign keys.
+     */
+    public boolean hasForeignKeys(){
+        return getForeignKeys().size() > 0;
     }
 }
