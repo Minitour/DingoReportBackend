@@ -293,7 +293,7 @@ class Database implements DataStore {
 
                 //get team
                 if(teamNum != null){
-                    report.setTeam(new Team(get("SELECT * FROM TblTeams WHERE teamNum = ",teamNum).get(0));
+                    report.setTeam(new Team(get("SELECT * FROM TblTeams WHERE teamNum = ",teamNum).get(0)));
                 }
 
                 reports.add(report);
