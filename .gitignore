@@ -6,3 +6,5 @@ db\.laccdb
 user_resources/
 
 mail_settings\.properties
+
+owners\.csv

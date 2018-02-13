@@ -68,7 +68,7 @@ public final class Stub {
 
     public static ViolationType getViolationTypeStub(){
         Random r = new Random();
-        int type = r.nextInt(100);
+        int type = r.nextInt(30) + 1;
         String name = UUID.randomUUID().toString();
         String description = UUID.randomUUID().toString();
         int points = r.nextInt(5) + 1;

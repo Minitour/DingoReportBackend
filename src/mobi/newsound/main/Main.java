@@ -21,6 +21,7 @@ import java.util.List;
 import static mobi.newsound.utils.Config.config;
 import static mobi.newsound.utils.Stub.getReportStub;
 import static mobi.newsound.utils.Stub.getVehicleStub;
+import static mobi.newsound.utils.Stub.getViolationTypeStub;
 import static spark.Spark.*;
 
 public class Main {
@@ -92,8 +93,6 @@ public class Main {
                 return JSONResponse.FAILURE().message(e.getMessage());
             }
         },new JSONTransformer());
-
-
 
     }
 

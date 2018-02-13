@@ -18,6 +18,9 @@ public abstract class Violation extends DBObject{
     private String alphaNum;
 
     @Expose
+    private Report report;
+
+    @Expose
     private String evidenceLink;
 
     @Expose
@@ -79,10 +82,19 @@ public abstract class Violation extends DBObject{
         return classType;
     }
 
+    public Report getReport() {
+        return report;
+    }
+
+    public void setReport(Report report) {
+        this.report = report;
+    }
+
     @Override
     public Column[] db_columns() {
         return new Column[]{
                 new Column("alphaNum",alphaNum),
+                new Column<>("report",Optional.ofNullable(report),Report::getReportNum),
                 new Column("evidenceLink",evidenceLink),
                 new Column<>("type", Optional.ofNullable(type),ViolationType::getTypeNum)
         };

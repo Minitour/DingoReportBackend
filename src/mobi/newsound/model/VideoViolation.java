@@ -34,6 +34,7 @@ public class VideoViolation extends Violation {
         return new Column[]{
                 new Column("alphaNum",getAlphaNum()),
                 new Column("evidenceLink",getEvidenceLink()),
+                new Column<>("report",Optional.ofNullable(getReport()),Report::getReportNum),
                 new Column<>("type", Optional.of(getType()),ViolationType::getTypeNum),
                 new Column("from",from),
                 new Column("to",to),

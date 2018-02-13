@@ -10,7 +10,7 @@ import java.util.Map;
 public class ViolationType extends DBObject{
 
     @Expose
-    private int typeNum;
+    private Integer typeNum;
 
     @Expose
     private String name;
@@ -27,7 +27,7 @@ public class ViolationType extends DBObject{
     @Expose
     boolean inviteToCourt;
 
-    public ViolationType(int typeNum, String name, String description, int points, double fine, boolean inviteToCourt) {
+    public ViolationType(Integer typeNum, String name, String description, int points, double fine, boolean inviteToCourt) {
         this.typeNum = typeNum;
         this.name = name;
         this.description = description;
@@ -44,7 +44,7 @@ public class ViolationType extends DBObject{
         return typeNum;
     }
 
-    public void setTypeNum(int typeNum) {
+    public void setTypeNum(Integer typeNum) {
         this.typeNum = typeNum;
     }
 
@@ -87,6 +87,8 @@ public class ViolationType extends DBObject{
     public void setInviteToCourt(boolean inviteToCourt) {
         this.inviteToCourt = inviteToCourt;
     }
+
+
 
     @Override
     public Column[] db_columns() {

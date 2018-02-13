@@ -113,6 +113,9 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default void getReportExport(AuthContext context, Date from,Date to,OutputStream os) throws DSException {throw  new DSUnimplementedException();}
 
+    default void createViolationType(AuthContext context,ViolationType violationType) throws DSException {throw new DSUnimplementedException();}
+
+
     /**
      *
      * @param context

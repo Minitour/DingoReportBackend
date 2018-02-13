@@ -169,12 +169,13 @@ class Database implements DataStore {
         try {
 
             id = insert("TblReports",report);
-
+            report.setReportNum(id);
             List<Violation> violations = report.getViolations();
 
             for (Violation v : violations){
                 String violationId = ObjectId.generate();
                 v.setAlphaNum(violationId);
+                v.setReport(report);
 
                 insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
             }
@@ -413,6 +414,18 @@ class Database implements DataStore {
 
         } catch (JRException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void createViolationType(AuthContext context, ViolationType violationType) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            violationType.setTypeNum(null);
+            insert("TblViolationTypes",violationType);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
         }
     }
 
