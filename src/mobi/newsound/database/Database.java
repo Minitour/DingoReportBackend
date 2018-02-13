@@ -125,7 +125,7 @@ class Database implements DataStore {
     }
 
     @Override
-    public boolean createReport(AuthContext context, Report report) throws DSException {
+    public List<VideoViolation> createReport(AuthContext context, Report report) throws DSException {
         //Context Level: 4
 
         //validate context
@@ -170,16 +170,20 @@ class Database implements DataStore {
             id = insert("TblReports",report);
             report.setReportNum(id);
             List<Violation> violations = report.getViolations();
-
+            List<VideoViolation> videoViolations = new ArrayList<>();
             for (Violation v : violations){
                 String violationId = ObjectId.generate();
                 v.setAlphaNum(violationId);
                 v.setReport(report);
 
                 insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
+
+                if(v instanceof VideoViolation)
+                    videoViolations.add((VideoViolation)v);
+
             }
 
-            return true;
+            return videoViolations;
 
         } catch (SQLException e) {
             //roll back changes
@@ -377,7 +381,7 @@ class Database implements DataStore {
     }
 
     @Override
-    public boolean registerResource(AuthContext context, Resource resource) {
+    public int registerResource(AuthContext context, Resource resource) {
         //context should be valid here. no need to check.
         try {
             int key = insert("Resources",
@@ -385,7 +389,7 @@ class Database implements DataStore {
                     new Column("type",resource.getType()),
                     new Column("owner",context.id));
 
-            return key != 0;
+            return key;
         } catch (SQLException e) {
             throw new DSFormatException("Something went wrong: "+e.getMessage());
         }

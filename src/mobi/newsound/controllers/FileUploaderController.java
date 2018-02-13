@@ -60,11 +60,13 @@ public class FileUploaderController implements Route {
             }
 
             //file uploaded - move to resources dir.
-            db.registerResource(context,new Resource(fileName,fileType));
+            Resource resource = new Resource(fileName,fileType);
+            int key = db.registerResource(context,resource);
+            resource.setId(key);
 
             return JSONResponse
                     .SUCCESS()
-                    .data(fileName);
+                    .data(resource);
 
         }catch (DataStore.DSException e){
             return JSONResponse

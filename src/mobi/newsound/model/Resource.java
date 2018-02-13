@@ -54,4 +54,12 @@ public class Resource extends DBObject {
     public void setOwner(Account owner) {
         this.owner = owner;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

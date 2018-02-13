@@ -13,5 +13,6 @@
   "mail_settings" : "mail_settings.properties",
   "mots_file" : "supporting-files/ministry-of-transportation-system.jar",
   "RF_REPORT_BINARY" : "supporting-files/report.jasper",
-  "RF_REPORT_SOURCE" : "supporting-files/report.jrxml"
+  "RF_REPORT_SOURCE" : "supporting-files/report.jrxml",
+  "YOUTUBE_API" : "supporting-files/client_secrets.json"
 }

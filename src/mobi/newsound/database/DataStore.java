@@ -59,7 +59,7 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param report
      * @return
      */
-    default boolean createReport(AuthContext context,Report report) throws DSException {throw new DSUnimplementedException();}
+    default List<VideoViolation> createReport(AuthContext context,Report report) throws DSException {throw new DSUnimplementedException();}
 
 
     /**
@@ -138,7 +138,7 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @param resource
      * @return
      */
-    default boolean registerResource(AuthContext context, Resource resource){ throw new DSUnimplementedException();}
+    default int registerResource(AuthContext context, Resource resource){ throw new DSUnimplementedException();}
 
 
     abstract class DSException extends RuntimeException {
