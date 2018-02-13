@@ -13,7 +13,7 @@ import java.util.*;
 public class Report extends DBObject {
 
     @Expose
-    private int reportNum;
+    private Integer reportNum;
 
     @Expose
     private String description;
@@ -49,7 +49,7 @@ public class Report extends DBObject {
         return reportNum;
     }
 
-    public void setReportNum(int reportNum) {
+    public void setReportNum(Integer reportNum) {
         this.reportNum = reportNum;
     }
 

@@ -18,8 +18,10 @@ public final class Stub {
         Volunteer volunteer = getVolunteerStub();
         Vehicle vehicle = getVehicleStub();
         Report report = new Report(reportNum,description,date,volunteer,vehicle);
+
         int rnd = new Random().nextInt(10) + 1;
         List<Violation> violationList = new ArrayList<>();
+
         for (int i = 0; i < rnd; i++)
             violationList.add(getViolationStub());
 

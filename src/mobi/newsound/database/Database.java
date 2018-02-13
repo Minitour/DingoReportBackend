@@ -138,6 +138,7 @@ class Database implements DataStore {
 
         Vehicle vehicle = report.getVehicle();
 
+        report.setReportNum(null);
         report.setVolunteer(new Volunteer(context.id,null,null,null));
 
         try {
