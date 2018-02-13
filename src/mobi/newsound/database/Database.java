@@ -3,12 +3,15 @@ package mobi.newsound.database;
 import mobi.newsound.controllers.MOTSService;
 import mobi.newsound.controllers.MailServiceController;
 import mobi.newsound.model.*;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
 import javax.mail.MessagingException;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -346,6 +349,28 @@ class Database implements DataStore {
             return key != 0;
         } catch (SQLException e) {
             throw new DSFormatException("Something went wrong: "+e.getMessage());
+        }
+    }
+
+    @Override
+    public void getReportExport(AuthContext context, Date from, Date to,OutputStream os) throws DSException {
+        java.sql.Date sqlFromDate = new java.sql.Date(from.getTime());
+        java.sql.Date sqlToDate = new java.sql.Date(to.getTime());
+
+        String jasperFile = config.get("RF_REPORT_BINARY").getAsString();
+        String jasperFilePath = new File(jasperFile).getPath();
+
+
+        Map<String,Object> params = new HashMap<>();
+        params.put("fromDate",sqlFromDate);
+        params.put("toDate",sqlToDate);
+
+        try {
+            JasperPrint print = JasperFillManager.fillReport(jasperFilePath, params , connection);
+            JasperExportManager.exportReportToPdfStream(print, os);
+
+        } catch (JRException e) {
+            e.printStackTrace();
         }
     }
 

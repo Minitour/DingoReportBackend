@@ -10,5 +10,7 @@
   "res_dir" : "user_resources",
   "public" : "resources",
   "cache_dir" : "cache",
-  "mail_settings" : "mail_settings.properties"
+  "mail_settings" : "mail_settings.properties",
+  "RF_REPORT_BINARY" : "supporting-files/report.jasper",
+  "RF_REPORT_SOURCE" : "supporting-files/report.jrxml"
 }

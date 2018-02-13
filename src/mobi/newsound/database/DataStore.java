@@ -3,8 +3,10 @@ package mobi.newsound.database;
 import jdk.management.resource.ResourceType;
 import mobi.newsound.model.*;
 
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -101,6 +103,15 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default List<Report> getReports(AuthContext context,int count,int page) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @param from
+     * @param to
+     * @return
+     * @throws DSException
+     */
+    default void getReportExport(AuthContext context, Date from,Date to,OutputStream os) throws DSException {throw  new DSUnimplementedException();}
 
     /**
      *

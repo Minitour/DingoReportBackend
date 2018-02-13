@@ -54,7 +54,9 @@ public class Main {
         make("/signin",new LoginController());
         make("/updatePassword",new UpdatePasswordController());
         make("/createVolunteer",new CreateVolunteerController());
+        make("/getReports",new GetReportsController());
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
+        get("/exportReports",new ExportReportsController());
 
         //TODO: remove this later
         get("/test","application/json",(request, response) -> {
@@ -62,26 +64,6 @@ public class Main {
             return JSONResponse.SUCCESS().data(getReportStub());
         },new JSONTransformer());
 
-        post("/getreport", "application/json", (RESTRoute) (req,res,body) -> {
-
-            String id = req.headers("id");
-            String sessionToken = req.headers("sessionToken");
-            AuthContext context = new AuthContext(id, sessionToken);
-
-            try (DataStore db = DataStore.getInstance() ){
-                assert db != null;
-                List<Report> reportList = db.getReports(context, 20, 1);
-
-                return JSONResponse
-                        .SUCCESS()
-                        .data(reportList);
-
-            }catch (DataStore.DSException e){
-                return JSONResponse
-                        .FAILURE()
-                        .message("Error: "+e.getMessage());
-            }
-        }, new JSONTransformer());
     }
 
     static void make(String route, RESTRoute controller){
