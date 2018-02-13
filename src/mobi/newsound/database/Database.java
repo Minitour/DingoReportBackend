@@ -134,7 +134,7 @@ class Database implements DataStore {
         if(role != 4) throw new DSAuthException("Invalid Context");
 
         //insert report object
-        long id = 0;
+        int id = 0;
 
         Vehicle vehicle = report.getVehicle();
 
