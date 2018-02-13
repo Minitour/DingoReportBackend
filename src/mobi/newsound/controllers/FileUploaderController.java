@@ -4,6 +4,7 @@ import mobi.newsound.database.AuthContext;
 import static mobi.newsound.utils.Config.*;
 
 import mobi.newsound.database.DataStore;
+import mobi.newsound.model.Account;
 import mobi.newsound.model.Resource;
 import mobi.newsound.utils.JSONResponse;
 import spark.Request;
@@ -63,6 +64,7 @@ public class FileUploaderController implements Route {
             Resource resource = new Resource(fileName,fileType);
             int key = db.registerResource(context,resource);
             resource.setId(key);
+            resource.setOwner(new Account(id,null,null));
 
             return JSONResponse
                     .SUCCESS()

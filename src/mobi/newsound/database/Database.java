@@ -2,6 +2,7 @@ package mobi.newsound.database;
 
 import mobi.newsound.controllers.MOTSService;
 import mobi.newsound.model.*;
+import mobi.newsound.utils.Auth;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -176,6 +177,18 @@ class Database implements DataStore {
                 v.setAlphaNum(violationId);
                 v.setReport(report);
 
+                String url = v.getEvidenceLink();
+                boolean isValid;
+                if(v.getClassType() == 0)
+                    isValid = validateFileUrl(url,context.id,true,"png","jpg");
+                else
+                    isValid = validateFileUrl(url,context.id,false,"mp4");
+
+                if(!isValid)
+                    throw new SQLException("Invalid URL: "+url);
+
+                // "/resources/{owner_id}/{file_name}.{type}
+
                 insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
 
                 if(v instanceof VideoViolation)
@@ -261,6 +274,16 @@ class Database implements DataStore {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    public void updateEvidenceUrl(AuthContext context,Violation violation,String url){
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            update(violation.db_table(),new Where("alphaNum = ?",violation.getAlphaNum()),new Column("evidenceLink",url));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
         }
     }
 
@@ -735,6 +758,33 @@ class Database implements DataStore {
             statement.setObject(index++,o);
 
         return statement.executeUpdate() != 0;
+    }
+
+    private boolean validateFileUrl(String url,String ownerId,boolean canBeNullOrEmpty,String... types){
+        if(canBeNullOrEmpty && (url == null || url.isEmpty()))
+            return true;
+        else if (url == null || url.isEmpty())
+            return false;
+
+        // "/resources/{owner_id}/{file_name}.{type}"
+        String[] contents = url.split("/");
+
+        if(contents.length != 3)
+            return false;
+
+        String owner = contents[1];
+
+        if(!owner.equals(ownerId))
+            return false;
+
+        String file = contents[2];
+        String type = file.split(".")[1];
+
+        for(String s : types){
+            if(s.equalsIgnoreCase(type))
+                    return true;
+        }
+        return false;
     }
 
     @FunctionalInterface

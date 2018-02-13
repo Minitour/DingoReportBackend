@@ -16,18 +16,18 @@ public class Account extends DBObject{
     private String EMAIL;
 
     @Expose
-    private int ROLE_ID;
+    private Integer ROLE_ID;
 
     @Expose(serialize = false,deserialize = false)
     private String password;
 
-    public Account(String ID, String EMAIL, int ROLE_ID) {
+    public Account(String ID, String EMAIL, Integer ROLE_ID) {
         this.ID = ID;
         this.EMAIL = EMAIL;
         this.ROLE_ID = ROLE_ID;
     }
 
-    public Account(String ID, String EMAIL, int ROLE_ID, String password) {
+    public Account(String ID, String EMAIL, Integer ROLE_ID, String password) {
         this.ID = ID;
         this.EMAIL = EMAIL;
         this.ROLE_ID = ROLE_ID;
@@ -64,7 +64,7 @@ public class Account extends DBObject{
         return ROLE_ID;
     }
 
-    public void setROLE_ID(int ROLE_ID) {
+    public void setROLE_ID(Integer ROLE_ID) {
         this.ROLE_ID = ROLE_ID;
     }
 

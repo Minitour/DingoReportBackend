@@ -6,10 +6,13 @@ import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
 import mobi.newsound.model.Decision;
 import mobi.newsound.model.Report;
+import mobi.newsound.model.VideoViolation;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
+
+import java.util.List;
 
 /**
  * Created By Tony on 13/02/2018
@@ -24,14 +27,18 @@ public class SubmitReportController implements RESTRoute {
 
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
-                boolean val = db.createReport(context,report);
-                if(val)
-                    return JSONResponse
-                            .SUCCESS();
-                else
-                    return JSONResponse
-                            .FAILURE()
-                            .message("Unable to create report.");
+                List<VideoViolation> videosToUpload = db.createReport(context,report);
+
+                for(VideoViolation violation : videosToUpload){
+                    YoutubeVideoUploadController.upload(
+                            violation.getEvidenceLink(),
+                            violation.getAlphaNum(),
+                            "Video Evidence, Report ID: "+report.getReportNum(),
+                            (videoUrl)-> db.updateEvidenceUrl(context,violation,videoUrl));
+                }
+
+                return JSONResponse
+                        .SUCCESS();
 
             }catch (DataStore.DSException e){
                 return JSONResponse

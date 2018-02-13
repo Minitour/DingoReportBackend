@@ -140,6 +140,14 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default int registerResource(AuthContext context, Resource resource){ throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @param violation
+     * @param url
+     */
+    default void updateEvidenceUrl(AuthContext context,Violation violation,String url){throw new DSUnimplementedException();}
+
 
     abstract class DSException extends RuntimeException {
         DSException(){}
