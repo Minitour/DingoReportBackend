@@ -9,7 +9,7 @@ import java.util.Optional;
 public class Officer extends Account {
 
     @Expose
-    private int badgeNum;
+    private String badgeNum;
 
     @Expose
     private String name;
@@ -23,7 +23,7 @@ public class Officer extends Account {
     @Expose
     private Team team;
 
-    public Officer(String ID, String EMAIL, int badgeNum, String name, String phoneExtension, int rank) {
+    public Officer(String ID, String EMAIL, String badgeNum, String name, String phoneExtension, int rank) {
         super(ID, EMAIL, 2);
         this.badgeNum = badgeNum;
         this.name = name;
@@ -35,11 +35,11 @@ public class Officer extends Account {
         super(map);
     }
 
-    public int getBadgeNum() {
+    public String getBadgeNum() {
         return badgeNum;
     }
 
-    public void setBadgeNum(int badgeNum) {
+    public void setBadgeNum(String badgeNum) {
         this.badgeNum = badgeNum;
     }
 

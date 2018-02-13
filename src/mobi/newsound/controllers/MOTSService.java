@@ -59,6 +59,7 @@ public final class MOTSService {
             try {
                 List<VehicleOwner> owners = new ArrayList<>();
                 List<String[]> data = CSVExporter.importCSV(file);
+                new File(file).delete();
                 data.remove(0);
                 for(String[] s : data){
                     VehicleOwner owner = new VehicleOwner(s[0].trim(),s[1].trim(),s[2].trim(),s[3].trim());
@@ -68,8 +69,6 @@ public final class MOTSService {
                 return owners;
             } catch (IOException e) {
                 return null;
-            }finally {
-                new File(file).delete();
             }
         }else
             return null;

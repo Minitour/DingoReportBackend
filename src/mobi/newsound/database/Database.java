@@ -28,7 +28,7 @@ class Database implements DataStore {
 
     private Connection connection;
 
-    protected Database() throws SQLException {
+    Database() throws SQLException {
         String file_path = config.get("db").getAsJsonObject().get("access_file_location").getAsString();
         connection = getUcanaccessConnection(new File(file_path).getAbsolutePath());
     }
@@ -426,6 +426,38 @@ class Database implements DataStore {
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public boolean makeDecision(AuthContext context, Decision decision) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2);
+        try{
+            String tableName = decision.getViolation().db_table();
+            String badgeNum = decision.getOfficer().getBadgeNum();
+            String violation = decision.getViolation().getAlphaNum();
+
+            List<Map<String,Object>> decisions = get("SELECT * FROM "+tableName+" WHERE violation = ?",violation);
+
+            for(Map<String,Object> item : decisions){
+                Decision deci = new Decision(item);
+                String officerId = deci.getForeignKey("officer");
+
+                //officer is trying to vote again.
+                if(officerId.equals(decision.getOfficer().getBadgeNum()))
+                    return false;
+            }
+
+
+            update(tableName,
+                    new Where("officer = ? AND violation = ?",
+                            badgeNum,
+                            violation),
+                    new Column("decision",decision.getDecision()));
+
+            return true;
+        }catch (SQLException e){
+            return false;
         }
     }
 

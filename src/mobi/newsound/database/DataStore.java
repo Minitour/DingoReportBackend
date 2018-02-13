@@ -12,6 +12,8 @@ import java.util.List;
 /**
  * Created by Antonio Zaitoun on 09/02/2018.
  */
+
+//TODO: document interface methods
 public interface DataStore extends AutoCloseable,Serializable{
 
     static DataStore getInstance(){
@@ -113,8 +115,22 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default void getReportExport(AuthContext context, Date from,Date to,OutputStream os) throws DSException {throw  new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @param violationType
+     * @throws DSException
+     */
     default void createViolationType(AuthContext context,ViolationType violationType) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @param decision
+     * @return
+     * @throws DSException
+     */
+    default boolean makeDecision(AuthContext context,Decision decision) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
