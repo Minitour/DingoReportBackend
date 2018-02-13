@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" />
       <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/model/Account.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/model/Account.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/utils/RESTRoute.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/utils/RESTRoute.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,127 +17,7 @@
     <SUITE FILE_PATH="coverage/DingoReportBackend$Main.coverage" NAME="Main Coverage Results" MODIFIED="1518436223881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataStore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="447">
-              <caret line="132" column="20" lean-forward="false" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
-              <folding>
-                <element signature="class#DSException#0;class#DataStore#0" expanded="false" />
-                <element signature="class#DSUnimplementedException#0;class#DataStore#0" expanded="false" />
-                <element signature="class#DSFormatException#0;class#DataStore#0" expanded="false" />
-                <element signature="class#DSAuthException#0;class#DataStore#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-              <folding>
-                <element signature="method#Database#0;class#Database#0" expanded="false" />
-                <element signature="method#isValid#0;class#Database#0" expanded="false" />
-                <element signature="method#signIn#0;class#Database#0" expanded="false" />
-                <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
-                <element signature="method#resetPassword#0;class#Database#0" expanded="false" />
-                <element signature="method#createReport#0;class#Database#0" expanded="false" />
-                <element signature="method#createTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#assignLeaderToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
-                <element signature="method#getReports#0;class#Database#0" expanded="false" />
-                <element signature="method#registerResource#0;class#Database#0" expanded="false" />
-                <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
-                <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
-                <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-                <element signature="method#close#0;class#Database#0" expanded="false" />
-                <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
-                <element signature="method#delete#0;class#Database#0" expanded="false" />
-                <element signature="method#deleteMany#0;class#Database#0" expanded="false" />
-                <element signature="method#insert#0;class#Database#0" expanded="false" />
-                <element signature="method#insert#1;class#Database#0" expanded="false" />
-                <element signature="method#get#0;class#Database#0" expanded="false" />
-                <element signature="method#update#0;class#Database#0" expanded="false" />
-                <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AuthContext.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-              <folding>
-                <element signature="e#443#444#0" expanded="true" />
-                <element signature="e#475#476#0" expanded="true" />
-                <element signature="e#507#508#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#568#569#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MOTSService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MOTSService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="64" column="51" lean-forward="false" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="719">
-              <caret line="90" column="50" lean-forward="false" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-              <folding>
-                <element signature="e#2039#2040#0" expanded="true" />
-                <element signature="e#2086#2087#0" expanded="true" />
-                <element signature="e#2221#2222#0" expanded="true" />
-                <element signature="e#2284#2285#0" expanded="true" />
-                <element signature="e#2514#2515#0" expanded="true" />
-                <element signature="e#2571#2572#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding>
-                <element signature="e#1900#1901#0" expanded="true" />
-                <element signature="e#1933#1934#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MakeDecisionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -161,8 +35,8 @@
       <find>update</find>
       <find>generate</find>
       <find>generate()</find>
-      <find>config</find>
       <find>Pair</find>
+      <find>config</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -184,7 +58,6 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Unit.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/ObjectId.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/TokenGenerator.java" />
-        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/utils/JSONResponse.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java" />
@@ -225,8 +98,9 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Account.java" />
-        <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" />
       </list>
     </option>
   </component>
@@ -497,7 +371,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -513,7 +386,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2238806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2238806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -586,35 +459,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/project-template.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/description.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/TokenGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/CSVExporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -684,14 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="true" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,14 +698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1002,10 +830,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="13" lean-forward="true" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        <state relative-caret-position="425">
+          <caret line="31" column="67" lean-forward="false" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
           <folding>
-            <element signature="method#Database#0;class#Database#0" expanded="false" />
+            <element signature="imports" expanded="true" />
             <element signature="method#isValid#0;class#Database#0" expanded="false" />
             <element signature="method#signIn#0;class#Database#0" expanded="false" />
             <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
@@ -1017,7 +845,6 @@
             <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
             <element signature="method#getReports#0;class#Database#0" expanded="false" />
             <element signature="method#registerResource#0;class#Database#0" expanded="false" />
-            <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
             <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
             <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
             <element signature="method#close#0;class#Database#0" expanded="false" />
@@ -1030,6 +857,54 @@
             <element signature="method#update#0;class#Database#0" expanded="false" />
             <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Mappable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/ObjectId.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/TokenGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="30" lean-forward="true" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

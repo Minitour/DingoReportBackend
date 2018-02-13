@@ -18,7 +18,6 @@ public class ContextValidatorFilter implements Filter {
         String id = request.headers("id");
         String sessionToken = request.headers("sessionToken");
 
-
         AuthContext context = new AuthContext(id,sessionToken);
 
         String[] parts = request.pathInfo().split("/");

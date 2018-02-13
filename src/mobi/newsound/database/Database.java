@@ -1,7 +1,6 @@
 package mobi.newsound.database;
 
 import mobi.newsound.controllers.MOTSService;
-import mobi.newsound.controllers.MailServiceController;
 import mobi.newsound.model.*;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -10,8 +9,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
-import javax.mail.MessagingException;
-import java.io.*;
+import java.io.File;
+import java.io.OutputStream;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -25,12 +24,12 @@ class Database implements DataStore {
 
     final static int MAX_ALLOWED_SESSIONS = config.get("user").getAsJsonObject().get("max_allowed_sessions").getAsInt();
     final static long MAX_TIME_OUT = config.get("user").getAsJsonObject().get("session_time_out").getAsInt();
-
+    final static String DB_LOCATION = config.get("db").getAsJsonObject().get("access_file_location").getAsString();
+    final static String JASPER_BIN = config.get("RF_REPORT_BINARY").getAsString();
     private Connection connection;
 
     Database() throws SQLException {
-        String file_path = config.get("db").getAsJsonObject().get("access_file_location").getAsString();
-        connection = getUcanaccessConnection(new File(file_path).getAbsolutePath());
+        connection = getUcanaccessConnection(new File(DB_LOCATION).getAbsolutePath());
     }
 
     @Override
@@ -399,9 +398,7 @@ class Database implements DataStore {
 
         java.sql.Date sqlFromDate = new java.sql.Date(from.getTime());
         java.sql.Date sqlToDate = new java.sql.Date(to.getTime());
-
-        String jasperFile = config.get("RF_REPORT_BINARY").getAsString();
-        String jasperFilePath = new File(jasperFile).getPath();
+        String jasperFilePath = new File(JASPER_BIN).getPath();
 
 
         Map<String,Object> params = new HashMap<>();
