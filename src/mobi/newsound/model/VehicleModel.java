@@ -16,6 +16,11 @@ public class VehicleModel extends DBObject {
     @Expose
     private String name;
 
+    public VehicleModel(int modelNum, String name) {
+        this.modelNum = modelNum;
+        this.name = name;
+    }
+
     public VehicleModel(Map<String, Object> map) {
         super(map);
     }

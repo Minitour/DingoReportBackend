@@ -13,12 +13,14 @@ import spark.Response;
 import spark.staticfiles.StaticFilesConfiguration;
 
 import javax.mail.MessagingException;
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import static mobi.newsound.utils.Config.config;
 import static mobi.newsound.utils.Stub.getReportStub;
+import static mobi.newsound.utils.Stub.getVehicleStub;
 import static spark.Spark.*;
 
 public class Main {
@@ -59,15 +61,40 @@ public class Main {
         get("/exportReports",new ExportReportsController());
 
         //TODO: remove this later
-        get("/test","application/json",(request, response) -> {
-            response.header("Content-Type","application/json");
-            return JSONResponse.SUCCESS().data(getReportStub());
-        },new JSONTransformer());
-
+        initTests();
     }
 
     static void make(String route, RESTRoute controller){
         post(route, "application/json", controller,new JSONTransformer());
+    }
+
+    static void initTests(){
+
+        //test stubs
+        get("/test0","application/json",(request, response) -> {
+            response.header("Content-Type","application/json");
+            return JSONResponse.SUCCESS().data(getReportStub());
+        },new JSONTransformer());
+
+        //test MOTSService
+        get("/test1","application/json",(request, response) -> {
+            response.header("Content-Type","application/json");
+            return JSONResponse.SUCCESS().data(MOTSService.getOwners(getVehicleStub()));
+        },new JSONTransformer());
+
+        //test MOTSService
+        get("/test2","application/json",(request, response) -> {
+            response.header("Content-Type","application/json");
+            try(DataStore db = DataStore.getInstance()){
+                AuthContext context = db.signIn("goldfedertomer@gmail.com","5f1MXgqBzm");
+                return db.createReport(context,getReportStub());
+            }catch (DataStore.DSException e){
+                return JSONResponse.FAILURE().message(e.getMessage());
+            }
+        },new JSONTransformer());
+
+
+
     }
 
     //TODO: remove anything below here when project is finished.

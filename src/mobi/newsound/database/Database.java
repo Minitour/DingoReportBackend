@@ -130,30 +130,42 @@ class Database implements DataStore {
         //Context Level: 4
 
         //validate context
-        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },4);
+        int role = isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },4);
+        if(role != 4) throw new DSAuthException("Invalid Context");
 
         //insert report object
         long id = 0;
+
+        Vehicle vehicle = report.getVehicle();
+
+        report.setVolunteer(new Volunteer(context.id,null,null,null));
+
         try {
-            //TODO: needs testing
-
-            Vehicle vehicle = report.getVehicle();
-
-            report.setVolunteer(new Volunteer(context.id,null,null,null));
-
             insert("TblVehicles",vehicle.db_columns());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-            List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
-            for(VehicleOwner owner: owners){
-                //insert owner
+        List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
+        for(VehicleOwner owner : owners){
+            //insert owner
+            try{
                 insert("TblVehicleOwners",owner);
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
 
+            try {
                 //create many-to-many connection
                 insert("TblOwnerVehicles",
                         new Column("owner",owner.getId()),
                         new Column("vehicle",vehicle.getLicensePlate()));
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
+        }
 
+        try {
 
             id = insert("TblReports",report);
 
@@ -184,19 +196,45 @@ class Database implements DataStore {
     @Override
     public boolean createTeam(AuthContext context, Team team) throws DSException {
         //Context Level: 1
-        return false;
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            insert("TblTeams",team);
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean assignLeaderToTeam(AuthContext context, Officer officer, Team team) throws DSException {
         //Context Level: 1
-        return false;
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            update("TblTeams",
+                    new Where("teamNum = ?",team.getTeamNum()),
+                    new Column("leader",officer.getBadgeNum()));
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean assignOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {
         //Context Level: 1
-        return false;
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+
+        try {
+            update("TblOfficers",
+                    new Where("badgeNum = ?",officer.getBadgeNum()),
+                    new Column("team",team.getTeamNum()));
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -354,6 +392,9 @@ class Database implements DataStore {
 
     @Override
     public void getReportExport(AuthContext context, Date from, Date to,OutputStream os) throws DSException {
+
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+
         java.sql.Date sqlFromDate = new java.sql.Date(from.getTime());
         java.sql.Date sqlToDate = new java.sql.Date(to.getTime());
 
