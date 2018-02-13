@@ -473,11 +473,16 @@ class Database implements DataStore {
      * @return The role id of a given context or -1 if invalid.
      */
     private int isContextValid(AuthContext context){
+        if(context.isValid())
+            return context.getRole();
+
         try {
             List<Map<String,Object>> data = get("SELECT Accounts.ROLE_ID " +
                     "FROM Accounts INNER JOIN Sessions ON Accounts.ID = Sessions.ID " +
                     "WHERE (((Sessions.ID)= ? ) AND ((Sessions.SESSION_TOKEN)= ? ))", context.id, context.sessionToken);
-            return data.size() == 0 ? -1 : (Integer) data.get(0).get("ROLE_ID");
+            int role =  data.size() == 0 ? -1 : (Integer) data.get(0).get("ROLE_ID");
+            context.setRole(role);
+            return role;
         } catch (SQLException e) {
             return -1;
         }
@@ -638,8 +643,27 @@ class Database implements DataStore {
         return rs.next() ? (T) rs.getObject(1) : null;
     }
 
+    /**
+     *
+     * @param table
+     * @param dbObject
+     * @param <T>
+     * @return
+     * @throws SQLException
+     */
     protected <T> T insert(String table,DBObject dbObject) throws SQLException {
         return insert(table,dbObject.db_columns());
+    }
+
+    /**
+     *
+     * @param object
+     * @param <T>
+     * @return
+     * @throws SQLException
+     */
+    protected <T> T insert(DBObject object) throws SQLException{
+        return insert(object.db_table(),object.db_columns());
     }
 
     /**

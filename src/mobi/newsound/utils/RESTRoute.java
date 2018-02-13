@@ -3,6 +3,7 @@ package mobi.newsound.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import mobi.newsound.database.AuthContext;
 import spark.Request;
 import spark.Response;
 import spark.Route;
@@ -20,4 +21,14 @@ public interface RESTRoute extends Route {
     }
 
     Object handle(Request request,Response response,JsonObject body) throws Exception;
+
+    default AuthContext extractFromBody(JsonObject body){
+        try {
+            String id = body.get("id").getAsString();
+            String sessionToken = body.get("sessionToken").getAsString();
+            return new AuthContext(id,sessionToken);
+        }catch (NullPointerException e){
+            return null;
+        }
+    }
 }

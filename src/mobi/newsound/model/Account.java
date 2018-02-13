@@ -86,4 +86,9 @@ public class Account extends DBObject{
                 new Column("PASSWORD",password)
         };
     }
+
+    @Override
+    public String db_table() {
+        return "Accounts";
+    }
 }

@@ -1,41 +1,44 @@
 package mobi.newsound.controllers;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
+import mobi.newsound.model.Decision;
+import mobi.newsound.model.Report;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
 
 /**
- * Created By Tony on 10/02/2018
+ * Created By Tony on 13/02/2018
  */
-public class UpdatePasswordController implements RESTRoute {
+public class SubmitReportController implements RESTRoute {
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
-        try {
+        try{
             AuthContext context = extractFromBody(body);
-            String currentPassword = body.get("currentPassword").getAsString();
-            String newPassword = body.get("newPassword").getAsString();
+            JsonObject reportJson = body.get("report").getAsJsonObject();
+            Report report = new Gson().fromJson(reportJson,Report.class);
 
-            //check db and create context
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
-                boolean didChange = db.updatePassword(context,currentPassword,newPassword);
-                if(didChange)
-                    return JSONResponse.SUCCESS();
+                boolean val = db.createReport(context,report);
+                if(val)
+                    return JSONResponse
+                            .SUCCESS();
                 else
                     return JSONResponse
                             .FAILURE()
-                            .message("Error: Incorrect Password!");
+                            .message("Unable to create report.");
 
             }catch (DataStore.DSException e){
                 return JSONResponse
                         .FAILURE()
                         .message("Error: "+e.getMessage());
             }
-        }catch (NullPointerException e){
+        }catch (Exception e){
             return JSONResponse
                     .FAILURE()
                     .message("Error: "+e.getMessage());
