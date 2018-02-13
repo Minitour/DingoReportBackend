@@ -184,11 +184,11 @@ class Database implements DataStore {
                 else
                     isValid = validateFileUrl(url,context.id,false,"mp4");
 
-                if(!isValid)
-                    throw new SQLException("Invalid URL: "+url);
-
-                // "/resources/{owner_id}/{file_name}.{type}
-
+                if(!isValid){
+                    System.err.println("Invalid URL! "+url);
+                    continue;
+                }
+                
                 insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
 
                 if(v instanceof VideoViolation)
