@@ -58,8 +58,11 @@ public class Main {
         make("/updatePassword",new UpdatePasswordController());
         make("/createVolunteer",new CreateVolunteerController());
         make("/getReports",new GetReportsController());
+        make("/makeDecision",new MakeDecisionController());
+        make("/submitReport",new SubmitReportController());
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
+
 
         //TODO: remove this later
         initTests();

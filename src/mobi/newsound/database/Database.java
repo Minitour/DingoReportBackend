@@ -188,7 +188,7 @@ class Database implements DataStore {
                     System.err.println("Invalid URL! "+url);
                     continue;
                 }
-                
+
                 insert(v.getClassType() == 0 ? "TblImageViolations" : "TblVideoViolations",v);
 
                 if(v instanceof VideoViolation)
