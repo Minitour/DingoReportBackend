@@ -34,7 +34,8 @@ public class SubmitReportController implements RESTRoute {
                     YoutubeVideoUploadController.upload(
                             violation.getEvidenceLink(),
                             violation.getAlphaNum(),
-                            "Video Evidence, Report ID: "+report.getReportNum(),
+                            "Video Evidence, Report ID: "+report.getReportNum()
+                                    + "\n\n"+violation.getDescription(),
                             (videoUrl)-> db.updateEvidenceUrl(context,violation,videoUrl));
                 }
 
