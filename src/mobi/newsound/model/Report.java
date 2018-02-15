@@ -33,7 +33,7 @@ public class Report extends DBObject {
     @Expose
     private List<Violation> violations;
 
-    public Report(int reportNum, String description, Date incidentDate, Volunteer volunteer, Vehicle vehicle) {
+    public Report(Integer reportNum, String description, Date incidentDate, Volunteer volunteer, Vehicle vehicle) {
         this.reportNum = reportNum;
         this.description = description;
         this.incidentDate = incidentDate;

@@ -88,6 +88,6 @@ public abstract class DBObject implements Mappable{
     }
 
     public String db_table(){
-        return "Tbl" + getClass().getName() + "s";
+        return "Tbl" + getClass().getSimpleName() + "s";
     }
 }

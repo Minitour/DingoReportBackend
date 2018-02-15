@@ -4,9 +4,13 @@ import mobi.newsound.controllers.*;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
 import mobi.newsound.model.Report;
+import mobi.newsound.model.Vehicle;
+import mobi.newsound.model.VideoViolation;
+import mobi.newsound.model.Violation;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.JSONTransformer;
 import mobi.newsound.utils.RESTRoute;
+import mobi.newsound.utils.Stub;
 import org.apache.log4j.BasicConfigurator;
 import spark.Request;
 import spark.Response;
@@ -16,6 +20,8 @@ import javax.mail.MessagingException;
 import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static mobi.newsound.utils.Config.config;
@@ -107,6 +113,23 @@ public class Main {
                 return JSONResponse.FAILURE().message(e.getMessage());
             }
         },new JSONTransformer());
+
+        get("/test3","application/json",((request, response) -> {
+            response.header("Content-Type","application/json");
+            Vehicle vehicle = Stub.getVehicleStub();
+            Report report = new Report(null,"My Description",new Date(),null,vehicle);
+            //(String alphaNum, String evidenceLink, ViolationType type, int from, int to, String description)
+            VideoViolation videoViolation = new VideoViolation(null,
+                    "resources/ababb5480d9f11e8ba890ed5f89f718b/8692075b-bc3f-4d22-b296-eeaac6df17df.mp4",
+                    getViolationTypeStub(),
+                    0,
+                    0,
+                    "My Custom Description");
+            List<Violation> violations = new ArrayList<>();
+            violations.add(videoViolation);
+            report.setViolations(violations);
+            return report;
+        }),new JSONTransformer());
 
 
 

@@ -1,0 +1,33 @@
+{
+  "id": "95d79de2715d4530abebf90e42cd857b",
+  "sessionToken": "wBHPOZVjMD0hpkwMUwLJz3TsZuQ2WNadGAoRNiFvcUkbudcWS0JU4dG57LzwiPlbBhmcIzTtHRl7UYvGTB4zuSpIoBk0sr4P0nKgzgAUAoDLTW4IDEgFx8ee2G2e9458",
+  "report": {
+    "description": "My Description",
+    "incidentDate": "Feb 15, 2018 1:17:13 PM",
+    "vehicle": {
+      "licensePlate": "ee151ad5-c584-439e-8f4c-8d78cb1474ad",
+      "model": {
+        "modelNum": 1,
+        "name": "some model"
+      },
+      "colorHEX": "0f541904-829b-49d0-8533-cd3cd8c4e3f4"
+    },
+    "violations": [
+      {
+        "from": 30,
+        "to": 60,
+        "description": "My Custom Description",
+        "evidenceLink": "resources/95d79de2715d4530abebf90e42cd857b/81ee9900-8f94-41b0-a527-86e820ed181d.mp4",
+        "type": {
+          "typeNum": 18,
+          "name": "b6963484-4f52-471c-9a1e-ebf5c143a161",
+          "description": "2d8a3781-15da-4e11-8a7b-9525ac8a6f7f",
+          "points": 3,
+          "fine": 4093,
+          "inviteToCourt": false
+        },
+        "classType": 1
+      }
+    ]
+  }
+}

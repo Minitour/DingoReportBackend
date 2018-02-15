@@ -135,7 +135,7 @@ public class YoutubeVideoUploadController {
                 System.out.println("  - Tags: " + returnedVideo.getSnippet().getTags());
                 System.out.println("  - Privacy Status: " + returnedVideo.getStatus().getPrivacyStatus());
                 System.out.println("  - Video Count: " + returnedVideo.getStatistics().getViewCount());
-                callback.onVideoReady(URL_TEMPLATE+returnedVideo.getId());
+                callback.onVideoReady(getYoutubeVideoUrl(returnedVideo.getId()));
 
             } catch (GoogleJsonResponseException e) {
                 System.err.println("GoogleJsonResponseException code: " + e.getDetails().getCode() + " : "
@@ -150,6 +150,10 @@ public class YoutubeVideoUploadController {
             }
         };
         executorService.submit(s);
+    }
+
+    private static String getYoutubeVideoUrl(String videoId){
+        return "https://www.youtube.com/embed/"+videoId+"?autoplay=1&showinfo=0&controls=0&loop=1";
     }
 
     @FunctionalInterface

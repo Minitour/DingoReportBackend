@@ -146,7 +146,8 @@ class Database implements DataStore {
 
         boolean vehicleExists = false;
         try {
-            vehicleExists = get("SELECT licensePlate FROM "+vehicle.db_table()+" WHERE licensePlate = ?",vehicle.getLicensePlate()).size() == 1;
+            String query = "SELECT licensePlate FROM "+vehicle.db_table()+" WHERE licensePlate = ?";
+            vehicleExists = get(query,vehicle.getLicensePlate()).size() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -290,8 +291,7 @@ class Database implements DataStore {
         }
     }
 
-    public void updateEvidenceUrl(AuthContext context,Violation violation,String url){
-        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+    public void updateEvidenceUrl(Violation violation,String url){ ;
         try {
             update(violation.db_table(),new Where("alphaNum = ?",violation.getAlphaNum()),new Column("evidenceLink",url));
         } catch (SQLException e) {
@@ -791,7 +791,7 @@ class Database implements DataStore {
             return false;
 
         String file = contents[2];
-        String type = file.split(".")[1];
+        String type = file.split("\\.")[1];
 
         for(String s : types){
             if(s.equalsIgnoreCase(type))
