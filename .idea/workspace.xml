@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
-    </list>
+    <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
