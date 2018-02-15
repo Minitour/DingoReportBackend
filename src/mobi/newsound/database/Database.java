@@ -53,6 +53,7 @@ class Database implements DataStore {
                     //password is correct
                     String token = TokenGenerator.generateToken();
                     String id = (String) user.get(0).get("ID");
+                    int roleId = (int) user.get(0).get("ROLE_ID");
                     insert("SESSIONS",
                             new Column("ID",id),
                             new Column("SESSION_TOKEN",token),
@@ -84,7 +85,9 @@ class Database implements DataStore {
                                 "SESSION_TOKEN in (#)",
                                 toRemove.toArray(new String[toRemove.size()]));
 
-                    return new AuthContext(id,token);
+                    AuthContext context = new AuthContext(id,token);
+                    context.setRole(roleId);
+                    return context;
 
                 }else throw new DSAuthException("Invalid Password");
             }
@@ -141,37 +144,48 @@ class Database implements DataStore {
         report.setReportNum(null);
         report.setVolunteer(new Volunteer(context.id,null,null,null));
 
+        boolean vehicleExists = false;
         try {
-            insert("TblVehicles",vehicle.db_columns());
+            vehicleExists = get("SELECT licensePlate FROM "+vehicle.db_table()+" WHERE licensePlate = ?",vehicle.getLicensePlate()).size() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
-        for(VehicleOwner owner : owners){
-            //insert owner
-            try{
-                insert("TblVehicleOwners",owner);
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-
+        if(!vehicleExists){
             try {
-                //create many-to-many connection
-                insert("TblOwnerVehicles",
-                        new Column("owner",owner.getId()),
-                        new Column("vehicle",vehicle.getLicensePlate()));
+                insert(vehicle);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+            List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
+            for(VehicleOwner owner : owners){
+                //insert owner
+                try{
+                    insert(owner);
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+                try {
+                    //create many-to-many connection
+                    insert("TblOwnerVehicles",
+                            new Column("owner",owner.getId()),
+                            new Column("vehicle",vehicle.getLicensePlate()));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
-        try {
 
-            id = insert("TblReports",report);
+        try {
+            id = insert(report);
             report.setReportNum(id);
+
             List<Violation> violations = report.getViolations();
             List<VideoViolation> videoViolations = new ArrayList<>();
+
             for (Violation v : violations){
                 String violationId = ObjectId.generate();
                 v.setAlphaNum(violationId);
@@ -193,7 +207,6 @@ class Database implements DataStore {
 
                 if(v instanceof VideoViolation)
                     videoViolations.add((VideoViolation)v);
-
             }
 
             return videoViolations;

@@ -13,7 +13,7 @@ public class AuthContext {
     @Expose
     public final String sessionToken;
 
-    private transient int role = -1;
+    private int role = -1;
 
     public AuthContext(String id, String sessionToken) {
         this.id = id;
