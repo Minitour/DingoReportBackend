@@ -1,5 +1,4 @@
 package mobi.newsound.main;
-import com.google.gson.JsonObject;
 import mobi.newsound.controllers.*;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
@@ -12,22 +11,15 @@ import mobi.newsound.utils.JSONTransformer;
 import mobi.newsound.utils.RESTRoute;
 import mobi.newsound.utils.Stub;
 import org.apache.log4j.BasicConfigurator;
-import spark.Request;
-import spark.Response;
 import spark.staticfiles.StaticFilesConfiguration;
 
-import javax.mail.MessagingException;
-import javax.xml.crypto.Data;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static mobi.newsound.utils.Config.config;
-import static mobi.newsound.utils.Stub.getReportStub;
-import static mobi.newsound.utils.Stub.getVehicleStub;
-import static mobi.newsound.utils.Stub.getViolationTypeStub;
+import static mobi.newsound.utils.Stub.*;
 import static spark.Spark.*;
 
 public class Main {

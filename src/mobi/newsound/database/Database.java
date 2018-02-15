@@ -479,13 +479,27 @@ class Database implements DataStore {
 
     @Override
     public List<VehicleModel> getVehicleModels(AuthContext context) throws DSException {
-        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },4);
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2,4);
         List<VehicleModel> vehicleModels = new ArrayList<>();
         try {
             List<Map<String,Object>> data = get("SELECT * FROM TblVehicleModels");
             for(Map<String,Object> map : data)
                 vehicleModels.add(new VehicleModel(map));
             return vehicleModels;
+        } catch (SQLException e) {
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<ViolationType> getViolationTypes(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2,4);
+        List<ViolationType> violationTypes = new ArrayList<>();
+        try {
+            List<Map<String,Object>> data = get("SELECT * FROM TblViolationTypes");
+            for(Map<String,Object> map : data)
+                violationTypes.add(new ViolationType(map));
+            return violationTypes;
         } catch (SQLException e) {
             throw new DSFormatException(e.getMessage());
         }
