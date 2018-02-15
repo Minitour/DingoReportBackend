@@ -17,13 +17,11 @@ import java.util.List;
 public class GetReportsController implements RESTRoute{
     @Override
     public Object handle(Request req, Response res, JsonObject body) throws Exception {
-        String id = req.headers("id");
-        String sessionToken = req.headers("sessionToken");
-        AuthContext context = new AuthContext(id, sessionToken);
+        AuthContext context = extractFromBody(body);
 
         try (DataStore db = DataStore.getInstance() ){
             assert db != null;
-            List<Report> reportList = db.getReports(context, 20, 1);
+            List<Report> reportList = db.getReports(context);
 
             return JSONResponse
                     .SUCCESS()

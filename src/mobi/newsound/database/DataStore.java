@@ -99,11 +99,9 @@ public interface DataStore extends AutoCloseable,Serializable{
     /**
      *
      * @param context
-     * @param count
-     * @param page
      * @return
      */
-    default List<Report> getReports(AuthContext context,int count,int page) throws DSException {throw new DSUnimplementedException();}
+    default List<Report> getReports(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *

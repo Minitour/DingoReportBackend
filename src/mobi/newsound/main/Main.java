@@ -83,9 +83,6 @@ public class Main {
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
 
-
-
-
         //TODO: remove this later
         initTests();
     }

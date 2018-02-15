@@ -301,7 +301,7 @@ class Database implements DataStore {
     }
 
     @Override
-    public List<Report> getReports(AuthContext context, int count, int page) throws DSException {
+    public List<Report> getReports(AuthContext context) throws DSException {
         //Context Level: 1,2,4
 
         //if role is not one of the following (0,1,2,4) then throw an exception.
@@ -312,7 +312,7 @@ class Database implements DataStore {
 
         try {
             //limit for pagination
-            String limit = " LIMIT " + count + " OFFSET " + ((page - 1) * count);
+            String limit = "";//" LIMIT " + count + " OFFSET " + ((page - 1) * count);
 
             String select = "SELECT * FROM TblReports";
 
@@ -328,7 +328,7 @@ class Database implements DataStore {
                     where = " WHERE team = "+unit;
                     break;
                 case 4://volunteer
-                    where = " WHERE volunteer = "+context.id;
+                    where = " WHERE volunteer = \""+context.id+"\"";
                     break;
             }
             String query = select + where + limit;
