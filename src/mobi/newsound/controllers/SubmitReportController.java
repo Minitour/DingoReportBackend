@@ -35,8 +35,6 @@ public class SubmitReportController implements RESTRoute {
             JsonObject reportJson = body.get("report").getAsJsonObject();
             Report report = gson.fromJson(reportJson,Report.class);
 
-
-            //TODO: Test this controller with VideoViolations
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
                 List<VideoViolation> videosToUpload = db.createReport(context,report);

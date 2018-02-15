@@ -62,22 +62,27 @@ public class Main {
          */
         make("/signin",new LoginController());
         make("/updatePassword",new UpdatePasswordController());
-        make("/createVolunteer",new CreateVolunteerController());
-        make("/getReports",new GetReportsController());
+
         make("/makeDecision",new MakeDecisionController());
         make("/submitReport",new SubmitReportController());
+
+        make("/addOfficerToTeam",new AddOfficerToTeamController());
+        make("/addReportToTeam",new AddReportToTeamController());
+
+        make("/createTeam",new CreateTeamController());
+        make("/createUser",new CreateUserController());
+        make("/createVolunteer",new CreateVolunteerController());
+
+        make("/getReports",new GetReportsController());
+        make("/getTeams",new GetAllTeamsController());
+        make("/getUnassignedOfficers",new GetUnassignedOfficersController());
+        make("/getUnassignedReports",new GetUnassignedReportsController());
+        make("/getUndecidedViolations",new SubmitReportController());
+        make("/getViolationTypes",new GetViolationTypesController());
+
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
 
-        //TODO: add missing routes:
-        // getViolationTypes        (4)     get all violation types
-        // getUnassignedOfficers    (1)     get all officers without a team
-        // getUnassignedReports     (1)     get all reports without a team
-        // createTeam               (1)     create a team
-        // addOfficerToTeam         (1)     assign officer to a team
-        // addReportToTeam          (1)     assign report to team
-        // getUndecidedViolations   (2)     get all violations that still need a vote
-        // createUser               (0)     create an account with associated data (if needed).
 
 
 

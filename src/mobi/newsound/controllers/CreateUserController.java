@@ -1,0 +1,89 @@
+package mobi.newsound.controllers;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import mobi.newsound.database.AuthContext;
+import mobi.newsound.database.DataStore;
+import mobi.newsound.model.*;
+import mobi.newsound.utils.JSONResponse;
+import mobi.newsound.utils.RESTRoute;
+import spark.Request;
+import spark.Response;
+
+import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
+
+/**
+ * Created by Antonio Zaitoun on 15/02/2018.
+ */
+public class CreateUserController implements RESTRoute {
+
+    private static final Gson gson = new Gson();
+
+    @Override
+    public Object handle(Request request, Response response, JsonObject body) throws Exception {
+
+        AuthContext context = extractFromBody(body);
+
+        JsonObject acccountJson = body.get("account").getAsJsonObject();
+
+        int roleId = acccountJson.getAsJsonObject().get("ROLE_ID").getAsInt();
+        String password = acccountJson.getAsJsonObject().get("password").getAsString();
+
+        Account account;
+
+        switch (roleId){
+            case 0:
+            case 3:
+                account = gson.fromJson(acccountJson,Account.class);
+                break;
+            case 1:
+                account = gson.fromJson(acccountJson,Officer.class);
+                break;
+            case 2:
+                account = gson.fromJson(acccountJson,HighRankOfficer.class);
+                break;
+            case 4:
+                account = gson.fromJson(acccountJson,Volunteer.class);
+                break;
+            default:
+                    account = null;
+                    break;
+        }
+
+        assert account != null;
+
+        account.setPassword(password);
+
+        try(DataStore db = DataStore.getInstance()){
+            assert db != null;
+
+            db.createUser(context,account);
+
+            sendEmailToUser(account);
+
+            return JSONResponse
+                    .SUCCESS();
+
+        }catch (Exception e){
+            return JSONResponse
+                    .FAILURE()
+                    .message("Error: " + e.getMessage());
+        }
+    }
+
+    private void sendEmailToUser(Account account){
+        String email = account.getEMAIL();
+        String title = "Account Credentials";
+        String message = "Your Dingo VRS account is ready!\n\n" +
+                "Your Login Info:\n" +
+                "email: "+account.getEMAIL()+"\n" +
+                "password: "+account.getPassword();
+
+        try {
+            MailServiceController.sendMail(email,title,message);
+        } catch (MessagingException | UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+}

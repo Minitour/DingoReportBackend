@@ -15,6 +15,8 @@ import static mobi.newsound.utils.Config.config;
 public class MailServiceController {
     private static final Session session;
 
+    private static final String SEPARATOR = "========================================================================";
+
     static {
 
         PropertiesLoader creds = new PropertiesLoader(config.get("mail_settings").getAsString());
@@ -43,5 +45,20 @@ public class MailServiceController {
         message.setSubject(subject);
         message.setText(content);
         Transport.send(message);
+        LogMail(from,to,subject,content);
+    }
+
+    public static void sendMail(String to,String subject,String content) throws MessagingException, UnsupportedEncodingException {
+        sendMail("no-reply@dingoland.net",to,subject,content);
+    }
+
+    private static void LogMail(String from,String to,String subject,String content){
+        String builder = SEPARATOR +
+                "FROM: " + from + "\n" +
+                "TO: " + to + "\n" +
+                "SUBJECT: " + subject + "\n" +
+                "CONTENT: " + content + "\n" +
+                SEPARATOR;
+        System.out.println(builder);
     }
 }
