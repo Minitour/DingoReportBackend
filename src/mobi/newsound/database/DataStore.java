@@ -159,6 +159,14 @@ public interface DataStore extends AutoCloseable,Serializable{
      * @return
      * @throws DSException
      */
+    default List<VehicleModel> getVehicleModels(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
     default List<Officer> getUnassignedOfficers(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
     /**

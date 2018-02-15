@@ -375,6 +375,17 @@ class Database implements DataStore {
                     violations.add(videoViolation);
                 }
 
+                List<Map<String,Object>> violationTypes = get("SELECT * FROM TblViolationTypes");
+                Map<Integer,ViolationType> violationTypeMap = new HashMap<>();
+                for(Map<String,Object> map : violationTypes){
+                    ViolationType type = new ViolationType(map);
+                    violationTypeMap.put(type.getTypeNum(),type);
+                }
+                for(Violation violation : violations){
+                    int key = violation.getForeignKey("type");
+                    violation.setType(violationTypeMap.get(key));
+                }
+
                 report.setViolations(violations);
 
                 //get volunteer
@@ -462,6 +473,20 @@ class Database implements DataStore {
             insert("TblViolationTypes",violationType);
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<VehicleModel> getVehicleModels(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },4);
+        List<VehicleModel> vehicleModels = new ArrayList<>();
+        try {
+            List<Map<String,Object>> data = get("SELECT * FROM TblVehicleModels");
+            for(Map<String,Object> map : data)
+                vehicleModels.add(new VehicleModel(map));
+            return vehicleModels;
+        } catch (SQLException e) {
             throw new DSFormatException(e.getMessage());
         }
     }
