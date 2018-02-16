@@ -401,15 +401,16 @@ class Database implements DataStore {
 
                     VehicleModel model = new VehicleModel(get("SELECT * FROM TblVehicleModel WHERE modelNum = ?",modelNum).get(0));
                     vehicle.setModel(model);
-
-                    List<Map<String,Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?",vehicleId);
-                    List<VehicleOwner> owners = new ArrayList<>();
-                    for(Map<String,Object> map : ownerIds){
-                        String ownerId = (String) map.get("owner");
-                        VehicleOwner owner = new VehicleOwner(get("SELECT * FROM TblVehicleOwners WHERE id = ?",ownerId).get(0));
-                        owners.add(owner);
+                    if(role != 4) {
+                        List<Map<String, Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?", vehicleId);
+                        List<VehicleOwner> owners = new ArrayList<>();
+                        for (Map<String, Object> map : ownerIds) {
+                            String ownerId = (String) map.get("owner");
+                            VehicleOwner owner = new VehicleOwner(get("SELECT * FROM TblVehicleOwners WHERE id = ?", ownerId).get(0));
+                            owners.add(owner);
+                        }
+                        vehicle.setOwners(owners);
                     }
-                    vehicle.setOwners(owners);
                     report.setVehicle(vehicle);
                 }
 

@@ -28,8 +28,11 @@ public class ContextValidatorFilter implements Filter {
             if (!db.isValid(context))
                 halt("Invalid Context");
 
-            if(parts.length <= 2 || !parts[2].equals(id))
-                halt("Access Denied");
+            int r = context.getRole();
+            if(r != 1 && r != 2 && r!= 0){
+                if(parts.length <= 2 || (!parts[2].equals(id)))
+                    halt("Access Denied");
+            }
 
         }catch (DataStore.DSException e){
             halt("Error");
