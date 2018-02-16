@@ -86,4 +86,9 @@ public class Officer extends Account {
                 new Column<>("team", Optional.ofNullable(team),Team::getTeamNum)
         };
     }
+
+    @Override
+    public String db_table() {
+        return "TblOfficers";
+    }
 }

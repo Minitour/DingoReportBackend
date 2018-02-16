@@ -6,4 +6,9 @@ public class HighRankOfficer extends Officer {
         super(ID, EMAIL, badgeNum, name, phoneExtension, rank);
         setROLE_ID(1);
     }
+
+    @Override
+    public String db_table() {
+        return super.db_table();
+    }
 }

@@ -6,6 +6,7 @@ import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
 import mobi.newsound.database.TokenGenerator;
 import mobi.newsound.model.Volunteer;
+import mobi.newsound.utils.EmailValidator;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import org.mindrot.jbcrypt.BCrypt;
@@ -26,6 +27,9 @@ public class CreateVolunteerController implements RESTRoute {
             String sessionToken = body.get("sessionToken").getAsString();
             JsonObject volunteerJson = body.get("volunteer").getAsJsonObject();
             Volunteer volunteer = new Gson().fromJson(volunteerJson,Volunteer.class);
+
+            if(EmailValidator.validate(volunteer.getEMAIL()))
+                throw new IllegalArgumentException("Invalid Email");
 
             AuthContext context = new AuthContext(id,sessionToken);
 
@@ -48,9 +52,7 @@ public class CreateVolunteerController implements RESTRoute {
                                             "Your Login Info:\n" +
                                             "email: "+volunteer.getEMAIL()+"\n" +
                                             "password: "+generatedPassword);
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedEncodingException e) {
+                } catch (MessagingException | UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
 

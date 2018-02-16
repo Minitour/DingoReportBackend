@@ -70,24 +70,15 @@ public class SubmitReportController implements RESTRoute {
         }
     }
 
-    static class AbstractElementAdapter implements JsonSerializer<Violation>, JsonDeserializer<Violation> {
-        @Override
-        public JsonElement serialize(Violation src, Type typeOfSrc, JsonSerializationContext context) {
-            JsonObject result = new JsonObject();
-            result.add("type", new JsonPrimitive(src.getClass().getSimpleName()));
-            result.add("properties", context.serialize(src, src.getClass()));
-
-            return result;
-        }
-
+    static class AbstractElementAdapter implements JsonDeserializer<Violation> {
         @Override
         public Violation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
                 throws JsonParseException {
             JsonObject jsonObject = json.getAsJsonObject();
-            //1 = video, 0 = image
-            int type = jsonObject.get("classType").getAsInt();
 
-            return context.deserialize(json, type == 1 ? VideoViolation.class : ImageViolation.class);
+            boolean hasDescription = jsonObject.has("description");
+
+            return context.deserialize(json, hasDescription ? VideoViolation.class : ImageViolation.class);
         }
     }
 }

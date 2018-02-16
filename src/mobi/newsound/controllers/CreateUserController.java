@@ -5,8 +5,10 @@ import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
 import mobi.newsound.model.*;
+import mobi.newsound.utils.EmailValidator;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
+import org.mindrot.jbcrypt.BCrypt;
 import spark.Request;
 import spark.Response;
 
@@ -22,54 +24,65 @@ public class CreateUserController implements RESTRoute {
 
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
+        try{
+            AuthContext context = extractFromBody(body);
 
-        AuthContext context = extractFromBody(body);
+            JsonObject acccountJson = body.get("account").getAsJsonObject();
 
-        JsonObject acccountJson = body.get("account").getAsJsonObject();
+            int roleId = acccountJson.getAsJsonObject().get("ROLE_ID").getAsInt();
+            String password = acccountJson.getAsJsonObject().get("password").getAsString();
+            String email = acccountJson.get("EMAIL").getAsString();
 
-        int roleId = acccountJson.getAsJsonObject().get("ROLE_ID").getAsInt();
-        String password = acccountJson.getAsJsonObject().get("password").getAsString();
+            if(EmailValidator.validate(email))
+                throw new IllegalArgumentException("Invalid Email");
 
-        Account account;
+            Account account;
 
-        switch (roleId){
-            case 0:
-            case 3:
-                account = gson.fromJson(acccountJson,Account.class);
-                break;
-            case 1:
-                account = gson.fromJson(acccountJson,Officer.class);
-                break;
-            case 2:
-                account = gson.fromJson(acccountJson,HighRankOfficer.class);
-                break;
-            case 4:
-                account = gson.fromJson(acccountJson,Volunteer.class);
-                break;
-            default:
+            switch (roleId){
+                case 0:
+                case 3:
+                    account = gson.fromJson(acccountJson,Account.class);
+                    break;
+                case 1:
+                    account = gson.fromJson(acccountJson,Officer.class);
+                    break;
+                case 2:
+                    account = gson.fromJson(acccountJson,HighRankOfficer.class);
+                    break;
+                case 4:
+                    account = gson.fromJson(acccountJson,Volunteer.class);
+                    break;
+                default:
                     account = null;
                     break;
-        }
+            }
 
-        assert account != null;
+            assert account != null;
 
-        account.setPassword(password);
+            account.setPassword(BCrypt.hashpw(password,BCrypt.gensalt()));
 
-        try(DataStore db = DataStore.getInstance()){
-            assert db != null;
+            try(DataStore db = DataStore.getInstance()){
+                assert db != null;
 
-            db.createUser(context,account);
+                db.createUser(context,account);
 
-            sendEmailToUser(account);
+                account.setPassword(password);
+                sendEmailToUser(account);
 
-            return JSONResponse
-                    .SUCCESS();
+                return JSONResponse
+                        .SUCCESS();
 
+            }catch (Exception e){
+                return JSONResponse
+                        .FAILURE()
+                        .message("Error: " + e.getMessage());
+            }
         }catch (Exception e){
             return JSONResponse
                     .FAILURE()
-                    .message("Error: " + e.getMessage());
+                    .message(e.getMessage());
         }
+
     }
 
     private void sendEmailToUser(Account account){

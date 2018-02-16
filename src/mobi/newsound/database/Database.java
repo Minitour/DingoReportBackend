@@ -318,6 +318,9 @@ class Database implements DataStore {
             String select = "SELECT * FROM TblReports";
 
             String where = null;
+
+            String orderBy = " ORDER BY incidentDate DESC";
+
             //context is valid
             switch (role) {
                 case 0://superuser
@@ -332,7 +335,7 @@ class Database implements DataStore {
                     where = " WHERE volunteer = \""+context.id+"\"";
                     break;
             }
-            String query = select + where + limit;
+            String query = select + where + limit + orderBy;
 
             List<Map<String,Object>> data = get(query);
             List<Report> reports = new ArrayList<>();
@@ -536,6 +539,32 @@ class Database implements DataStore {
             return true;
         }catch (SQLException e){
             return false;
+        }
+    }
+
+    @Override
+    public void createUser(AuthContext context, Account account) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); });
+        try{
+            //create account
+            String id = ObjectId.generate();
+            account.setID(id);
+
+            //make copy
+            Account toInsert = new Account(id,account.getEMAIL(),account.getROLE_ID(),account.getPassword());
+            //insert copy
+            insert(toInsert);
+
+            switch (account.getROLE_ID()){
+                case 1: //case officer
+                case 2: //case high rank officer
+                case 4: //case volunteer
+                    insert(account); //insert auto-infers the table using db_table()
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
         }
     }
 
