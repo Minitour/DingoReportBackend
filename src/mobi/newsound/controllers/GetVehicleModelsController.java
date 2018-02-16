@@ -22,11 +22,11 @@ public class GetVehicleModelsController implements RESTRoute {
         try(DataStore db = DataStore.getInstance()){
             assert db != null;
 
-            List<VehicleModel> violationTypes= db.getVehicleModels(context);
+            List<VehicleModel> vehicleModels= db.getVehicleModels(context);
 
             return JSONResponse
                     .SUCCESS()
-                    .data(violationTypes);
+                    .data(vehicleModels);
 
         }catch (Exception e){
             return JSONResponse
