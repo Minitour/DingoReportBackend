@@ -10,8 +10,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.io.File;
-import java.io.OutputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -463,9 +462,9 @@ class Database implements DataStore {
 
         try {
             JasperPrint print = JasperFillManager.fillReport(jasperFilePath, params , connection);
-            JasperExportManager.exportReportToPdfStream(print, os);
-
-        } catch (JRException e) {
+            byte[] arr = serialize(print);
+            os.write(arr);
+        } catch (JRException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -886,6 +885,18 @@ class Database implements DataStore {
             this.syntax = syntax;
             this.values = values;
         }
+    }
+
+    public static byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream(out);
+        os.writeObject(obj);
+        return out.toByteArray();
+    }
+    public static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        ObjectInputStream is = new ObjectInputStream(in);
+        return (T)is.readObject();
     }
 
 }
