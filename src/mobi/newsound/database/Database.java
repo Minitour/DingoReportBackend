@@ -301,7 +301,7 @@ class Database implements DataStore {
     }
 
     @Override
-    public List<Report> getReports(AuthContext context, int count, int page) throws DSException {
+    public List<Report> getReports(AuthContext context) throws DSException {
         //Context Level: 1,2,4
 
         //if role is not one of the following (0,1,2,4) then throw an exception.
@@ -312,7 +312,7 @@ class Database implements DataStore {
 
         try {
             //limit for pagination
-            String limit = " LIMIT " + count + " OFFSET " + ((page - 1) * count);
+            String limit = "";//" LIMIT " + count + " OFFSET " + ((page - 1) * count);
 
             String select = "SELECT * FROM TblReports";
 
@@ -328,7 +328,7 @@ class Database implements DataStore {
                     where = " WHERE team = "+unit;
                     break;
                 case 4://volunteer
-                    where = " WHERE volunteer = "+context.id;
+                    where = " WHERE volunteer = \""+context.id+"\"";
                     break;
             }
             String query = select + where + limit;
@@ -375,6 +375,17 @@ class Database implements DataStore {
                     violations.add(videoViolation);
                 }
 
+                List<Map<String,Object>> violationTypes = get("SELECT * FROM TblViolationTypes");
+                Map<Integer,ViolationType> violationTypeMap = new HashMap<>();
+                for(Map<String,Object> map : violationTypes){
+                    ViolationType type = new ViolationType(map);
+                    violationTypeMap.put(type.getTypeNum(),type);
+                }
+                for(Violation violation : violations){
+                    int key = violation.getForeignKey("type");
+                    violation.setType(violationTypeMap.get(key));
+                }
+
                 report.setViolations(violations);
 
                 //get volunteer
@@ -390,15 +401,16 @@ class Database implements DataStore {
 
                     VehicleModel model = new VehicleModel(get("SELECT * FROM TblVehicleModel WHERE modelNum = ?",modelNum).get(0));
                     vehicle.setModel(model);
-
-                    List<Map<String,Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?",vehicleId);
-                    List<VehicleOwner> owners = new ArrayList<>();
-                    for(Map<String,Object> map : ownerIds){
-                        String ownerId = (String) map.get("owner");
-                        VehicleOwner owner = new VehicleOwner(get("SELECT * FROM TblVehicleOwners WHERE id = ?",ownerId).get(0));
-                        owners.add(owner);
+                    if(role != 4) {
+                        List<Map<String, Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?", vehicleId);
+                        List<VehicleOwner> owners = new ArrayList<>();
+                        for (Map<String, Object> map : ownerIds) {
+                            String ownerId = (String) map.get("owner");
+                            VehicleOwner owner = new VehicleOwner(get("SELECT * FROM TblVehicleOwners WHERE id = ?", ownerId).get(0));
+                            owners.add(owner);
+                        }
+                        vehicle.setOwners(owners);
                     }
-                    vehicle.setOwners(owners);
                     report.setVehicle(vehicle);
                 }
 
@@ -462,6 +474,34 @@ class Database implements DataStore {
             insert("TblViolationTypes",violationType);
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<VehicleModel> getVehicleModels(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2,4);
+        List<VehicleModel> vehicleModels = new ArrayList<>();
+        try {
+            List<Map<String,Object>> data = get("SELECT * FROM TblVehicleModels");
+            for(Map<String,Object> map : data)
+                vehicleModels.add(new VehicleModel(map));
+            return vehicleModels;
+        } catch (SQLException e) {
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<ViolationType> getViolationTypes(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2,4);
+        List<ViolationType> violationTypes = new ArrayList<>();
+        try {
+            List<Map<String,Object>> data = get("SELECT * FROM TblViolationTypes");
+            for(Map<String,Object> map : data)
+                violationTypes.add(new ViolationType(map));
+            return violationTypes;
+        } catch (SQLException e) {
             throw new DSFormatException(e.getMessage());
         }
     }

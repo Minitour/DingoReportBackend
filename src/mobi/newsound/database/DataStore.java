@@ -99,11 +99,9 @@ public interface DataStore extends AutoCloseable,Serializable{
     /**
      *
      * @param context
-     * @param count
-     * @param page
      * @return
      */
-    default List<Report> getReports(AuthContext context,int count,int page) throws DSException {throw new DSUnimplementedException();}
+    default List<Report> getReports(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
     /**
      *
@@ -147,6 +145,78 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default void updateEvidenceUrl(Violation violation,String url) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<ViolationType> getViolationTypes(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<VehicleModel> getVehicleModels(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<Officer> getUnassignedOfficers(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<Report> getUnassignedReports(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<Team> getAllTeams(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @param officer
+     * @param team
+     * @throws DSException
+     */
+    default void addOfficerToTeam(AuthContext context,Officer officer,Team team) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @param report
+     * @param team
+     * @throws DSException
+     */
+    default void addReportToTeam(AuthContext context,Report report,Team team) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @throws DSException
+     */
+    default void getUndecidedViolations(AuthContext context) throws DSException {throw new DSUnimplementedException();}
+
+    /**
+     *
+     * @param context
+     * @param account
+     * @throws DSException
+     */
+    default void createUser(AuthContext context,Account account) throws DSException {throw new DSUnimplementedException();}
 
     abstract class DSException extends RuntimeException {
         DSException(){}
@@ -157,6 +227,7 @@ public interface DataStore extends AutoCloseable,Serializable{
 
     class DSUnimplementedException extends DSException{
         public DSUnimplementedException() {
+            super("Unimplemented");
         }
 
         DSUnimplementedException(String message) {

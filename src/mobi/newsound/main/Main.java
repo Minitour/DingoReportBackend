@@ -1,5 +1,4 @@
 package mobi.newsound.main;
-import com.google.gson.JsonObject;
 import mobi.newsound.controllers.*;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
@@ -12,22 +11,15 @@ import mobi.newsound.utils.JSONTransformer;
 import mobi.newsound.utils.RESTRoute;
 import mobi.newsound.utils.Stub;
 import org.apache.log4j.BasicConfigurator;
-import spark.Request;
-import spark.Response;
 import spark.staticfiles.StaticFilesConfiguration;
 
-import javax.mail.MessagingException;
-import javax.xml.crypto.Data;
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import static mobi.newsound.utils.Config.config;
-import static mobi.newsound.utils.Stub.getReportStub;
-import static mobi.newsound.utils.Stub.getVehicleStub;
-import static mobi.newsound.utils.Stub.getViolationTypeStub;
+import static mobi.newsound.utils.Stub.*;
 import static spark.Spark.*;
 
 public class Main {
@@ -62,24 +54,27 @@ public class Main {
          */
         make("/signin",new LoginController());
         make("/updatePassword",new UpdatePasswordController());
-        make("/createVolunteer",new CreateVolunteerController());
-        make("/getReports",new GetReportsController());
+
         make("/makeDecision",new MakeDecisionController());
         make("/submitReport",new SubmitReportController());
+
+        make("/addOfficerToTeam",new AddOfficerToTeamController());
+        make("/addReportToTeam",new AddReportToTeamController());
+
+        make("/createTeam",new CreateTeamController());
+        make("/createUser",new CreateUserController());
+        make("/createVolunteer",new CreateVolunteerController());
+
+        make("/getReports",new GetReportsController());
+        make("/getTeams",new GetAllTeamsController());
+        make("/getUnassignedOfficers",new GetUnassignedOfficersController());
+        make("/getUnassignedReports",new GetUnassignedReportsController());
+        make("/getUndecidedViolations",new SubmitReportController());
+        make("/getViolationTypes",new GetViolationTypesController());
+        make("/getVehicleModels",new GetVehicleModelsController());
+
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
-
-        //TODO: add missing routes:
-        // getViolationTypes        (4)     get all violation types
-        // getUnassignedOfficers    (1)     get all officers without a team
-        // getUnassignedReports     (1)     get all reports without a team
-        // createTeam               (1)     create a team
-        // addOfficerToTeam         (1)     assign officer to a team
-        // addReportToTeam          (1)     assign report to team
-        // getUndecidedViolations   (2)     get all violations that still need a vote
-        // createUser               (0)     create an account with associated data (if needed).
-
-
 
         //TODO: remove this later
         initTests();
