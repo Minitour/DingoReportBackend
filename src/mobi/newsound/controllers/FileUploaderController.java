@@ -40,7 +40,8 @@ public class FileUploaderController implements Route {
                         .FAILURE()
                         .message("Invalid Context");
 
-            String res_dir = config.get("res_dir").getAsString() + "/" + config.get("public").getAsString();
+            String publicFolder = config.get("public").getAsString();
+            String res_dir = config.get("res_dir").getAsString() + "/" + publicFolder;
             String fileName = UUID.randomUUID().toString() + "." + fileType;
 
             String path = new File(".").getAbsolutePath() + "/" + res_dir + "/" + context.id + "/";
@@ -65,6 +66,7 @@ public class FileUploaderController implements Route {
             int key = db.registerResource(context,resource);
             resource.setId(key);
             resource.setOwner(new Account(id,null,null));
+            resource.setPath(publicFolder + "/" + context.id + "/" + fileName);
 
             return JSONResponse
                     .SUCCESS()

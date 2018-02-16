@@ -22,6 +22,9 @@ public class Resource extends DBObject {
     @Expose
     private Account owner;
 
+    @Expose
+    private String path;
+
     public Resource(String url, String type) {
         this.url = url;
         this.type = type;
@@ -61,5 +64,13 @@ public class Resource extends DBObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }
