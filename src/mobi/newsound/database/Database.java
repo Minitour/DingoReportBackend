@@ -142,6 +142,7 @@ class Database implements DataStore {
         Vehicle vehicle = report.getVehicle();
 
         report.setReportNum(null);
+        report.setIncidentDate(new Date());//set the date to now
         report.setVolunteer(new Volunteer(context.id,null,null,null));
 
         boolean vehicleExists = false;
@@ -483,7 +484,7 @@ class Database implements DataStore {
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2,4);
         List<VehicleModel> vehicleModels = new ArrayList<>();
         try {
-            List<Map<String,Object>> data = get("SELECT * FROM TblVehicleModels");
+            List<Map<String,Object>> data = get("SELECT * FROM TblVehicleModel");
             for(Map<String,Object> map : data)
                 vehicleModels.add(new VehicleModel(map));
             return vehicleModels;

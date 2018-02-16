@@ -40,4 +40,9 @@ public class VehicleModel extends DBObject {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String db_table() {
+        return "TblVehicleModel";
+    }
 }
