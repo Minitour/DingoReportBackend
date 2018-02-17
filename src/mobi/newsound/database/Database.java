@@ -10,8 +10,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.ucanaccess.jdbc.UcanaccessDriver;
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.io.File;
-import java.io.OutputStream;
+import java.io.*;
 import java.sql.*;
 import java.util.*;
 import java.util.Date;
@@ -231,7 +230,17 @@ class Database implements DataStore {
         //Context Level: 1
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
         try {
-            insert("TblTeams",team);
+
+            //get leader
+            Officer officer = team.getLeader();
+
+            //insert team and get key.
+            int key = insert(team);
+
+            //assign officer to team.
+            update(officer.db_table(),
+                    new Where("badgeNum = ?",officer.getBadgeNum()),
+                    new Column("team",key));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -292,6 +301,7 @@ class Database implements DataStore {
         }
     }
 
+    @Override
     public void updateEvidenceUrl(Violation violation,String url){ ;
         try {
             update(violation.db_table(),new Where("alphaNum = ?",violation.getAlphaNum()),new Column("evidenceLink",url));
@@ -318,6 +328,9 @@ class Database implements DataStore {
             String select = "SELECT * FROM TblReports";
 
             String where = null;
+
+            String orderBy = " ORDER BY incidentDate DESC";
+
             //context is valid
             switch (role) {
                 case 0://superuser
@@ -332,7 +345,7 @@ class Database implements DataStore {
                     where = " WHERE volunteer = \""+context.id+"\"";
                     break;
             }
-            String query = select + where + limit;
+            String query = select + where + limit + orderBy;
 
             List<Map<String,Object>> data = get(query);
             List<Report> reports = new ArrayList<>();
@@ -460,9 +473,9 @@ class Database implements DataStore {
 
         try {
             JasperPrint print = JasperFillManager.fillReport(jasperFilePath, params , connection);
-            JasperExportManager.exportReportToPdfStream(print, os);
-
-        } catch (JRException e) {
+            byte[] arr = serialize(print);
+            os.write(arr);
+        } catch (JRException | IOException e) {
             e.printStackTrace();
         }
     }
@@ -536,6 +549,104 @@ class Database implements DataStore {
             return true;
         }catch (SQLException e){
             return false;
+        }
+    }
+
+    @Override
+    public void createUser(AuthContext context, Account account) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); });
+        try{
+            //create account
+            String id = ObjectId.generate();
+            account.setID(id);
+
+            //make copy
+            Account toInsert = new Account(id,account.getEMAIL(),account.getROLE_ID(),account.getPassword());
+            //insert copy
+            insert(toInsert);
+
+            switch (account.getROLE_ID()){
+                case 1: //case officer
+                case 2: //case high rank officer
+                case 4: //case volunteer
+                    insert(account); //insert auto-infers the table using db_table()
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Officer> getUnassignedOfficers(AuthContext context) throws DSException {
+        return null;
+    }
+
+    @Override
+    public List<Report> getUnassignedReports(AuthContext context) throws DSException {
+        return null;
+    }
+
+    @Override
+    public List<Team> getAllTeams(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            List<Map<String,Object>> rs = get("SELECT * FROM TblTeams");
+            List<Team> teams = new ArrayList<>();
+            for(Map<String,Object> m : rs){
+                Team team = new Team(m);
+
+                String leaderBadgeNum = team.getForeignKey("leader");
+                if(leaderBadgeNum != null){
+                    Officer officer = new Officer(get("SELECT * FROM TblOfficers WHERE badgeNum = ?",leaderBadgeNum).get(0));
+                    team.setLeader(officer);
+                }
+
+                List<Officer> teamMembers = new ArrayList<>();
+                List<Map<String,Object>> rs1 = get("SELECT * FROM TblOfficers WHERE team = ?",team.getTeamNum());
+                for(Map<String,Object> m1 : rs1){
+                    teamMembers.add(new Officer(m1));
+                }
+                team.setOfficers(teamMembers);
+
+                teams.add(team);
+            }
+            return teams;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public void addOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {
+
+    }
+
+    @Override
+    public void addReportToTeam(AuthContext context, Report report, Team team) throws DSException {
+
+    }
+
+    @Override
+    public void getUndecidedViolations(AuthContext context) throws DSException {
+
+    }
+
+    @Override
+    public List<Officer> getAllOfficers(AuthContext context) throws DSException {
+        try {
+            List<Map<String,Object>> rs = get("SELECT * FROM TblOfficers");
+            List<Officer> officers = new ArrayList<>();
+
+            for(Map<String,Object> m : rs)
+                officers.add(new Officer(m));
+
+            return officers;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
         }
     }
 
@@ -857,6 +968,18 @@ class Database implements DataStore {
             this.syntax = syntax;
             this.values = values;
         }
+    }
+
+    public static byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream(out);
+        os.writeObject(obj);
+        return out.toByteArray();
+    }
+    public static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        ObjectInputStream is = new ObjectInputStream(in);
+        return (T)is.readObject();
     }
 
 }

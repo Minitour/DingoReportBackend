@@ -53,4 +53,9 @@ public class Volunteer extends Account{
                 new Column("phone",phone)
         };
     }
+
+    @Override
+    public String db_table() {
+        return "TblVolunteers";
+    }
 }

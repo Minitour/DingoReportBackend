@@ -218,6 +218,15 @@ public interface DataStore extends AutoCloseable,Serializable{
      */
     default void createUser(AuthContext context,Account account) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @return
+     * @throws DSException
+     */
+    default List<Officer> getAllOfficers(AuthContext context) throws DSException {throw  new DSUnimplementedException();}
+
+
     abstract class DSException extends RuntimeException {
         DSException(){}
         DSException(String message){

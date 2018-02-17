@@ -1,6 +1,5 @@
 package mobi.newsound.controllers;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
@@ -11,30 +10,30 @@ import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
 
-/**
- * Created by Antonio Zaitoun on 15/02/2018.
- */
-public class CreateTeamController implements RESTRoute {
+import java.util.List;
 
-    private static final Gson gson = new Gson();
+/**
+ * Created By Tony on 17/02/2018
+ */
+public class GetAllOfficersController implements RESTRoute {
 
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
-
         AuthContext context = extractFromBody(body);
-        Team team = gson.fromJson(body.get("team"),Team.class);
 
         try(DataStore db = DataStore.getInstance()){
+            assert db != null;
 
-            db.createTeam(context,team);
+            List<Officer> officers= db.getAllOfficers(context);
 
             return JSONResponse
-                    .SUCCESS();
+                    .SUCCESS()
+                    .data(officers);
 
         }catch (Exception e){
             return JSONResponse
                     .FAILURE()
-                    .message("Error: " + e.getMessage());
+                    .message("Error: "+e.getMessage());
         }
     }
 }
