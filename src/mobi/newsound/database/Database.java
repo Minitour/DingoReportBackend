@@ -338,7 +338,9 @@ class Database implements DataStore {
                     where = "";
                     break;
                 case 2://officer
-                    int unit = (int) get("SELECT team FROM TblOfficers WHERE account_id = ?",context.id).get(0).get("team");
+                    Integer unit = (Integer) get("SELECT team FROM TblOfficers WHERE account_id = ?",context.id).get(0).get("team");
+                    if(unit == null)
+                        throw new DSAuthException("Unassigned Officer.");
                     where = " WHERE team = "+unit;
                     break;
                 case 4://volunteer
