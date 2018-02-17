@@ -73,6 +73,7 @@ public class Main {
         make("/getViolationTypes",new GetViolationTypesController());
         make("/getVehicleModels",new GetVehicleModelsController());
         make("/getAllOfficers",new GetAllOfficersController());
+        make("/getAccounts",new GetAccountsController());
 
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());

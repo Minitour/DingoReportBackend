@@ -696,6 +696,20 @@ class Database implements DataStore {
     }
 
     @Override
+    public List<Account> getAccounts(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); });
+        try{
+            List<Account> accounts = new ArrayList<>();
+            get("SELECT ID,EMAIL,ROLE_ID FROM Accounts").forEach(
+                    stringObjectMap -> accounts.add(new Account(stringObjectMap))
+            );
+            return accounts;
+        }catch (SQLException e){
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
     public List<Officer> getAllOfficers(AuthContext context) throws DSException {
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
         try {
