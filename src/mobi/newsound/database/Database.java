@@ -369,8 +369,13 @@ class Database implements DataStore {
 
                     List<Decision> decisionList = new ArrayList<>();
                     List<Map<String,Object>> decisions = get("SELECT * FROM TblImageViolationDecisions WHERE violation = ?",id);
-                    for (Map<String,Object> map : decisions)
-                        decisionList.add(new Decision(map));
+                    for (Map<String,Object> map : decisions) {
+                        Decision decision = new Decision(map);
+                        String badgeNum = decision.getForeignKey("officer");
+                        Map<String,Object> officerMap = get("SELECT ID,badgeNum FROM TblOfficers INNER JOIN Accounts ON TblOfficers.account_id = Accounts.ID WHERE badgeNum = ?",badgeNum).get(0);
+                        decision.setOfficer(new Officer(officerMap));
+                        decisionList.add(decision);
+                    }
 
                     imageViolation.setDecisions(decisionList);
                     violations.add(imageViolation);
@@ -382,8 +387,13 @@ class Database implements DataStore {
 
                     List<Decision> decisionList = new ArrayList<>();
                     List<Map<String,Object>> decisions = get("SELECT * FROM TblVideoViolationDecisions WHERE violation = ?",id);
-                    for (Map<String,Object> map : decisions)
-                        decisionList.add(new Decision(map));
+                    for (Map<String,Object> map : decisions) {
+                        Decision decision = new Decision(map);
+                        String badgeNum = decision.getForeignKey("officer");
+                        Map<String,Object> officerMap = get("SELECT ID,badgeNum FROM TblOfficers INNER JOIN Accounts ON TblOfficers.account_id = Accounts.ID WHERE badgeNum = ?",badgeNum).get(0);
+                        decision.setOfficer(new Officer(officerMap));
+                        decisionList.add(decision);
+                    }
 
                     videoViolation.setDecisions(decisionList);
                     violations.add(videoViolation);
@@ -523,33 +533,49 @@ class Database implements DataStore {
 
     @Override
     public boolean makeDecision(AuthContext context, Decision decision) throws DSException {
-        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2);
+        int role = isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1,2);
         try{
-            String tableName = decision.getViolation().db_table();
-            String badgeNum = decision.getOfficer().getBadgeNum();
-            String violation = decision.getViolation().getAlphaNum();
+            String violationTable = decision.getViolation().db_table();
 
-            List<Map<String,Object>> decisions = get("SELECT * FROM "+tableName+" WHERE violation = ?",violation);
+            //table to insert in
+            String decisionTable = violationTable.substring(0,violationTable.length() - 1)+ "Decisions";
 
-            for(Map<String,Object> item : decisions){
-                Decision deci = new Decision(item);
-                String officerId = deci.getForeignKey("officer");
+            //violation id
+            String violationId = decision.getViolation().getAlphaNum();
 
-                //officer is trying to vote again.
-                if(officerId.equals(decision.getOfficer().getBadgeNum()))
-                    return false;
+            //get current officer data.
+            Map<String,Object> officerMap = get("SELECT badgeNum,team FROM TblOfficers WHERE account_id = ?",context.id).get(0);
+
+            //validate team
+            Integer teamId = (Integer) officerMap.get("team");
+
+            if(role != 1){
+                Integer reportId = (Integer) get("SELECT report FROM "+violationTable+" WHERE alphaNum = ?",violationId).get(0).get("report");
+                if(!teamId.equals(get("SELECT team FROM TblReports WHERE reportNum = ?",reportId).get(0).get("team")))
+                    throw new DSAuthException("Officer does not belong to the team of this violation");
             }
 
+            String badgeNum = (String) officerMap.get("badgeNum");
 
-            update(tableName,
-                    new Where("officer = ? AND violation = ?",
-                            badgeNum,
-                            violation),
-                    new Column("decision",decision.getDecision()));
+            int teamSize = get("SELECT badgeNum FROM TblOfficers WHERE team = ?",teamId).size();
+
+            List<Map<String,Object>> decisionsListMap = get("SELECT * FROM "+decisionTable +" WHERE violation = ?",violationId);
+            if(decisionsListMap.size() > Math.round(teamSize / 2) + 1)
+                throw new DSAuthException("This violation has already been decided, no need for more votes.");
+
+            for (Map<String,Object> m : decisionsListMap){
+                Decision dec = new Decision(m);
+
+                if(dec.getForeignKey("officer").equals(badgeNum))
+                    throw new DSAuthException("Officer Already Voted");
+            }
+
+            decision.setOfficer(new Officer(officerMap));
+            insert(decisionTable,decision);
 
             return true;
         }catch (SQLException e){
-            return false;
+            throw new DSFormatException(e.getMessage());
         }
     }
 
