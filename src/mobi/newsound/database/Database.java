@@ -230,7 +230,17 @@ class Database implements DataStore {
         //Context Level: 1
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
         try {
-            insert("TblTeams",team);
+
+            //get leader
+            Officer officer = team.getLeader();
+
+            //insert team and get key.
+            int key = insert(team);
+
+            //assign officer to team.
+            update(officer.db_table(),
+                    new Where("badgeNum = ?",officer.getBadgeNum()),
+                    new Column("team",key));
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -291,6 +301,7 @@ class Database implements DataStore {
         }
     }
 
+    @Override
     public void updateEvidenceUrl(Violation violation,String url){ ;
         try {
             update(violation.db_table(),new Where("alphaNum = ?",violation.getAlphaNum()),new Column("evidenceLink",url));
@@ -561,6 +572,78 @@ class Database implements DataStore {
                     insert(account); //insert auto-infers the table using db_table()
             }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Officer> getUnassignedOfficers(AuthContext context) throws DSException {
+        return null;
+    }
+
+    @Override
+    public List<Report> getUnassignedReports(AuthContext context) throws DSException {
+        return null;
+    }
+
+    @Override
+    public List<Team> getAllTeams(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            List<Map<String,Object>> rs = get("SELECT * FROM TblTeams");
+            List<Team> teams = new ArrayList<>();
+            for(Map<String,Object> m : rs){
+                Team team = new Team(m);
+
+                String leaderBadgeNum = team.getForeignKey("leader");
+                if(leaderBadgeNum != null){
+                    Officer officer = new Officer(get("SELECT * FROM TblOfficers WHERE badgeNum = ?",leaderBadgeNum).get(0));
+                    team.setLeader(officer);
+                }
+
+                List<Officer> teamMembers = new ArrayList<>();
+                List<Map<String,Object>> rs1 = get("SELECT * FROM TblOfficers WHERE team = ?",team.getTeamNum());
+                for(Map<String,Object> m1 : rs1){
+                    teamMembers.add(new Officer(m1));
+                }
+                team.setOfficers(teamMembers);
+
+                teams.add(team);
+            }
+            return teams;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
+    }
+
+    @Override
+    public void addOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {
+
+    }
+
+    @Override
+    public void addReportToTeam(AuthContext context, Report report, Team team) throws DSException {
+
+    }
+
+    @Override
+    public void getUndecidedViolations(AuthContext context) throws DSException {
+
+    }
+
+    @Override
+    public List<Officer> getAllOfficers(AuthContext context) throws DSException {
+        try {
+            List<Map<String,Object>> rs = get("SELECT * FROM TblOfficers");
+            List<Officer> officers = new ArrayList<>();
+
+            for(Map<String,Object> m : rs)
+                officers.add(new Officer(m));
+
+            return officers;
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DSFormatException(e.getMessage());

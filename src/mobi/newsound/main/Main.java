@@ -72,6 +72,7 @@ public class Main {
         make("/getUndecidedViolations",new SubmitReportController());
         make("/getViolationTypes",new GetViolationTypesController());
         make("/getVehicleModels",new GetVehicleModelsController());
+        make("/getAllOfficers",new GetAllOfficersController());
 
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
