@@ -28,7 +28,7 @@ public class CreateVolunteerController implements RESTRoute {
             JsonObject volunteerJson = body.get("volunteer").getAsJsonObject();
             Volunteer volunteer = new Gson().fromJson(volunteerJson,Volunteer.class);
 
-            if(EmailValidator.validate(volunteer.getEMAIL()))
+            if(!EmailValidator.validate(volunteer.getEMAIL()))
                 throw new IllegalArgumentException("Invalid Email");
 
             AuthContext context = new AuthContext(id,sessionToken);

@@ -33,7 +33,7 @@ public class CreateUserController implements RESTRoute {
             String password = acccountJson.getAsJsonObject().get("password").getAsString();
             String email = acccountJson.get("EMAIL").getAsString();
 
-            if(EmailValidator.validate(email))
+            if(!EmailValidator.validate(email))
                 throw new IllegalArgumentException("Invalid Email");
 
             Account account;

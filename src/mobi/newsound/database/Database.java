@@ -430,7 +430,7 @@ class Database implements DataStore {
 
                 //get team
                 if(teamNum != null){
-                    report.setTeam(new Team(get("SELECT * FROM TblTeams WHERE teamNum = ",teamNum).get(0)));
+                    report.setTeam(new Team(get("SELECT * FROM TblTeams WHERE teamNum = ?",teamNum).get(0)));
                 }
 
                 reports.add(report);
@@ -438,6 +438,7 @@ class Database implements DataStore {
 
             return reports;
         }catch (SQLException e){
+            e.printStackTrace();
             throw new DSFormatException(e.getMessage());
         }
     }
@@ -554,7 +555,10 @@ class Database implements DataStore {
 
     @Override
     public void createUser(AuthContext context, Account account) throws DSException {
-        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); });
+        int role = isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+
+        if(role == 1 && account.getROLE_ID() != 2)
+            throw new DSAuthException("Head Officer can only add an officer.");
         try{
             //create account
             String id = ObjectId.generate();
@@ -580,12 +584,35 @@ class Database implements DataStore {
 
     @Override
     public List<Officer> getUnassignedOfficers(AuthContext context) throws DSException {
-        return null;
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            List<Map<String,Object>> rs = get("SELECT * FROM TblOfficers WHERE team IS NULL");
+            List<Officer> officers = new ArrayList<>();
+
+            for(Map<String,Object> m : rs)
+                officers.add(new Officer(m));
+
+            return officers;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
     public List<Report> getUnassignedReports(AuthContext context) throws DSException {
-        return null;
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            List<Map<String,Object>> d = get("SELECT * FROM TblReports WHERE team IS NULL");
+            List<Report> reports = new ArrayList<>();
+
+            for(Map<String,Object> m : d){ reports.add(new Report(m)); }
+
+            return reports;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
@@ -610,6 +637,13 @@ class Database implements DataStore {
                 }
                 team.setOfficers(teamMembers);
 
+                List<Report> assignedReports = new ArrayList<>();
+                List<Map<String,Object>> rs2 = get("SELECT * FROM TblReports WHERE team = ?",team.getTeamNum());
+                for(Map<String,Object> m1 : rs2){
+                    assignedReports.add(new Report(m1));
+                }
+                team.setReports(assignedReports);
+
                 teams.add(team);
             }
             return teams;
@@ -621,12 +655,39 @@ class Database implements DataStore {
 
     @Override
     public void addOfficerToTeam(AuthContext context, Officer officer, Team team) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
 
+            //check if officer is unassigned.
+            Integer existingTeam = (Integer) get("SELECT team FROM TblOfficers WHERE badgeNum = ?",officer.getBadgeNum()).get(0).get("team");
+            if(existingTeam != null)
+                throw new DSFormatException("Officer already assigned to team "+existingTeam);
+
+            //check if team is not full
+            if(get("SELECT badgeNum FROM TblOfficers WHERE team = ?",team.getTeamNum()).size() >= 6)
+                throw new DSFormatException("Team is already full");
+
+            //update
+            update(officer.db_table(),
+                    new Where("badgeNum = ?",officer.getBadgeNum())
+                    ,new Column("team",team.getTeamNum()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
     public void addReportToTeam(AuthContext context, Report report, Team team) throws DSException {
-
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
+        try {
+            update(report.db_table(),
+                    new Where("reportNum = ?",report.getReportNum())
+                    ,new Column("team",team.getTeamNum()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DSFormatException(e.getMessage());
+        }
     }
 
     @Override
@@ -636,6 +697,7 @@ class Database implements DataStore {
 
     @Override
     public List<Officer> getAllOfficers(AuthContext context) throws DSException {
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
         try {
             List<Map<String,Object>> rs = get("SELECT * FROM TblOfficers");
             List<Officer> officers = new ArrayList<>();
