@@ -23,6 +23,9 @@ public class Team extends DBObject{
     @Expose
     private Collection<Officer> officers;
 
+    @Expose
+    private Collection<Report> reports;
+
     public Team(Integer teamNum) {
         this.teamNum = teamNum;
     }
@@ -53,6 +56,14 @@ public class Team extends DBObject{
 
     public void setOfficers(Collection<Officer> officers) {
         this.officers = officers;
+    }
+
+    public Collection<Report> getReports() {
+        return reports;
+    }
+
+    public void setReports(Collection<Report> reports) {
+        this.reports = reports;
     }
 
     @Override

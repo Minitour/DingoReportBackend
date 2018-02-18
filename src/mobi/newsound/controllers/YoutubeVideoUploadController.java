@@ -153,7 +153,7 @@ public class YoutubeVideoUploadController {
     }
 
     private static String getYoutubeVideoUrl(String videoId){
-        return "https://www.youtube.com/embed/"+videoId+"?autoplay=1&showinfo=0&controls=0&loop=1";
+        return "https://www.youtube.com/embed/"+videoId+"?autoplay=1&showinfo=0&controls=0&loop=1&modestbranding=1&rel=0";
     }
 
     @FunctionalInterface

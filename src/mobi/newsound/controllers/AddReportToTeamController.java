@@ -26,6 +26,7 @@ public class AddReportToTeamController implements RESTRoute {
         Team team = gson.fromJson(body.get("team"),Team.class);
 
         try(DataStore db = DataStore.getInstance()){
+            assert db != null;
 
             db.addReportToTeam(context,report,team);
 

@@ -18,12 +18,12 @@ public class Officer extends Account {
     private String phoneExtension;
 
     @Expose
-    private int rank;
+    private Integer rank;
 
     @Expose
     private Team team;
 
-    public Officer(String ID, String EMAIL, String badgeNum, String name, String phoneExtension, int rank) {
+    public Officer(String ID, String EMAIL, String badgeNum, String name, String phoneExtension, Integer rank) {
         super(ID, EMAIL, 2);
         this.badgeNum = badgeNum;
         this.name = name;
@@ -33,6 +33,10 @@ public class Officer extends Account {
 
     public Officer(Map<String, Object> map) {
         super(map);
+    }
+
+    public Officer(String ID,String badgeNum) {
+        this(ID,null,badgeNum,null,null,0);
     }
 
     public String getBadgeNum() {

@@ -1,10 +1,12 @@
 package mobi.newsound.controllers;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
 import mobi.newsound.database.DataStore;
 import mobi.newsound.model.Decision;
+import mobi.newsound.model.Violation;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import spark.Request;
@@ -14,12 +16,21 @@ import spark.Response;
  * Created By Tony on 13/02/2018
  */
 public class MakeDecisionController implements RESTRoute{
+
+    private static Gson gson;
+
+    static {
+        GsonBuilder gsonBilder = new GsonBuilder();
+        gsonBilder.registerTypeAdapter(Violation.class, new SubmitReportController.AbstractElementAdapter());
+        gson = gsonBilder.create();
+    }
+
     @Override
     public Object handle(Request request, Response response, JsonObject body) throws Exception {
         try{
             AuthContext context = extractFromBody(body);
             JsonObject decisionJson = body.get("decision").getAsJsonObject();
-            Decision decision = new Gson().fromJson(decisionJson,Decision.class);
+            Decision decision = gson.fromJson(decisionJson,Decision.class);
 
             try (DataStore db = DataStore.getInstance() ){
                 assert db != null;
