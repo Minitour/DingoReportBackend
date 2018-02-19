@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Decision;
 import mobi.newsound.model.Violation;
 import mobi.newsound.utils.JSONResponse;
@@ -32,7 +32,7 @@ public class MakeDecisionController implements RESTRoute{
             JsonObject decisionJson = body.get("decision").getAsJsonObject();
             Decision decision = gson.fromJson(decisionJson,Decision.class);
 
-            try (DataStore db = DataStore.getInstance() ){
+            try (DataAccess db = DataAccess.getInstance() ){
                 assert db != null;
                 boolean val = db.makeDecision(context,decision);
                 if(val)
@@ -43,7 +43,7 @@ public class MakeDecisionController implements RESTRoute{
                             .FAILURE()
                             .message("Already Voted.");
 
-            }catch (DataStore.DSException e){
+            }catch (DataAccess.DSException e){
                 return JSONResponse
                         .FAILURE()
                         .message("Error: "+e.getMessage());

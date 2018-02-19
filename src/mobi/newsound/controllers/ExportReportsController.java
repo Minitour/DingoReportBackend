@@ -1,9 +1,7 @@
 package mobi.newsound.controllers;
 
-import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
-import mobi.newsound.utils.RESTRoute;
+import mobi.newsound.database.DataAccess;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import spark.Request;
@@ -47,7 +45,7 @@ public class ExportReportsController implements Route {
             AuthContext context = new AuthContext(id, sessionToken);
             OutputStream os = response.raw().getOutputStream();
 
-            try (DataStore db = DataStore.getInstance()) {
+            try (DataAccess db = DataAccess.getInstance()) {
                 assert db != null;
 
                 db.getReportExport(context, from, to, os);
@@ -55,7 +53,7 @@ public class ExportReportsController implements Route {
 
                 return os;
 
-            } catch (DataStore.DSException e) {
+            } catch (DataAccess.DSException e) {
                 return e.getMessage();
             }
         }catch (Exception e){

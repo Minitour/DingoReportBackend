@@ -3,8 +3,7 @@ package mobi.newsound.controllers;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
-import mobi.newsound.model.Officer;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Team;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
@@ -24,7 +23,7 @@ public class CreateTeamController implements RESTRoute {
         AuthContext context = extractFromBody(body);
         Team team = gson.fromJson(body.get("team"),Team.class);
 
-        try(DataStore db = DataStore.getInstance()){
+        try(DataAccess db = DataAccess.getInstance()){
 
             db.createTeam(context,team);
 

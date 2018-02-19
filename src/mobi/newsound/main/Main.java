@@ -1,7 +1,7 @@
 package mobi.newsound.main;
 import mobi.newsound.controllers.*;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.Vehicle;
 import mobi.newsound.model.VideoViolation;
@@ -103,10 +103,10 @@ public class Main {
         //test MOTSService
         get("/test2","application/json",(request, response) -> {
             response.header("Content-Type","application/json");
-            try(DataStore db = DataStore.getInstance()){
+            try(DataAccess db = DataAccess.getInstance()){
                 AuthContext context = db.signIn("goldfedertomer@gmail.com","5f1MXgqBzm");
                 return db.createReport(context,getReportStub());
-            }catch (DataStore.DSException e){
+            }catch (DataAccess.DSException e){
                 return JSONResponse.FAILURE().message(e.getMessage());
             }
         },new JSONTransformer());

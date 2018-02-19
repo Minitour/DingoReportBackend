@@ -3,7 +3,7 @@ package mobi.newsound.controllers;
 import mobi.newsound.database.AuthContext;
 import static mobi.newsound.utils.Config.*;
 
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Account;
 import mobi.newsound.model.Resource;
 import mobi.newsound.utils.JSONResponse;
@@ -32,7 +32,7 @@ public class FileUploaderController implements Route {
         //get context
         AuthContext context = new AuthContext(id,sessionToken);
 
-        try (DataStore db = DataStore.getInstance() ){
+        try (DataAccess db = DataAccess.getInstance() ){
             assert db != null;
 
             if(!db.isValid(context))
@@ -72,7 +72,7 @@ public class FileUploaderController implements Route {
                     .SUCCESS()
                     .data(resource);
 
-        }catch (DataStore.DSException e){
+        }catch (DataAccess.DSException e){
             return JSONResponse
                     .FAILURE()
                     .message("Error: "+e.getMessage());
