@@ -2,7 +2,7 @@ package mobi.newsound.controllers;
 
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Report;
 import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
@@ -19,7 +19,7 @@ public class GetReportsController implements RESTRoute{
     public Object handle(Request req, Response res, JsonObject body) throws Exception {
         AuthContext context = extractFromBody(body);
 
-        try (DataStore db = DataStore.getInstance() ){
+        try (DataAccess db = DataAccess.getInstance() ){
             assert db != null;
             List<Report> reportList = db.getReports(context);
 
@@ -27,7 +27,7 @@ public class GetReportsController implements RESTRoute{
                     .SUCCESS()
                     .data(reportList);
 
-        }catch (DataStore.DSException e){
+        }catch (DataAccess.DSException e){
             return JSONResponse
                     .FAILURE()
                     .message("Error: "+e.getMessage());

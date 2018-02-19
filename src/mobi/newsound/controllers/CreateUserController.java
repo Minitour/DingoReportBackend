@@ -3,7 +3,7 @@ package mobi.newsound.controllers;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.*;
 import mobi.newsound.utils.EmailValidator;
 import mobi.newsound.utils.JSONResponse;
@@ -61,7 +61,7 @@ public class CreateUserController implements RESTRoute {
 
             account.setPassword(BCrypt.hashpw(password,BCrypt.gensalt()));
 
-            try(DataStore db = DataStore.getInstance()){
+            try(DataAccess db = DataAccess.getInstance()){
                 assert db != null;
 
                 db.createUser(context,account);

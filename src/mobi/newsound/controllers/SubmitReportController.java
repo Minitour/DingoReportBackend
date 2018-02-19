@@ -2,7 +2,7 @@ package mobi.newsound.controllers;
 
 import com.google.gson.*;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.ImageViolation;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.VideoViolation;
@@ -35,7 +35,7 @@ public class SubmitReportController implements RESTRoute {
             JsonObject reportJson = body.get("report").getAsJsonObject();
             Report report = gson.fromJson(reportJson,Report.class);
 
-            try (DataStore db = DataStore.getInstance() ){
+            try (DataAccess db = DataAccess.getInstance() ){
                 assert db != null;
                 List<VideoViolation> videosToUpload = db.createReport(context,report);
 
@@ -47,7 +47,7 @@ public class SubmitReportController implements RESTRoute {
                             "Video Evidence, Report ID: "+report.getReportNum()
                                     + "\n\n"+violation.getDescription(),
                             (videoUrl)-> {
-                                try(DataStore db1 = DataStore.getInstance()) {
+                                try(DataAccess db1 = DataAccess.getInstance()) {
                                     db1.updateEvidenceUrl(violation, videoUrl);
                                 }  catch (Exception e) {
                                     e.printStackTrace();
@@ -58,7 +58,7 @@ public class SubmitReportController implements RESTRoute {
                 return JSONResponse
                         .SUCCESS();
 
-            }catch (DataStore.DSException e){
+            }catch (DataAccess.DSException e){
                 return JSONResponse
                         .FAILURE()
                         .message("Error: "+e.getMessage());

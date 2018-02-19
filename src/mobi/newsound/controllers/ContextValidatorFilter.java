@@ -1,7 +1,7 @@
 package mobi.newsound.controllers;
 
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import spark.Filter;
 import spark.Request;
 import spark.Response;
@@ -22,7 +22,7 @@ public class ContextValidatorFilter implements Filter {
 
         String[] parts = request.pathInfo().split("/");
 
-        try (DataStore db = DataStore.getInstance() ) {
+        try (DataAccess db = DataAccess.getInstance() ) {
             assert db != null;
 
             if (!db.isValid(context))
@@ -34,7 +34,7 @@ public class ContextValidatorFilter implements Filter {
                     halt("Access Denied");
             }
 
-        }catch (DataStore.DSException e){
+        }catch (DataAccess.DSException e){
             halt("Error");
         }
     }

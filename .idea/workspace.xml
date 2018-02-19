@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="142" />
+    <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="147" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddOfficerToTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddOfficerToTeamController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddReportToTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddReportToTeamController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateTeamController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateUserController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateUserController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllOfficersController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllOfficersController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllTeamsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllTeamsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetReportsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedOfficersController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedOfficersController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedReportsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetVehicleModelsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetVehicleModelsController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetViolationTypesController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetViolationTypesController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java" />
       <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
+      <change beforePath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" afterPath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" />
       <change beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,10 +52,9 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1819">
-              <caret line="938" column="7" lean-forward="true" selection-start-line="938" selection-start-column="7" selection-end-line="938" selection-end-column="7" />
+            <state relative-caret-position="157">
+              <caret line="771" column="40" lean-forward="false" selection-start-line="771" selection-start-column="35" selection-end-line="771" selection-end-column="40" />
               <folding>
-                <element signature="method#Database#0;class#Database#0" expanded="false" />
                 <element signature="method#isValid#0;class#Database#0" expanded="false" />
                 <element signature="method#signIn#0;class#Database#0" expanded="false" />
                 <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
@@ -49,15 +72,12 @@
                 <element signature="method#getVehicleModels#0;class#Database#0" expanded="false" />
                 <element signature="method#getViolationTypes#0;class#Database#0" expanded="false" />
                 <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-                <element signature="method#createUser#0;class#Database#0" expanded="false" />
                 <element signature="method#getUnassignedOfficers#0;class#Database#0" expanded="false" />
                 <element signature="method#getUnassignedReports#0;class#Database#0" expanded="false" />
                 <element signature="method#getAllTeams#0;class#Database#0" expanded="false" />
                 <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
                 <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#getAccounts#0;class#Database#0" expanded="false" />
                 <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-                <element signature="method#isContextValid#0;class#Database#0" expanded="false" />
                 <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
                 <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
                 <element signature="method#delete#0;class#Database#0" expanded="false" />
@@ -78,8 +98,8 @@
       <file leaf-file-name="Officer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Officer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+            <state relative-caret-position="833">
+              <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
               <folding>
                 <element signature="e#805#806#0" expanded="true" />
                 <element signature="e#855#856#0" expanded="true" />
@@ -91,7 +111,7 @@
       <file leaf-file-name="Decision.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Decision.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="408">
               <caret line="31" column="36" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="36" />
               <folding />
             </state>
@@ -111,8 +131,8 @@
       <file leaf-file-name="GetAccountsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,8 +143,28 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="57" column="43" lean-forward="false" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+            <state relative-caret-position="446">
+              <caret line="75" column="8" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataAccess.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -133,7 +173,7 @@
       <file leaf-file-name="MakeDecisionController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="442">
               <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
@@ -164,10 +204,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>SAMPLE_VIDEO_FILENAME</find>
-      <find>VIDEO_FILE_FORMAT</find>
-      <find>video</find>
-      <find>createRepo</find>
       <find>CREDENTIALS_DIRECTORY</find>
       <find>createReport</find>
       <find>signin</find>
@@ -190,10 +226,14 @@
       <find>createUser</find>
       <find>addOfficerToTeam</find>
       <find>makeDecision</find>
-      <find>get</find>
       <find>getReports</find>
       <find>Inner join</find>
       <find>makeDe</find>
+      <find>create user</find>
+      <find>get</find>
+      <find>create</find>
+      <find>getacc</find>
+      <find>inner</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -262,7 +302,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="1912" />
     <option name="y" value="32" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -365,6 +405,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -409,23 +451,14 @@
               <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="newsound" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="newsound" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -533,11 +566,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="32" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -548,7 +580,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20255864" sideWeight="0.49561954" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21321961" sideWeight="0.49561954" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -559,6 +591,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -641,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="122" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,7 +688,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-44">
           <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,13 +695,6 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Appendable.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/AbstractStringBuilder.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/CharSequence.java" />
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetUndecidedViolationsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -724,10 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="45" column="33" lean-forward="false" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
-          <folding>
-            <element signature="e#820#821#0" expanded="false" />
-            <element signature="e#860#861#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,11 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="68" column="29" lean-forward="false" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-          <folding>
-            <element signature="e#1143#1144#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-            <element signature="e#1215#1216#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -767,10 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="e#332#333#0" expanded="false" />
-            <element signature="e#371#372#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -778,10 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="413">
           <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-          <folding>
-            <element signature="e#1219#1220#0" expanded="false" />
-            <element signature="e#1257#1258#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,14 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="52" column="29" lean-forward="false" selection-start-line="52" selection-start-column="29" selection-end-line="52" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -811,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="26" column="34" lean-forward="false" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -819,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="28" column="22" lean-forward="false" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -827,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="617">
           <caret line="84" column="50" lean-forward="false" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -835,10 +830,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
           <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding>
-            <element signature="e#674#675#0" expanded="false" />
-            <element signature="e#727#728#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -846,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="186">
           <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -854,9 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="634">
           <caret line="155" column="120" lean-forward="false" selection-start-line="155" selection-start-column="120" selection-end-line="155" selection-end-column="120" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,7 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-442">
           <caret line="17" column="58" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,14 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#667#668#0" expanded="false" />
-            <element signature="e#693#694#0" expanded="false" />
-            <element signature="e#1213#1214#0" expanded="false" />
-            <element signature="e#1243#1244#0" expanded="false" />
-            <element signature="e#1301#1302#0" expanded="false" />
-            <element signature="e#1339#1340#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,7 +865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -895,7 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="25" column="43" lean-forward="false" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,7 +893,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,7 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -951,17 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,33 +929,6 @@
         <state relative-caret-position="221">
           <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="57" column="43" lean-forward="false" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="130" column="20" lean-forward="false" selection-start-line="130" selection-start-column="20" selection-end-line="130" selection-end-column="20" />
-          <folding>
-            <element signature="e#6566#6567#0" expanded="false" />
-            <element signature="e#6604#6605#0" expanded="false" />
-            <element signature="e#6711#6712#0" expanded="false" />
-            <element signature="e#6757#6758#0" expanded="false" />
-            <element signature="e#6809#6810#0" expanded="false" />
-            <element signature="e#6847#6848#0" expanded="false" />
-            <element signature="e#6996#6997#0" expanded="false" />
-            <element signature="e#7034#7035#0" expanded="false" />
-            <element signature="e#7176#7177#0" expanded="false" />
-            <element signature="e#7214#7215#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,7 +944,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="442">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
@@ -1020,16 +952,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Decision.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="408">
           <caret line="31" column="36" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Officer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+        <state relative-caret-position="833">
+          <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
           <folding>
             <element signature="e#805#806#0" expanded="true" />
             <element signature="e#855#856#0" expanded="true" />
@@ -1037,12 +977,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="75" column="8" lean-forward="false" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="26" lean-forward="false" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1819">
-          <caret line="938" column="7" lean-forward="true" selection-start-line="938" selection-start-column="7" selection-end-line="938" selection-end-column="7" />
+        <state relative-caret-position="157">
+          <caret line="771" column="40" lean-forward="false" selection-start-line="771" selection-start-column="35" selection-end-line="771" selection-end-column="40" />
           <folding>
-            <element signature="method#Database#0;class#Database#0" expanded="false" />
             <element signature="method#isValid#0;class#Database#0" expanded="false" />
             <element signature="method#signIn#0;class#Database#0" expanded="false" />
             <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
@@ -1060,15 +1033,12 @@
             <element signature="method#getVehicleModels#0;class#Database#0" expanded="false" />
             <element signature="method#getViolationTypes#0;class#Database#0" expanded="false" />
             <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-            <element signature="method#createUser#0;class#Database#0" expanded="false" />
             <element signature="method#getUnassignedOfficers#0;class#Database#0" expanded="false" />
             <element signature="method#getUnassignedReports#0;class#Database#0" expanded="false" />
             <element signature="method#getAllTeams#0;class#Database#0" expanded="false" />
             <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
             <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#getAccounts#0;class#Database#0" expanded="false" />
             <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-            <element signature="method#isContextValid#0;class#Database#0" expanded="false" />
             <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
             <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
             <element signature="method#delete#0;class#Database#0" expanded="false" />

@@ -1,6 +1,5 @@
 package mobi.newsound.database;
 
-import jdk.management.resource.ResourceType;
 import mobi.newsound.model.*;
 
 import java.io.OutputStream;
@@ -14,9 +13,9 @@ import java.util.List;
  */
 
 //TODO: document interface methods
-public interface DataStore extends AutoCloseable,Serializable{
+public interface DataAccess extends AutoCloseable,Serializable{
 
-    static DataStore getInstance(){
+    static DataAccess getInstance(){
         try {
             return new Database();
         } catch (SQLException e) {

@@ -3,7 +3,7 @@ package mobi.newsound.controllers;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
-import mobi.newsound.database.DataStore;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.database.TokenGenerator;
 import mobi.newsound.model.Volunteer;
 import mobi.newsound.utils.EmailValidator;
@@ -33,7 +33,7 @@ public class CreateVolunteerController implements RESTRoute {
 
             AuthContext context = new AuthContext(id,sessionToken);
 
-            try (DataStore db = DataStore.getInstance() ){
+            try (DataAccess db = DataAccess.getInstance() ){
                 assert db != null;
                 String generatedPassword = TokenGenerator.generateToken(10);
                 String hashedPassword = BCrypt.hashpw(generatedPassword,BCrypt.gensalt());
@@ -60,7 +60,7 @@ public class CreateVolunteerController implements RESTRoute {
                         .SUCCESS()
                         .message("Account Created.");
 
-            }catch (DataStore.DSException e){
+            }catch (DataAccess.DSException e){
                 return JSONResponse
                         .FAILURE()
                         .message("Error: "+e.getMessage());
