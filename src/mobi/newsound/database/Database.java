@@ -473,10 +473,13 @@ class Database implements DataAccess {
                 //get vehicle
                 if(vehicleId != null){
                     Vehicle vehicle = new Vehicle(get("SELECT * FROM TblVehicles WHERE licensePlate = ?",vehicleId).get(0));
-                    int modelNum = vehicle.getForeignKey("model");
+                    Integer modelNum = vehicle.getForeignKey("model");
 
-                    VehicleModel model = new VehicleModel(get("SELECT * FROM TblVehicleModel WHERE modelNum = ?",modelNum).get(0));
-                    vehicle.setModel(model);
+                    if(modelNum != null){
+                        VehicleModel model = new VehicleModel(get("SELECT * FROM TblVehicleModel WHERE modelNum = ?",modelNum).get(0));
+                        vehicle.setModel(model);
+                    }
+
                     if(role != 4) {
                         List<Map<String, Object>> ownerIds = get("SELECT * FROM TblOwnerVehicles WHERE vehicle = ?", vehicleId);
                         List<VehicleOwner> owners = new ArrayList<>();
@@ -525,8 +528,8 @@ class Database implements DataAccess {
 
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
 
-        java.sql.Date sqlFromDate = new java.sql.Date(from.getTime());
-        java.sql.Date sqlToDate = new java.sql.Date(to.getTime());
+        java.sql.Date sqlFromDate = convertUtilToSql(from);
+        java.sql.Date sqlToDate = convertUtilToSql(to);
         String jasperFilePath = new File(JASPER_BIN).getPath();
 
 
@@ -1135,5 +1138,11 @@ class Database implements DataAccess {
         ObjectInputStream is = new ObjectInputStream(in);
         return (T)is.readObject();
     }
+
+    private static java.sql.Date convertUtilToSql(java.util.Date uDate) {
+        java.sql.Date sDate = new java.sql.Date(uDate.getTime());
+        return sDate;
+    }
+
 
 }

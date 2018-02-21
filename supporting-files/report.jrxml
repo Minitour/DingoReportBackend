@@ -9,7 +9,7 @@ YFJlcG9ydFRibGAgLDE1LDI4LDI4ZTU1N2FhLTljNGYtNGEyMi04OTBkLWZhMzEwYjQxOWNhODs=]]>
 	<parameter name="fromDate" class="java.sql.Date"/>
 	<parameter name="toDate" class="java.sql.Date"/>
 	<queryString language="SQL">
-		<![CDATA[SELECT * FROM TblReports]]>
+		<![CDATA[SELECT * FROM TblReports WHERE incidentDate BETWEEN $P{fromDate} AND $P{toDate}]]]>
 	</queryString>
 	<field name="reportNum" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.label" value="ID"/>

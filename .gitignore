@@ -8,3 +8,5 @@ user_resources/
 mail_settings\.properties
 
 owners\.csv
+
+supporting-files/\.oauth-credentials/uploadvideo
