@@ -233,6 +233,13 @@ public interface DataAccess extends AutoCloseable,Serializable{
      */
     default List<Account> getAccounts(AuthContext context) throws DSException {throw new DSUnimplementedException();}
 
+    /**
+     *
+     * @param context
+     * @param reports
+     * @throws DSException
+     */
+    default void importReports(AuthContext context, List<Report> reports) throws DSException{throw new DSUnimplementedException();}
 
     abstract class DSException extends RuntimeException {
         DSException(){}

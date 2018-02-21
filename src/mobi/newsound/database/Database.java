@@ -247,6 +247,58 @@ class Database implements DataAccess {
     }
 
     @Override
+    public void importReports(AuthContext context, List<Report> reports) throws DSException{
+        isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); });
+
+        for(Report report : reports) {
+            Vehicle vehicle = report.getVehicle();
+
+            report.setReportNum(null);
+
+            boolean vehicleExists = false;
+            try {
+                String query = "SELECT licensePlate FROM "+vehicle.db_table()+" WHERE licensePlate = ?";
+                vehicleExists = get(query,vehicle.getLicensePlate()).size() == 1;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+            if(!vehicleExists){
+                try {
+                    insert(vehicle);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+                List<VehicleOwner> owners = MOTSService.getOwners(vehicle);
+                for(VehicleOwner owner : owners){
+                    //insert owner
+                    try{
+                        insert(owner);
+                    }catch (SQLException e){
+                        e.printStackTrace();
+                    }
+
+                    try {
+                        //create many-to-many connection
+                        insert("TblOwnerVehicles",
+                                new Column("owner",owner.getId()),
+                                new Column("vehicle",vehicle.getLicensePlate()));
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            try {
+                insert(report);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @Override
     public boolean assignLeaderToTeam(AuthContext context, Officer officer, Team team) throws DSException {
         //Context Level: 1
         isContextValidFor(context,roleId -> { if(roleId == -1) throw new DSAuthException("Invalid Context"); },1);
