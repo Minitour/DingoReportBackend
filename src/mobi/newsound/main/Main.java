@@ -81,61 +81,11 @@ public class Main {
         post("/exportToDingoPro",new ExportToDingoProController());
         make("/ImportReports",new ImportReportsFromDingoProController());
 
-        //TODO: remove this later
-        initTests();
     }
 
     static void make(String route, RESTRoute controller){
         post(route, "application/json", controller,new JSONTransformer());
     }
-
-    static void initTests(){
-
-        //test stubs
-        get("/test0","application/json",(request, response) -> {
-            response.header("Content-Type","application/json");
-            return JSONResponse.SUCCESS().data(getReportStub());
-        },new JSONTransformer());
-
-        //test MOTSService
-        get("/test1","application/json",(request, response) -> {
-            response.header("Content-Type","application/json");
-            return JSONResponse.SUCCESS().data(MOTSService.getOwners(getVehicleStub()));
-        },new JSONTransformer());
-
-        //test MOTSService
-        get("/test2","application/json",(request, response) -> {
-            response.header("Content-Type","application/json");
-            try(DataAccess db = DataAccess.getInstance()){
-                AuthContext context = db.signIn("goldfedertomer@gmail.com","5f1MXgqBzm");
-                return db.createReport(context,getReportStub());
-            }catch (DataAccess.DSException e){
-                return JSONResponse.FAILURE().message(e.getMessage());
-            }
-        },new JSONTransformer());
-
-        get("/test3","application/json",((request, response) -> {
-            response.header("Content-Type","application/json");
-            Vehicle vehicle = Stub.getVehicleStub();
-            Report report = new Report(null,"My Description",new Date(),null,vehicle);
-            //(String alphaNum, String evidenceLink, ViolationType type, int from, int to, String description)
-            VideoViolation videoViolation = new VideoViolation(null,
-                    "resources/ababb5480d9f11e8ba890ed5f89f718b/8692075b-bc3f-4d22-b296-eeaac6df17df.mp4",
-                    getViolationTypeStub(),
-                    0,
-                    0,
-                    "My Custom Description");
-            List<Violation> violations = new ArrayList<>();
-            violations.add(videoViolation);
-            report.setViolations(violations);
-            return report;
-        }),new JSONTransformer());
-
-
-
-    }
-
-    //TODO: remove anything below here when project is finished.
 
 
 }

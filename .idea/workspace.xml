@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DingoReportBackend:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="147" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/DingoReportBackend_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" afterPath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/report.jrxml" afterPath="$PROJECT_DIR$/supporting-files/report.jrxml" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,10 +31,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
+            <state relative-caret-position="17">
               <caret line="531" column="55" lean-forward="false" selection-start-line="531" selection-start-column="55" selection-end-line="531" selection-end-column="55" />
               <folding>
                 <element signature="method#isValid#0;class#Database#0" expanded="false" />
@@ -67,6 +70,16 @@
                 <element signature="method#serialize#0;class#Database#0" expanded="false" />
                 <element signature="method#deserialize#0;class#Database#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="634">
+              <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,15 +197,15 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
         <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ImportReportsFromDingoProController.java" />
-        <option value="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
         <option value="$PROJECT_DIR$/supporting-files/report.jrxml" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="32" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1743" />
+    <option name="y" value="207" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -294,7 +307,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,22 +331,27 @@
             <path>
               <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="newsound" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
               <item name="supporting-files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15517241" />
     <property name="project.structure.side.proportion" value="0.48092484" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -432,8 +452,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="1912" y="32" width="1936" height="1056" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -448,7 +467,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2228145" sideWeight="0.49561954" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2249467" sideWeight="0.49561954" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -883,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="77" column="64" lean-forward="false" selection-start-line="77" selection-start-column="64" selection-end-line="77" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/user_resources/resources/062cb9c7b85a45d9b61a2eaeed657a7c/334f164e-5473-4ea3-a1d1-cfe983ba890b.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -905,7 +917,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
+        <state relative-caret-position="17">
           <caret line="531" column="55" lean-forward="false" selection-start-line="531" selection-start-column="55" selection-end-line="531" selection-end-column="55" />
           <folding>
             <element signature="method#isValid#0;class#Database#0" expanded="false" />
@@ -944,16 +956,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="82" column="0" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>DingoReportBackend:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.48092484" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
