@@ -79,6 +79,7 @@ public class Main {
         get("/exportReports",new ExportReportsController());
 
         post("/exportToDingoPro",new ExportToDingoProController());
+        make("/ImportReports",new ImportReportsFromDingoProController());
 
         //TODO: remove this later
         initTests();
