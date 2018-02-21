@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="147" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="" />
+    <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ImportReportsFromDingoProController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ImportReportsFromDingoProController.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,45 +23,81 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="810">
-              <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+              <caret line="368" column="0" lean-forward="false" selection-start-line="368" selection-start-column="0" selection-end-line="368" selection-end-column="0" />
               <folding>
                 <element signature="method#isValid#0;class#Database#0" expanded="false" />
                 <element signature="method#signIn#0;class#Database#0" expanded="false" />
                 <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
                 <element signature="method#resetPassword#0;class#Database#0" expanded="false" />
+                <element signature="method#createReport#0;class#Database#0" expanded="false" />
                 <element signature="method#createTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#assignLeaderToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
-                <element signature="method#updateEvidenceUrl#0;class#Database#0" expanded="false" />
-                <element signature="method#registerResource#0;class#Database#0" expanded="false" />
-                <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
-                <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
-                <element signature="method#getVehicleModels#0;class#Database#0" expanded="false" />
-                <element signature="method#getViolationTypes#0;class#Database#0" expanded="false" />
-                <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-                <element signature="method#getUnassignedOfficers#0;class#Database#0" expanded="false" />
-                <element signature="method#getUnassignedReports#0;class#Database#0" expanded="false" />
-                <element signature="method#getAllTeams#0;class#Database#0" expanded="false" />
-                <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
-                <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-                <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
-                <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
-                <element signature="method#delete#0;class#Database#0" expanded="false" />
-                <element signature="method#deleteMany#0;class#Database#0" expanded="false" />
-                <element signature="method#insert#0;class#Database#0" expanded="false" />
-                <element signature="method#get#0;class#Database#0" expanded="false" />
-                <element signature="method#update#0;class#Database#0" expanded="false" />
-                <element signature="method#validateFileUrl#0;class#Database#0" expanded="false" />
                 <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
                 <element signature="class#Where#0;class#Database#0" expanded="false" />
                 <element signature="method#serialize#0;class#Database#0" expanded="false" />
                 <element signature="method#deserialize#0;class#Database#0" expanded="false" />
+                <marker date="1519239790082" expanded="false" signature="11188:11640" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="11261:11327" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="11763:12218" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="11836:11902" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="12330:12943" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="12403:12469" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="13024:13305" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="13396:20228" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="13406:13510" ph="//..." />
+                <marker date="1519239790082" expanded="true" signature="13573:13675" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="20316:20758" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="20882:21622" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="20929:20995" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="21743:22113" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="21789:21855" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="22216:22741" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="22262:22328" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="22846:23378" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="22892:22958" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="23485:25582" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="23542:23608" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="25682:26664" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="25739:25805" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="26767:27309" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="26813:26879" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="27410:27931" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="27456:27522" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="28021:29580" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="28067:28133" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="29697:30689" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="29743:29809" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="30803:31241" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="30849:30915" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="31336:31344" ph="{}" />
+                <marker date="1519239790082" expanded="true" signature="31437:31918" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="31483:31549" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="32014:32537" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="32060:32126" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="32594:32629" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="32635:32950" ph="/**...*/" />
+                <marker date="1519239790082" expanded="true" signature="33002:33592" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="33598:33877" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="33990:34619" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="34705:34874" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="34880:35566" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="35661:35991" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="35997:36433" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="36530:36800" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="36806:37431" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="37509:38462" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="38468:38590" ph="/**...*/" />
+                <marker date="1519239790082" expanded="true" signature="38670:38729" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="38735:38835" ph="/**...*/" />
+                <marker date="1519239790082" expanded="true" signature="38899:38968" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="38974:39266" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="39358:40079" ph="{...}" />
+                <marker date="1519239790082" expanded="true" signature="40085:40308" ph="/**...*/" />
+                <marker date="1519239790082" expanded="false" signature="40399:41099" ph="{...}" />
+                <marker date="1519239790082" expanded="false" signature="41204:41848" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -113,8 +151,8 @@
       <file leaf-file-name="ImportReportsFromDingoProController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ImportReportsFromDingoProController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="400">
+              <caret line="65" column="9" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,16 +185,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
               <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataAccess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="236" column="0" lean-forward="false" selection-start-line="236" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -282,7 +310,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="827" />
@@ -405,6 +433,13 @@
               <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="newsound" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="newsound" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
@@ -653,10 +688,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/StringBuilder.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Appendable.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/AbstractStringBuilder.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/CharSequence.java" />
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetUndecidedViolationsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -934,7 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="160" lean-forward="true" selection-start-line="19" selection-start-column="160" selection-end-line="19" selection-end-column="160" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,7 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="33" column="56" lean-forward="false" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,7 +987,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,48 +1002,83 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="236" column="0" lean-forward="false" selection-start-line="236" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
-          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <caret line="368" column="0" lean-forward="false" selection-start-line="368" selection-start-column="0" selection-end-line="368" selection-end-column="0" />
           <folding>
             <element signature="method#isValid#0;class#Database#0" expanded="false" />
             <element signature="method#signIn#0;class#Database#0" expanded="false" />
             <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
             <element signature="method#resetPassword#0;class#Database#0" expanded="false" />
+            <element signature="method#createReport#0;class#Database#0" expanded="false" />
             <element signature="method#createTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#assignLeaderToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
-            <element signature="method#updateEvidenceUrl#0;class#Database#0" expanded="false" />
-            <element signature="method#registerResource#0;class#Database#0" expanded="false" />
-            <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
-            <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
-            <element signature="method#getVehicleModels#0;class#Database#0" expanded="false" />
-            <element signature="method#getViolationTypes#0;class#Database#0" expanded="false" />
-            <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-            <element signature="method#getUnassignedOfficers#0;class#Database#0" expanded="false" />
-            <element signature="method#getUnassignedReports#0;class#Database#0" expanded="false" />
-            <element signature="method#getAllTeams#0;class#Database#0" expanded="false" />
-            <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-            <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
-            <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
-            <element signature="method#delete#0;class#Database#0" expanded="false" />
-            <element signature="method#deleteMany#0;class#Database#0" expanded="false" />
-            <element signature="method#insert#0;class#Database#0" expanded="false" />
-            <element signature="method#get#0;class#Database#0" expanded="false" />
-            <element signature="method#update#0;class#Database#0" expanded="false" />
-            <element signature="method#validateFileUrl#0;class#Database#0" expanded="false" />
             <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
             <element signature="class#Where#0;class#Database#0" expanded="false" />
             <element signature="method#serialize#0;class#Database#0" expanded="false" />
             <element signature="method#deserialize#0;class#Database#0" expanded="false" />
+            <marker date="1519239790082" expanded="false" signature="11188:11640" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="11261:11327" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="11763:12218" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="11836:11902" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="12330:12943" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="12403:12469" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="13024:13305" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="13396:20228" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="13406:13510" ph="//..." />
+            <marker date="1519239790082" expanded="true" signature="13573:13675" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="20316:20758" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="20882:21622" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="20929:20995" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="21743:22113" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="21789:21855" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="22216:22741" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="22262:22328" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="22846:23378" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="22892:22958" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="23485:25582" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="23542:23608" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="25682:26664" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="25739:25805" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="26767:27309" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="26813:26879" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="27410:27931" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="27456:27522" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="28021:29580" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="28067:28133" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="29697:30689" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="29743:29809" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="30803:31241" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="30849:30915" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="31336:31344" ph="{}" />
+            <marker date="1519239790082" expanded="true" signature="31437:31918" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="31483:31549" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="32014:32537" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="32060:32126" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="32594:32629" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="32635:32950" ph="/**...*/" />
+            <marker date="1519239790082" expanded="true" signature="33002:33592" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="33598:33877" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="33990:34619" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="34705:34874" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="34880:35566" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="35661:35991" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="35997:36433" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="36530:36800" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="36806:37431" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="37509:38462" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="38468:38590" ph="/**...*/" />
+            <marker date="1519239790082" expanded="true" signature="38670:38729" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="38735:38835" ph="/**...*/" />
+            <marker date="1519239790082" expanded="true" signature="38899:38968" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="38974:39266" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="39358:40079" ph="{...}" />
+            <marker date="1519239790082" expanded="true" signature="40085:40308" ph="/**...*/" />
+            <marker date="1519239790082" expanded="false" signature="40399:41099" ph="{...}" />
+            <marker date="1519239790082" expanded="false" signature="41204:41848" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1031,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="33" column="56" lean-forward="false" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,8 +1123,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ImportReportsFromDingoProController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="400">
+          <caret line="65" column="9" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -5,9 +5,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import mobi.newsound.database.AuthContext;
+import mobi.newsound.database.DataAccess;
 import mobi.newsound.model.Report;
 import mobi.newsound.model.Vehicle;
 import mobi.newsound.model.VehicleOwner;
+import mobi.newsound.utils.JSONResponse;
 import mobi.newsound.utils.RESTRoute;
 import spark.Request;
 import spark.Response;
@@ -62,7 +64,15 @@ public class ImportReportsFromDingoProController implements RESTRoute {
             reports.add(report);
 
         }
-        return reports;
+        try (DataAccess db = DataAccess.getInstance()) {
+            assert  db != null;
+
+            db.importReports(context, reports);
+            return JSONResponse.SUCCESS();
+
+        }catch (Exception e) {
+            return JSONResponse.FAILURE().message(e.getMessage());
+        }
 
     }
 }
