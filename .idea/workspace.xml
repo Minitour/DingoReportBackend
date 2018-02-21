@@ -5,22 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_json_json_20160212.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_1_23_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_apis_google_api_services_youtube_v3_rev192_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_apis_google_api_services_youtube_v3_rev192_1_23_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_oauth_client_google_oauth_client_jetty_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_oauth_client_google_oauth_client_jetty_1_23_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_sparkjava_spark_core_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_sparkjava_spark_core_2_7_1.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/net_sf_jasperreports_jasperreports_6_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/net_sf_jasperreports_jasperreports_6_5_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/net_sf_ucanaccess_ucanaccess_4_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/net_sf_ucanaccess_ucanaccess_4_0_3.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_log4j12_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_log4j12_1_7_25.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/DingoReportBackend.iml" afterPath="$PROJECT_DIR$/DingoReportBackend.iml" />
+      <change beforePath="$PROJECT_DIR$/config.json" afterPath="$PROJECT_DIR$/config.json" />
       <change beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
+      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,31 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
               <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExportToDingoProController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -233,7 +200,6 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" />
         <option value="$PROJECT_DIR$/supporting-files/youtube.properties" />
         <option value="$PROJECT_DIR$/supporting-files/client_secrets.json" />
-        <option value="$PROJECT_DIR$/config.json" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/VideoViolation.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Report.java" />
@@ -276,6 +242,7 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Officer.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
+        <option value="$PROJECT_DIR$/config.json" />
       </list>
     </option>
   </component>
@@ -930,14 +897,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Officer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -964,14 +923,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1026,10 +977,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="160" lean-forward="true" selection-start-line="19" selection-start-column="160" selection-end-line="19" selection-end-column="160" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="298">
+          <caret line="33" column="56" lean-forward="false" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="31" />
           <folding />
         </state>
       </provider>

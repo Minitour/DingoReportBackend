@@ -15,5 +15,7 @@
   "RF_REPORT_BINARY" : "supporting-files/report.jasper",
   "RF_REPORT_SOURCE" : "supporting-files/report.jrxml",
   "YOUTUBE_API" : "supporting-files/client_secrets.json",
-  "YOUTUBE_AUTH" : "supporting-files/.oauth-credentials"
+  "YOUTUBE_AUTH" : "supporting-files/.oauth-credentials",
+  "DINGO_PRO_BACKEND_ID" : "42ea4f92d2e1407b8e9513c267fd69ca",
+  "DINGO_PRO_BACKEND_TOKEN" : "VFVNHHvC5iGW7t1R58IJAdpiOkDRcO2BGgn15ClfG4UfgqFo2GaGaSLAayvmXSWlIMleuDW4zJkujR2Yw84P1VTrqTbtUpWTgyAWNDxv17Wnvr9I1As7RtM3bVCCKPss"
 }

@@ -32,9 +32,6 @@ public class ExportToDingoProController implements RESTRoute {
 
             List<Report> reportList = db.getReports(context);
             String json = new Gson().toJson(reportList);
-            //String data = "{\"data\" : "+ json + "}";
-            //JSONObject jsonObject = new JSONObject(data);
-
             JSONArray jsonObject = new JSONArray(json);
 
             return XML.toString(jsonObject);
