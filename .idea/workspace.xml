@@ -1,42 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="317" />
+    <bookmark url="file://$PROJECT_DIR$/../DingoReportFrontend/src/network/APIManager.java" description="getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,..." line="147" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="884059f8-43e8-4498-8145-00b7be5c5b4e" name="Default" comment="">
-<<<<<<< Updated upstream
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_json_json_20160212.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_core_jackson_databind_2_6_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_api_client_google_api_client_1_23_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_apis_google_api_services_youtube_v3_rev192_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_apis_google_api_services_youtube_v3_rev192_1_23_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_oauth_client_google_oauth_client_jetty_1_23_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_google_oauth_client_google_oauth_client_jetty_1_23_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_sparkjava_spark_core_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_sparkjava_spark_core_2_7_1.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/javax_mail_mail_1_4.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/net_sf_jasperreports_jasperreports_6_5_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/net_sf_jasperreports_jasperreports_6_5_0.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/net_sf_ucanaccess_ucanaccess_4_0_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/net_sf_ucanaccess_ucanaccess_4_0_3.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_log4j12_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/org_slf4j_slf4j_log4j12_1_7_25.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/DingoReportBackend.iml" afterPath="$PROJECT_DIR$/DingoReportBackend.iml" />
       <change beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddOfficerToTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddOfficerToTeamController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddReportToTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/AddReportToTeamController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateTeamController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateTeamController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateUserController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateUserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/FileUploaderController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllOfficersController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllOfficersController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllTeamsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetAllTeamsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetReportsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedOfficersController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedOfficersController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedReportsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedReportsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetVehicleModelsController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetVehicleModelsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetViolationTypesController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/GetViolationTypesController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/controllers/UpdatePasswordController.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java" />
-      <change beforePath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
       <change beforePath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" afterPath="$PROJECT_DIR$/src/mobi/newsound/main/Main.java" />
-      <change beforePath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" afterPath="$PROJECT_DIR$/supporting-files/.oauth-credentials/uploadvideo" />
       <change beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
-=======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/supporting-files/report.jasper" afterPath="$PROJECT_DIR$/supporting-files/report.jasper" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.accdb" afterPath="$PROJECT_DIR$/db.accdb" />
->>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,80 +38,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DataStore.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
-          <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="378">
-              <caret line="486" column="78" lean-forward="false" selection-start-line="486" selection-start-column="63" selection-end-line="486" selection-end-column="78" />
-=======
-            <state relative-caret-position="1335">
-              <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-457">
-              <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="30" />
->>>>>>> Stashed changes
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SubmitReportController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-470">
-              <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateVolunteerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-320">
-              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="submitReport.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/request_examples/submitReport.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+            <state relative-caret-position="181">
+              <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#isValid#0;class#Database#0" expanded="false" />
+                <element signature="method#signIn#0;class#Database#0" expanded="false" />
                 <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
                 <element signature="method#resetPassword#0;class#Database#0" expanded="false" />
                 <element signature="method#createReport#0;class#Database#0" expanded="false" />
@@ -135,9 +53,7 @@
                 <element signature="method#assignLeaderToTeam#0;class#Database#0" expanded="false" />
                 <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
                 <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
-<<<<<<< Updated upstream
                 <element signature="method#updateEvidenceUrl#0;class#Database#0" expanded="false" />
-                <element signature="method#getReports#0;class#Database#0" expanded="false" />
                 <element signature="method#registerResource#0;class#Database#0" expanded="false" />
                 <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
                 <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
@@ -150,20 +66,27 @@
                 <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
                 <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
                 <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-                <element signature="method#isContextValid#0;class#Database#0" expanded="false" />
-=======
+                <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
+                <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
+                <element signature="method#delete#0;class#Database#0" expanded="false" />
+                <element signature="method#deleteMany#0;class#Database#0" expanded="false" />
+                <element signature="method#insert#0;class#Database#0" expanded="false" />
+                <element signature="method#get#0;class#Database#0" expanded="false" />
+                <element signature="method#update#0;class#Database#0" expanded="false" />
+                <element signature="method#validateFileUrl#0;class#Database#0" expanded="false" />
                 <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
->>>>>>> Stashed changes
+                <element signature="class#Where#0;class#Database#0" expanded="false" />
+                <element signature="method#serialize#0;class#Database#0" expanded="false" />
+                <element signature="method#deserialize#0;class#Database#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< Updated upstream
-      <file leaf-file-name="VehicleModel.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/VehicleModel.java">
+      <file leaf-file-name="Officer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Officer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="799">
               <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
               <folding>
                 <element signature="e#805#806#0" expanded="true" />
@@ -183,79 +106,66 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Account.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GetAccountsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="204">
               <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
               <folding>
-                <element signature="e#614#615#0" expanded="true" />
-                <element signature="e#640#641#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DBObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-=======
-      <file leaf-file-name="Auth.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Auth.java">
->>>>>>> Stashed changes
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-404">
-              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vehicle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Vehicle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+            <state relative-caret-position="327">
+              <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBObject.java">
+      <file leaf-file-name="ExportToDingoProController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-            <state relative-caret-position="290">
-              <caret line="161" column="47" lean-forward="false" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="47" />
+            <state relative-caret-position="179">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
-=======
-            <state relative-caret-position="600">
-              <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MakeDecisionController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MakeDecisionController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SubmitReportController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#handle#0;class#SubmitReportController#0" expanded="false" />
               </folding>
->>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -315,7 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/utils/Stub.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/ViolationType.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Violation.java" />
@@ -366,13 +275,15 @@
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Decision.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/model/Officer.java" />
         <option value="$PROJECT_DIR$/src/mobi/newsound/database/Database.java" />
+        <option value="$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="58" />
-    <option name="width" value="1440" />
-    <option name="height" value="833" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -472,19 +383,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
-              <item name="request_examples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
@@ -518,13 +423,19 @@
               <item name="newsound" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="DingoReportBackend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportBackend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="newsound" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -633,69 +544,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-<<<<<<< Updated upstream
-    <frame x="1912" y="32" width="1936" height="1056" extended-state="6" />
-=======
-    <frame x="0" y="58" width="1440" height="833" extended-state="0" />
->>>>>>> Stashed changes
+    <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32655826" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8163043" sideWeight="0.5021322" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31300813" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26108727" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13937753" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8163043" sideWeight="0.5021322" order="15" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-<<<<<<< Updated upstream
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.526087" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-=======
->>>>>>> Stashed changes
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-<<<<<<< Updated upstream
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20415778" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-=======
->>>>>>> Stashed changes
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36691543" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="18" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5261194" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.8163043" sideWeight="0.5021322" order="15" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43913043" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="17" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3505007" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2153518" sideWeight="0.49561954" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35543478" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1988273" sideWeight="0.50438046" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913166" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -766,120 +644,11 @@
           <option name="timeStamp" value="154" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="159" />
+      <option name="time" value="168" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/lang/Class.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/api-client/google-api-client/1.23.0/google-api-client-1.23.0-sources.jar!/com/google/api/client/googleapis/auth/oauth2/GoogleClientSecrets.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/oauth-client/google-oauth-client-jetty/1.23.0/google-oauth-client-jetty-1.23.0-sources.jar!/com/google/api/client/extensions/jetty/auth/oauth2/LocalServerReceiver.java" />
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Violation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="22" column="12" lean-forward="false" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supporting-files/client_secrets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Stub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Column.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="33" column="26" lean-forward="false" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user_resources/resources/ababb5480d9f11e8ba890ed5f89f718b/1e1acab6-e903-49f3-9cef-e39c6f191dbe.jpg" />
-    <entry file="jar://$MAVEN_REPOSITORY$/com/sparkjava/spark-core/2.7.1/spark-core-2.7.1-sources.jar!/spark/Spark.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="182" column="23" lean-forward="false" selection-start-line="182" selection-start-column="23" selection-end-line="182" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/PropertiesLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/supporting-files/report.jrxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/VideoViolation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="19" column="25" lean-forward="false" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-=======
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Report.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="110" column="95" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="95" />
-          <folding>
-            <marker date="1518697631209" expanded="false" signature="1147:1153" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1189:1200" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1219:1225" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1277:1288" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1319:1325" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1360:1371" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1391:1397" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1449:1460" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1493:1499" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1536:1547" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1564:1570" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1621:1632" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1659:1665" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1698:1709" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1724:1730" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1775:1786" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1809:1815" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1842:1853" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1865:1871" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1907:1918" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="1935:1941" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="1985:1996" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="2014:2020" ph=" }" />
-            <marker date="1518697631209" expanded="false" signature="2079:2090" ph=" { " />
-            <marker date="1518697631209" expanded="false" signature="2119:2125" ph=" }" />
-            <marker date="1518697631209" expanded="true" signature="2175:2668" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
->>>>>>> Stashed changes
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MOTSService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
@@ -887,39 +656,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/YoutubeVideoUploadController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DBObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Vehicle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/utils/Auth.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-404">
-          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-44">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -927,46 +667,14 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Appendable.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/AbstractStringBuilder.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/CharSequence.java" />
-    <entry file="file://$PROJECT_DIR$/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/AddOfficerToTeamController.java">
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetUndecidedViolationsController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/AddReportToTeamController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedOfficersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetUnassignedReportsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java">
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/MailServiceController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
@@ -1048,27 +756,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java">
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Volunteer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="413">
+          <caret line="41" column="5" lean-forward="false" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="30" column="15" lean-forward="false" selection-start-line="30" selection-start-column="15" selection-end-line="30" selection-end-column="15" />
-          <folding>
-            <element signature="e#558#559#0" expanded="false" />
-            <element signature="e#585#586#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/AuthContext.java">
+    <entry file="file://$PROJECT_DIR$/DingoReportBackend.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1237,25 +932,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="161" column="47" lean-forward="false" selection-start-line="161" selection-start-column="31" selection-end-line="161" selection-end-column="47" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ContextValidatorFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="5" />
->>>>>>> Stashed changes
+        <state relative-caret-position="306">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Decision.java">
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/Officer.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< Updated upstream
-        <state relative-caret-position="378">
-          <caret line="486" column="78" lean-forward="false" selection-start-line="486" selection-start-column="63" selection-end-line="486" selection-end-column="78" />
+        <state relative-caret-position="799">
+          <caret line="69" column="26" lean-forward="false" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
           <folding>
-            <element signature="method#Database#0;class#Database#0" expanded="false" />
+            <element signature="e#805#806#0" expanded="true" />
+            <element signature="e#855#856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportReportsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/GetAccountsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="102" column="25" lean-forward="false" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="316" column="0" lean-forward="false" selection-start-line="316" selection-start-column="0" selection-end-line="316" selection-end-column="0" />
+          <folding>
             <element signature="method#isValid#0;class#Database#0" expanded="false" />
             <element signature="method#signIn#0;class#Database#0" expanded="false" />
             <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
@@ -1266,122 +998,42 @@
             <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
             <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
             <element signature="method#updateEvidenceUrl#0;class#Database#0" expanded="false" />
-            <element signature="method#getReports#0;class#Database#0" expanded="false" />
             <element signature="method#registerResource#0;class#Database#0" expanded="false" />
             <element signature="method#getReportExport#0;class#Database#0" expanded="false" />
             <element signature="method#createViolationType#0;class#Database#0" expanded="false" />
             <element signature="method#getVehicleModels#0;class#Database#0" expanded="false" />
             <element signature="method#getViolationTypes#0;class#Database#0" expanded="false" />
             <element signature="method#makeDecision#0;class#Database#0" expanded="false" />
-            <element signature="method#createUser#0;class#Database#0" expanded="false" />
             <element signature="method#getUnassignedOfficers#0;class#Database#0" expanded="false" />
             <element signature="method#getUnassignedReports#0;class#Database#0" expanded="false" />
             <element signature="method#getAllTeams#0;class#Database#0" expanded="false" />
             <element signature="method#addOfficerToTeam#0;class#Database#0" expanded="false" />
             <element signature="method#addReportToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#getAccounts#0;class#Database#0" expanded="false" />
             <element signature="method#getAllOfficers#0;class#Database#0" expanded="false" />
-            <element signature="method#isContextValid#0;class#Database#0" expanded="false" />
-=======
-        <state relative-caret-position="16">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <marker date="1518697631206" expanded="false" signature="860:871" ph=" { " />
-            <marker date="1518697631206" expanded="false" signature="886:892" ph=" }" />
-            <marker date="1518697631206" expanded="false" signature="937:948" ph=" { " />
-            <marker date="1518697631206" expanded="false" signature="971:977" ph=" }" />
-            <marker date="1518697631206" expanded="false" signature="1014:1025" ph=" { " />
-            <marker date="1518697631206" expanded="false" signature="1042:1048" ph=" }" />
-            <marker date="1518697631206" expanded="false" signature="1099:1110" ph=" { " />
-            <marker date="1518697631206" expanded="false" signature="1137:1143" ph=" }" />
-            <marker date="1518697631206" expanded="false" signature="1173:1184" ph=" { " />
-            <marker date="1518697631206" expanded="false" signature="1200:1206" ph=" }" />
->>>>>>> Stashed changes
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/model/VehicleModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="28" lean-forward="false" selection-start-line="0" selection-start-column="28" selection-end-line="0" selection-end-column="28" />
-          <folding>
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/request_examples/submitReport.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/CreateVolunteerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-320">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/DataStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="96" column="20" lean-forward="false" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-457">
-          <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
->>>>>>> Stashed changes
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< Updated upstream
-=======
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/SubmitReportController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-470">
-          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/database/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#updatePassword#0;class#Database#0" expanded="false" />
-            <element signature="method#resetPassword#0;class#Database#0" expanded="false" />
-            <element signature="method#createReport#0;class#Database#0" expanded="false" />
-            <element signature="method#createTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#assignLeaderToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#assignOfficerToTeam#0;class#Database#0" expanded="false" />
-            <element signature="method#createVolunteer#0;class#Database#0" expanded="false" />
+            <element signature="method#isContextValidFor#0;class#Database#0" expanded="false" />
+            <element signature="method#getUcanaccessConnection#0;class#Database#0" expanded="false" />
+            <element signature="method#delete#0;class#Database#0" expanded="false" />
+            <element signature="method#deleteMany#0;class#Database#0" expanded="false" />
+            <element signature="method#insert#0;class#Database#0" expanded="false" />
+            <element signature="method#get#0;class#Database#0" expanded="false" />
+            <element signature="method#update#0;class#Database#0" expanded="false" />
+            <element signature="method#validateFileUrl#0;class#Database#0" expanded="false" />
             <element signature="class#ContextValidator#0;class#Database#0" expanded="false" />
+            <element signature="class#Where#0;class#Database#0" expanded="false" />
+            <element signature="method#serialize#0;class#Database#0" expanded="false" />
+            <element signature="method#deserialize#0;class#Database#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
->>>>>>> Stashed changes
+    <entry file="file://$PROJECT_DIR$/src/mobi/newsound/controllers/ExportToDingoProController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
@@ -1458,7 +1110,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>net.sf.jasperreports:jasperreports:6.5.0</last-edited>
+          <last-edited>com.fasterxml.jackson.core:jackson-databind:2.6.3</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

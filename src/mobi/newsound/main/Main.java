@@ -78,6 +78,8 @@ public class Main {
         put("/uploadFile","application/json",new FileUploaderController(),new JSONTransformer());
         get("/exportReports",new ExportReportsController());
 
+        post("/exportToDingoPro",new ExportToDingoProController());
+
         //TODO: remove this later
         initTests();
     }

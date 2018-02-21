@@ -21,5 +21,6 @@
     <orderEntry type="library" name="com.google.api-client:google-api-client:1.23.0" level="project" />
     <orderEntry type="library" name="com.google.oauth-client:google-oauth-client-jetty:1.23.0" level="project" />
     <orderEntry type="library" name="com.google.apis:google-api-services-youtube:v3-rev192-1.23.0" level="project" />
+    <orderEntry type="library" name="org.json:json:20160212" level="project" />
   </component>
 </module>
